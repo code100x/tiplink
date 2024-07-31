@@ -11,7 +11,7 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 ## Features
 - **User Registration with Google OAuth:** Secure and easy registration using Google credentials.
 
-- **Crypto Wallet Generation:** Automatic creation of an Ethereum wallet for each registered user.
+- **Crypto Wallet Generation:** Automatic creation of a Solana wallet for each registered user.
 
 - **Public Key Management:** Secure storage and retrieval of user public keys.
 
