@@ -17,7 +17,7 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 
 ## Technologies
 
-- **Frontend:** Next.js, TypeScript, Tailwind CSS
+- **Web-app:** Next.js, TypeScript
 - **Database:** PostgreSQL, Prisma ORM
 - **Authentication:** Google OAuth via next-auth
 - **Blockchain:** Solana
