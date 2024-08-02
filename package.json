@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .tsx --ext .ts --max-warnings 0",
+    "lint:fix": "eslint . --ext .tsx --ext .ts --fix --max-warnings 0",
+    "ts": "tsc --noEmit",
+    "typecheck": "tsc --pretty --noEmit",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\""
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
