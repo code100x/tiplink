@@ -40,4 +40,4 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 ## License
 
-The Tiplink project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+The Tiplink is licensed under the [MIT License](https://opensource.org/licenses/MIT).
