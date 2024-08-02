@@ -21,3 +21,24 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 - **Database:** PostgreSQL, Prisma ORM
 - **Authentication:** Google OAuth via next-auth
 - **Blockchain:** Solana
+
+
+## Getting Started
+
+To get started with the Tiplink project, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/mehetab-01/tiplink-project.git`
+2. Install dependencies: `npm install` or `yarn install`
+3. Start the application: `npm run start` or `yarn start`
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to the Tiplink project, please fork the repository and submit a pull request.
+
+## License
+
+The Tiplink project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgments
+
+* Special thanks to
