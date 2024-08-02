@@ -2,11 +2,11 @@
 
 ## Table of Content
 
-- [Description](https://github.com/mehetab-01/tiplink-project#Description)
-- [Features](https://github.com/mehetab-01/tiplink-project#Features)
-- [Technologies](https://github.com/mehetab-01/tiplink-project#Technologies)
-- [Getting Started](https://github.com/mehetab-01/tiplink-project#Getting-Started)
-- [Contributing](https://github.com/mehetab-01/tiplink-project#Contributing)
+- [Description](https://github.com/mehetab-01/tiplink-project#description)
+- [Features](https://github.com/mehetab-01/tiplink-project#features)
+- [Technologies](https://github.com/mehetab-01/tiplink-project#technologies)
+- [Getting Started](https://github.com/mehetab-01/tiplink-project#getting-started)
+- [Contributing](https://github.com/mehetab-01/tiplink-project#contributing)
 
 
 ## Description
