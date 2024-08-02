@@ -47,6 +47,14 @@ If you encounter a bug or have a feature request, please create an issue using t
 - **Follow Code Style**: Ensure your code follows the existing style and quality standards of the project.
 - **Write Tests**: If applicable, include tests for your changes to ensure they work as expected.
 - **Keep It Focused**: Make sure your pull request addresses a single issue or feature to simplify the review process.
+- **Naming Conventions**: Name your pull request with one of the following prefixes to indicate the type of change:
+
+  - **[DOC]**: Documentation updates
+  - **[BUGFIX]**: Bug fixes
+  - **[FEAT]**: New features
+  - **[ENH]**: Enhancements
+  - **[CHORE]**: Chores or maintenance tasks
+
 
 Thank you for your contributions and for helping make Tiplink better!
 
