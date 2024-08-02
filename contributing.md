@@ -51,5 +51,3 @@ If you encounter a bug or have a feature request, please create an issue using t
 Thank you for your contributions and for helping make Tiplink better!
 
 ---
-
-Feel free to customize it further if needed!
