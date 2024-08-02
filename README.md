@@ -37,8 +37,8 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 ## Contributing Guidelines
 
--- `github/pull_request_template.md`: Template for pull requests.
--- `github/issue_template.md`: Template for issues.
+- `github/pull_request_template.md`: Template for pull requests.
+- `github/issue_template.md`: Template for issues.
 
 
 ## License
