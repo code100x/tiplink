@@ -37,10 +37,8 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 ## Contributing Guidelines
 
--- ![Static Badge](https://img.shields.io/badge/github%2Fpull_request_template.md)
-: Template for pull requests.
--- ![Static Badge](https://img.shields.io/badge/github%2Fissue_template%2Fdefault.md)
-: Template for issues.
+-- `github/pull_request_template.md`: Template for pull requests.
+-- `github/issue_template.md`: Template for issues.
 
 
 ## License
