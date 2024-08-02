@@ -25,15 +25,23 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 
 ## Getting Started
 
-To get started with the Tiplink project, follow these steps:
+To get started with the Tiplink, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/mehetab-01/tiplink-project.git`
-2. Install dependencies: `npm install` or `yarn install`
-3. Start the application: `npm run start` or `yarn start`
+1. **Clone the repository:** `git clone https://github.com/code100x/tiplink`
+2. **Install dependencies:** `npm install` or `yarn install`
+3. **Start the application:** `npm run start` or `yarn start`
 
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to the Tiplink project, please fork the repository and submit a pull request.
+
+## Contributing Guidelines
+
+-- ![Static Badge](https://img.shields.io/badge/github%2Fpull_request_template.md)
+: Template for pull requests.
+-- ![Static Badge](https://img.shields.io/badge/github%2Fissue_template%2Fdefault.md)
+: Template for issues.
+
 
 ## License
 
