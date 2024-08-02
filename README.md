@@ -22,7 +22,6 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 - **Authentication:** Google OAuth via next-auth
 - **Blockchain:** Solana
 
-
 ## Getting Started
 
 To get started with the Tiplink, follow these steps:
@@ -44,7 +43,3 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 ## License
 
 The Tiplink project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Acknowledgments
-
-* Special thanks to
