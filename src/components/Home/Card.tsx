@@ -14,7 +14,7 @@ export function Card() {
   );
 }
 
-// Small utility to highlight the content of specific section of a testimonial content
+// Small utility to highlight the content of specific section of a testimonial content 
 export const Highlight = ({
   children,
   className,
@@ -38,19 +38,19 @@ const CARDS = [
   {
     id: 0,
     title: "SolLink Wallet",
-    description: <Wallet/>,
+    iconImag: <Wallet/>,
     img:firstImg
   },
   {
     id: 1,
     title: "SolLink Pro",
-    description: <Star/>,
+    iconImag: <Star/>,
     img:secondImg
   },
   {
     id: 2,
     title: "SolLink Wallet Adaptor",
-    description:<DnaIcon/>,
+    iconImag:<DnaIcon/>,
     img:thirdImg
   },
 ];
