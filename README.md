@@ -41,8 +41,8 @@ To get started with the Tiplink, follow these steps:
 
 ### With docker
 
-3. **Create .env file where the DATABASE_URL='postgresql://postgres:password@postgres:5432/mydatabase'**
-4. **Start the application:** `docker compose up`
+2. **Create .env file where the DATABASE_URL is** `postgresql://postgres:password@postgres:5432/mydatabase`
+3. **Start the application:** `docker compose up`
 
 ## Contributing
 
