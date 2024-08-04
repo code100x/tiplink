@@ -1,9 +1,6 @@
-"use client"
-import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import ReactWrapBalancer from "react-wrap-balancer";
-import { GoogleIcon } from "../ui/googleicon";
+import { Demo } from "./Demo";
 
 export function Hero() {
   return (
@@ -48,17 +45,7 @@ export function Hero() {
               data-aos="fade-down"
               data-aos-delay="400"
             >
-              <Link
-                className="justify-center flex items-center whitespace-nowrap transition duration-200 ease-in-out font-medium rounded px-4 py-1.5  text-zinc-100 bg-[#006399] hover:bg-[#185273]"
-                href="/create-post"
-              >
-                <Button onClick={async () => await signIn('google')}
-                className="font-medium text-lg"
-                >
-                  <GoogleIcon />
-                  Login with Google
-                </Button>
-              </Link>
+              <Demo />
             </div>
           </div>
         </div>

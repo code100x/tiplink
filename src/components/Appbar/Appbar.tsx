@@ -1,9 +1,9 @@
-"use client"
 import Link from "next/link";
-import ProfileHeader from "./ProfileHeader";
-import logo from "../../../public/logo.svg"
+// import ProfileHeader from "./ProfileHeader";
+import logo from "../../../public/logo.svg";
 import Image from "next/image";
 import { NavigationMenu } from "./NavMenu";
+import { Profile } from "./Profile";
 
 interface navMenutItemType {
   title: string;
@@ -27,13 +27,14 @@ export default function Appbar() {
           <nav className="hidden md:flex gap-14">
             {
               navMenutItem.map((item) => (
-                <NavigationMenu title={item.title} link={item.link} />
+                <NavigationMenu key={item.title} title={item.title} link={item.link} />
               ))
             }
           </nav>
           {/* ProfileHeader */}
           <div className="flex gap-3 items-center">
-            <ProfileHeader />
+            {/* <ProfileHeader /> */}
+            <Profile />
           </div>
         </div>
       </div>
