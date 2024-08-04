@@ -21,20 +21,24 @@ We’re excited that you want to contribute to Tiplink! To make the process smoo
    ```bash
    git checkout -b your-branch-name
    ```
-
-4. **Make Your Changes**  
+4. **Run lint checks**
+   Run the lint check to ensure no linting warnings
+      ```bash
+   npm run lint
+   ```
+5. **Make Your Changes**  
    Edit the code as needed and commit your changes with a clear, concise message:
    ```bash
    git commit -m "Describe your changes here"
    ```
 
-5. **Push Your Changes**  
+6. **Push Your Changes**  
    Upload your changes to your fork on GitHub:
    ```bash
    git push origin your-branch-name
    ```
 
-6. **Submit a Pull Request**  
+7. **Submit a Pull Request**  
    Go to the original repository on GitHub and open a pull request from your fork. Provide a clear description of your changes and why they are necessary.
 
 ## Reporting Issues
