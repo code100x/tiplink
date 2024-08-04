@@ -5,19 +5,28 @@ import WalletButtons from "@/components/WalletButtons/WalletButtons";
 import WalletAppbar from "./WalletAppbar";
 import Footer from "./Footer";
 import AddFunds from "@/components/WalletButtons/AddFunds";
+import Withdraw from "@/components/WalletButtons/Withdraw";
 
 const Wallet = () => {
     const [ userName, setUserName ] = useState("google");
     const [ money, setMoney ] = useState(0.00);
     const [ showUserName, setShowUserName ] = useState(true);
     const [ShowFunds, setShowFunds ] = useState(false);
+    const [ showWithdraw, setWithdraw ] = useState(false);
     const handlerFunds = () => {
         setShowUserName(false);
-        setShowFunds(true)
+        setShowFunds(true);
+        setWithdraw(false);
     }
     const sendMoneyHandler = () => {
         setShowUserName(true);
         setShowFunds(false);
+        setWithdraw(false);
+    }
+    const withdrawHandler = () => {
+        setWithdraw(true);
+        setShowFunds(false);
+        setShowUserName(false);
     }
     return (
         <div>
@@ -25,7 +34,7 @@ const Wallet = () => {
                 <WalletAppbar />
                 <div>
                     <div className = 'flex justify-center pt-5'>
-                        <div className = 'w-1/2 bg-white rounded-lg p-6'>
+                        <div className = 'w-1/2  bg-white rounded-lg p-6'>
                             {showUserName && <div className = 'flex space-x-2 pb-2 font-extrabold text-2xl text-gray-600'>
                                 <div className = 'pt-1'>
                                     <GoogleIcon />
@@ -47,13 +56,14 @@ const Wallet = () => {
                             <div className = 'grid grid-cols-4 pt-7 space-x-1'>
                                 <button className = 'bg-sky-700  hover:bg-sky-800 rounded-lg text-white font-bold p-3' onClick = { sendMoneyHandler }>Send</button>
                                 <button className = 'bg-blue-200 hover:bg-blue-300 rounded-lg text-white font-bold p-3' onClick = { handlerFunds }>Add Funds</button>
-                                <button className = 'bg-blue-200 hover:bg-blue-300 rounded-lg text-white font-bold p-3'>Withdraw</button>
+                                <button className = 'bg-blue-200 hover:bg-blue-300 rounded-lg text-white font-bold p-3' onClick = { withdrawHandler }>Withdraw</button>
                                 <button className = 'bg-blue-200 hover:bg-blue-300 rounded-lg text-white font-bold p-3'>Swap</button>
                             </div>
                         </div>
                     </div>
                     {showUserName && <WalletButtons /> }
                     {ShowFunds && <AddFunds />}
+                    {showWithdraw && <Withdraw /> }
                 </div>
                 <div className = ''>
                     <Footer /> 
