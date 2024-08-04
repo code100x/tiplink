@@ -1,20 +1,36 @@
-FROM node:20-alpine
-
-WORKDIR /app
-
+FROM node:20-alpine AS base
 COPY package* .
-COPY ./prisma .
-COPY next.config.mjs .
-COPY postcss.config.mjs .
-COPY tailwind.config.ts .
-COPY components.json .
-COPY .env.sample .
+COPY ./prisma ./prisma
+RUN npm install && \
+    npx prisma generate
 
-RUN npm install
-RUN npx prisma generate
 
+FROM node:20-alpine AS development
+WORKDIR /app
 COPY . .
+COPY --from=base package* .
+COPY --from=base ./prisma ./prisma
+COPY --from=base ./node_modules ./node_modules
+
+CMD ["npm","run", "dev"]
+
+
+FROM node:20-alpine AS build
+COPY . .
+COPY --from=base /node_modules ./node_modules
+RUN npm run build
+
+
+FROM node:20-alpine AS production
+COPY package* .
+COPY --from=build /next.config.mjs ./
+COPY --from=build /public ./public
+COPY --from=build /prisma ./prisma
+COPY --from=build /node_modules ./node_modules
+COPY --from=build /.next ./.next
+
+CMD ["npm","run", "start"]
+
 
 EXPOSE 3000
 
-CMD ["npm","run", "dev"]
