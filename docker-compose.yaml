@@ -1,11 +1,11 @@
-name: "docker-prod"
+name: "docker-dev"
 services:
   ethlink:
     build:
       context: .
       dockerfile: Dockerfile
-      # target: development
-      target: production # uncomment for production build
+      target: development
+      # target: production # uncomment for production build
     ports:
       - "3000:3000"
     volumes:
