@@ -10,7 +10,7 @@ const ProfileHeader = () => {
 
   useEffect(() => {
     if (data?.user) setIsUser(true);
-  }, [])
+  }, [data?.user])
   return (
     <div className="flex items-center gap-4">
       {isUSer ? (
