@@ -8,6 +8,7 @@ const ProfileHeader = () => {
   const [isUSer, setIsUser] = useState(false);
   const { data } = useSession();
 
+  //added data?.user in dependency array to avoid lint warnings
   useEffect(() => {
     if (data?.user) setIsUser(true);
   }, [data?.user])
