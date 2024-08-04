@@ -1,9 +1,9 @@
-"use client"
-import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
-import Link from "next/link";
-import ReactWrapBalancer from "react-wrap-balancer";
-import { GoogleIcon } from "../ui/googleicon";
+'use client';
+import { Button } from '@/components/ui/button';
+import { signIn } from 'next-auth/react';
+import Link from 'next/link';
+import ReactWrapBalancer from 'react-wrap-balancer';
+import { GoogleIcon } from '../ui/googleicon';
 
 export function Hero() {
   return (
@@ -20,7 +20,7 @@ export function Hero() {
                   target="_blank"
                 >
                   <span className="relative inline-flex items-center px-2">
-                    STAR US ON GITHUB{" "}
+                    STAR US ON GITHUB{' '}
                     <span className="tracking-normal text-primary-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1 mb-1">
                       &gt;
                     </span>
@@ -33,32 +33,31 @@ export function Hero() {
               data-aos="fade-down"
             >
               <ReactWrapBalancer>
-                The crypto of tomorrow, <span className="text-[#006399]">today</span>
+                The crypto of tomorrow,{' '}
+                <span className="text-[#006399]">today</span>
               </ReactWrapBalancer>
             </h1>
-              <p
-                className="mb-8 text-lg text-zinc-900"
-                data-aos="fade-down"
-                data-aos-delay="200"
-              >
-                Create a frictionless wallet with just a Google Account.
-              </p>
+            <p
+              className="mb-8 text-lg text-zinc-900"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            >
+              Create a frictionless wallet with just a Google Account.
+            </p>
             <div
               className="flex flex-col w-1/5 items-center max-w-xs mx-auto gap-4 sm:max-w-none  sm:justify-center sm:flex-row sm:inline-flex"
               data-aos="fade-down"
               data-aos-delay="400"
             >
-              <Link
-                className="justify-center flex items-center whitespace-nowrap transition duration-200 ease-in-out font-medium rounded px-4 py-1.5  text-zinc-100 bg-[#006399] hover:bg-[#185273]"
-                href="/create-post"
-              >
-                <Button onClick={async () => await signIn('google')}
-                className="font-medium text-lg"
+              <div className="justify-center flex items-center whitespace-nowrap transition duration-200 ease-in-out font-medium rounded px-4 py-1.5  text-zinc-100 bg-[#006399] hover:bg-[#185273]">
+                <Button
+                  onClick={async () => await signIn('google')}
+                  className="font-medium text-lg"
                 >
                   <GoogleIcon />
                   Login with Google
                 </Button>
-              </Link>
+              </div>
             </div>
           </div>
         </div>

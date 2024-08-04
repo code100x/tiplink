@@ -1,30 +1,20 @@
-"use client"
-import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+'use client';
+import { signOut, useSession } from 'next-auth/react';
 import { Button } from '../ui/button';
 import LoginWithGoogleButton from '../ui/login-with-google';
 
 const ProfileHeader = () => {
-  const [isUSer, setIsUser] = useState(false);
-  const { data } = useSession();
+  const { data: session } = useSession();
 
-  useEffect(() => {
-    if (data?.user) setIsUser(true);
-  }, [])
   return (
     <div className="flex items-center gap-4">
-      {isUSer ? (
-        <Button
-          size="sm"
-          variant="outline"
-        >
+      {session?.user ? (
+        <Button size="sm" variant="outline" onClick={() => signOut()}>
           Sign out
         </Button>
-      ) : 
-      (
-          <LoginWithGoogleButton/>
-      )
-      }
+      ) : (
+        <LoginWithGoogleButton />
+      )}
     </div>
   );
 };
