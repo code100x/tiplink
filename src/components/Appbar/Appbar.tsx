@@ -27,7 +27,8 @@ export default function Appbar() {
           <nav className="hidden md:flex gap-14">
             {
               navMenutItem.map((item) => (
-                <NavigationMenu title={item.title} link={item.link} />
+                // ensure there is a key to avoid lint 
+                <NavigationMenu key={item.link} title={item.title} link={item.link} />
               ))
             }
           </nav>
