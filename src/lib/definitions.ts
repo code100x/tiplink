@@ -13,7 +13,7 @@ export interface Card {
     title: string;
     iconImag: any;
     img: any;
-};
+}
 
 export interface CustomSectionsProps {
     title: string;
@@ -23,4 +23,4 @@ export interface CustomSectionsProps {
     image: any;
     bgBlue: boolean;
     imgDirLeft: boolean;
-};
+}
