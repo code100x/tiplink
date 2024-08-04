@@ -55,6 +55,7 @@ const Appbar = () => {
                   <LoginWithGoogleButton/>
                 </>
               )
+
             }
             <span className="md:hidden"><Menu /></span>
           </div>
