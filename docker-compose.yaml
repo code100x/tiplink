@@ -1,8 +1,11 @@
-version: '3.8'
+name: "docker-dev"
 services:
   ethlink:
-    image: tiplink
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      # target: production # uncomment for production build
     ports:
       - "3000:3000"
     volumes:
