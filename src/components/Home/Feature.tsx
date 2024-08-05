@@ -32,7 +32,6 @@ const features = [
 const Feature = () => {
     return (
         <section>
-
             <div className="md:mt-20 mt-10 max-w-[1000px] mx-auto ">
                 <div className="flex justify-center">
                     <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight shadow-inner">Features</div>
@@ -41,15 +40,15 @@ const Feature = () => {
                     Key features
                 </div>
                 <div className="text-lg tracking-tighter text-black/70 text-center mt-5">
-                Explore the Comprehensive Features of Our Secure Crypto Wallet Generator
+                    Explore the Comprehensive Features of Our Secure Crypto Wallet Generator
                 </div>
             </div>
             <div className='my-10 max-w-[1000px] mx-auto'>
-            <div className='px-4 grid gap-8 md:grid-cols-2'>
-                {
-                    features.map((feature, index) => <FeatureCard key={index} title={feature.title} description={feature.description} image={feature.image} />)
-                }
-            </div>
+                <div className='px-4 grid gap-8 md:grid-cols-2'>
+                    {
+                        features.map((feature, index) => <FeatureCard key={index} title={feature.title} description={feature.description} image={feature.image} />)
+                    }
+                </div>
             </div>
         </section>
     )

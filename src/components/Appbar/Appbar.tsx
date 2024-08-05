@@ -1,8 +1,6 @@
 "use client"
 
 import Link from "next/link"
-
-import { FaGoogle } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa";
 import { Button } from "../ui/button";
 import Logo from "../icons/Logo";
@@ -22,7 +20,7 @@ const Appbar = () => {
   }, [])
   return (
     <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto px-4">
         <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
           <div>
             <div className="border h-10 w-10 rounded-lg inline-flex justify-center items-center">
