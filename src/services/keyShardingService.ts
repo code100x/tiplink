@@ -2,7 +2,7 @@ import { log } from 'console';
 import { split as shamirSplit, combine as shamirCombine } from 'shamir-secret-sharing';
 const CryptoJS = require('crypto-js');
 
-async function splitAndEncryptSecret(secretKey: Uint8Array, platformSecretKey: string, userPin: string) {
+async function splitSecret(secretKey: Uint8Array) {
     if (!secretKey) {
         throw new Error('Secret is undefined');
     }
@@ -37,40 +37,6 @@ const platformSecretKey = "1111";
 const userPin = '1234';
 
 async function main() {
-    await splitAndEncryptSecret(secret, platformSecretKey, userPin);
+    await splitSecret(secret);
 }
-
-
-// function to combine and decrypt the secret
-// NOTE : This function is not tested yet and is WIP
-async function combineAndDecryptSecret(userEncryptedShare: string, platformEncryptedShares: string[], platformSecretKey: string, userPin: string) {
-    if (!userEncryptedShare || !platformEncryptedShares || !platformSecretKey || !userPin) {
-        throw new Error('Invalid input');
-    }
-
-    try {
-        // Decrypt the user share using the user PIN
-        const userShareString = CryptoJS.AES.decrypt(userEncryptedShare, userPin).toString(CryptoJS.enc.Utf8);
-        const userShare = Buffer.from(userShareString, 'hex');
-        // log('User Share:', userShare);
-
-        // Decrypt each platform share using the platform secret key
-        const platformShares = platformEncryptedShares.map(encryptedShare => {
-            const shareString = CryptoJS.AES.decrypt(encryptedShare, platformSecretKey).toString(CryptoJS.enc.Utf8);
-            return Buffer.from(shareString, 'hex');
-        });
-        // log('Platform Shares:', platformShares);
-
-        // Combine the shares to reconstruct the secret
-        const secret = await shamirCombine([userShare, ...platformShares]);
-        // log('Secret:', secret);
-
-        return secret;
-    } catch (error) {
-        console.error('Error combining and decrypting secret:', error);
-    }
-}
-
-
-main();
 
