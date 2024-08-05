@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+//this disables img tag linting warning on next js
+
 import React from 'react'
 import { Button } from './button'
 
