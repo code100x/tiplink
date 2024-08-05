@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { GoogleIcon } from "@/components/ui/googleicon";
 import WalletButtons from "@/components/WalletButtons/WalletButtons";
-import WalletAppbar from "./WalletAppbar";
 import Footer from "./Footer";
 import AddFunds from "@/components/WalletButtons/AddFunds";
 import Withdraw from "@/components/WalletButtons/Withdraw";
+import Appbar from "@/components/Appbar/Appbar";
 
 const Wallet = () => {
     const [ userName, setUserName ] = useState("google");
@@ -31,7 +31,7 @@ const Wallet = () => {
     return (
         <div>
             <div className = 'bg-slate-100 min-h-screen pt-0'>
-                <WalletAppbar />
+                <Appbar />
                 <div>
                     <div className = 'flex justify-center pt-5'>
                         <div className = 'w-1/2  bg-white rounded-lg p-6'>
