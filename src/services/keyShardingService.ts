@@ -31,12 +31,12 @@ async function splitSecret(secretKey: Uint8Array) {
     }
 }
 
-// Example usage
-const secret = new Uint8Array([222, 166, 113, 52, 86, 82, 126, 204, 177, 188, 253, 85, 71, 6, 130, 72, 82, 67, 155, 93, 112, 205, 136, 41, 134, 245, 81, 39, 228, 246, 7, 44, 187, 153, 10, 31, 6, 26, 126, 243, 118, 109, 16, 109, 166, 0, 82, 232, 66, 77, 193, 175, 228, 98, 239, 47, 31, 113, 133, 184, 84, 190, 11, 100]);
-const platformSecretKey = "1111";
-const userPin = '1234';
+// // Example usage
+// const secret = new Uint8Array([222, 166, 113, 52, 86, 82, 126, 204, 177, 188, 253, 85, 71, 6, 130, 72, 82, 67, 155, 93, 112, 205, 136, 41, 134, 245, 81, 39, 228, 246, 7, 44, 187, 153, 10, 31, 6, 26, 126, 243, 118, 109, 16, 109, 166, 0, 82, 232, 66, 77, 193, 175, 228, 98, 239, 47, 31, 113, 133, 184, 84, 190, 11, 100]);
+// const platformSecretKey = "1111";
+// const userPin = '1234';
 
-async function main() {
-    await splitSecret(secret);
-}
+// async function main() {
+//     await splitSecret(secret);
+// }
 
