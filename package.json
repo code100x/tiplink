@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "lint:fix": "next lint --fix",
+    "lint:fix": "next lint --fix",
+    "ts": "tsc --noEmit",
+    "typecheck": "tsc --pretty --noEmit",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\"",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -30,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
     "prisma": "^5.17.0",
