@@ -1,4 +1,4 @@
-name: CI
+name: Lint
 on:
   pull_request:
     types: [opened, reopened, synchronize]
@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Linting and Formatting checks
+      - name: Linting and Formatting Checks
         run: yarn run lint
 
       - name: Type checking
