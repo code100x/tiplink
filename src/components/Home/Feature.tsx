@@ -8,22 +8,22 @@ import token from '@/assets/token.png'
 const features = [
     {
         title: 'TipLink Wallet',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
+        description: 'Create or login to your secured TipLink wallet with just 2 clicks.',
         image: `${wallet.src}`
     },
     {
         title: 'TipLink Pro',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
+        description: 'TipLink makes distributing digital assets as simple as clicking a link.',
         image: `${pro.src}`
     },
     {
         title: 'TipLink Wallet Adapter',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
+        description: 'Let your users login with just a Google account and start signing transactions.',
         image: `${adapter.src}`
     },
     {
         title: 'TipLink Swap Token',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
+        description: 'Experience Effortless Token Swaps with TipLink, Simplifying Crypto Transactions for All Users',
         image: `${token.src}`
     }
 
