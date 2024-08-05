@@ -9,12 +9,11 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "postinstall": "prisma generate",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
     "ts": "tsc --noEmit",
     "typecheck": "tsc --pretty --noEmit",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\"",
-    "postinstall": "prisma generate"
+    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\""
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
