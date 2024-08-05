@@ -93,12 +93,14 @@ const Testimonials = () => {
     return (
         <section className="bg-white">
             <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
-                <div className="max-w-[540px] mx-auto">
+                <div className="max-w-[540px] lg:max-w-[650px] mx-auto">
 
                     <div className="flex justify-center">
                         <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight shadow-inner">Testimonials</div>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">What our users say</h2>
+                </div>
+                <div className="max-w-[540px] mx-auto">
                     <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
                     Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
                     </p>
