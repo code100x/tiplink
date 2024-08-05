@@ -72,8 +72,8 @@ const TestimonialsColumn = (props: {
       >
         {[...new Array(2)].fill(0).map((_, index) => (
           <React.Fragment key={index}>
-            {props.testimonials.map(({ text, imageSrc, name, username }) => (
-              <div className="card" key={text}>
+            {props.testimonials.map(({ text, imageSrc, name, username },i) => (
+              <div className="card" key={i}>
                 <div>{text}</div>
                 <div className="flex items-center gap-2 mt-5">
                   <Image

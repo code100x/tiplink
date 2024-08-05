@@ -15,9 +15,10 @@ const Appbar = () => {
   const [isUSer, setIsUser] = useState(false)
   const { data } = useSession()
 
+  //data?.user should be in the dependency array to linting warnings
   useEffect(() => {
     if (data?.user) setIsUser(true)
-  }, [])
+  }, [data?.user])
   return (
     <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
       <div className="container mx-auto px-4 ">
