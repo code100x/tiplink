@@ -5,7 +5,6 @@ import eth from '@/assets/eth.svg'
 import sol from '@/assets/solana.svg'
 import Image from 'next/image'
 
-
 const Hero = () => {
   return (
     <section className='items-center md:mt-40 mt-28'>
@@ -17,18 +16,16 @@ const Hero = () => {
           <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center'>Secure Your Crypto with Our Wallet Generator</h1>
           <p className='text-lg tracking-tighter text-black/70 text-center mt-5'>Generate a secure, private crypto wallet in minutes with our easy-to-use tool <br className='hidden md:block' /> Powered by Google Auth for seamless, secure access.</p>
         </div>
-        <div className='flex items-center justify-center mt-5'>
+        <div className="flex items-center justify-center mt-5">
           <Button className="pl-2 py-6 text-sm md:text-base">
             <span className="flex items-center gap-2">
-              <div className='px-3 py-2 rounded-lg border bg-white text-black'>
+              <div className="px-3 py-2 rounded-lg border bg-white text-black">
                 <FaGoogle />
               </div>
               Sign up with Google
             </span>
           </Button>
         </div>
-        
-
       </div>
     </section>
   )

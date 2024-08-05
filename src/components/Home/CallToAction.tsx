@@ -1,8 +1,7 @@
-import { ArrowRight } from "lucide-react"
-import { Button } from "../ui/button"
+import { ArrowRight } from 'lucide-react'
+import { Button } from '../ui/button'
 
 const CallToAction = () => {
-
   return (
     <section className="my-28">
         <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
@@ -18,8 +17,7 @@ const CallToAction = () => {
                 <Button variant="link">Get for free</Button>
                 <Button ><span>Learn more</span> <ArrowRight className="h-5 w-5"/></Button>
             </div>
-        </div>
-      
+      </div>
     </section>
   )
 }

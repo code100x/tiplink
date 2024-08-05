@@ -5,7 +5,6 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export function Footer() {
     return (
-
         <footer className="bg-black text-white p-10">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">

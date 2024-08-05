@@ -1,93 +1,101 @@
-
-import Image from "next/image"
-import avatar1 from "@/assets/avatar-1.png"
-import avatar2 from "@/assets/avatar-2.png"
-import avatar3 from "@/assets/avatar-3.png"
-import avatar4 from "@/assets/avatar-4.png"
-import avatar5 from "@/assets/avatar-5.png"
-import avatar6 from "@/assets/avatar-6.png"
+import Image from 'next/image'
+import avatar1 from '@/assets/avatar-1.png'
+import avatar2 from '@/assets/avatar-2.png'
+import avatar3 from '@/assets/avatar-3.png'
+import avatar4 from '@/assets/avatar-4.png'
+import avatar5 from '@/assets/avatar-5.png'
+import avatar6 from '@/assets/avatar-6.png'
 import { motion } from 'framer-motion'
-import React from "react"
+import React from 'react'
 
 const testimonials = [
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar1,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    },
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar2,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    },
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar3,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    },
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar4,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    },
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar5,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    },
-    {
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!",
-        imageSrc: avatar6,
-        name: "Alex Rose",
-        username: "@alexrose06"
-    }
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar1,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar2,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar3,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar4,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar5,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
+    imageSrc: avatar6,
+    name: 'Alex Rose',
+    username: '@alexrose06',
+  },
 ]
 
 const firstColumn = testimonials.slice(0, 3)
 const secondColumn = testimonials.slice(3, 6)
 const thirdColumn = testimonials.slice(0, 3)
 
-const TestimonialsColumn = (props: { className?: string; testimonials: typeof testimonials; duration?: number }) => {
-    return (
-        <div className={props.className}>
-            <motion.div animate={{
-                translateY: "-50% "
-            }} transition={{
-                duration: props.duration || 10,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
-            }} className="flex flex-col gap-6 pb-6">
-                {[...new Array(2)].fill(0).map((_, index) => (
-                    <React.Fragment key={index}>
-                        {
-                            props.testimonials.map(({ text, imageSrc, name, username }) => (
-                                <div className="card" key={text}>
-                                    <div>
-                                        {text}
-                                    </div>
-                                    <div className="flex items-center gap-2 mt-5">
-                                        <Image src={imageSrc} alt={name} className="h-10 w-10 rounded-full" />
-                                        <div className="flex flex-col">
-                                            <div className="font-medium tracking-tight leading-5">{name}</div>
-                                            <div className="leading-5 tracking-tight">{username}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </React.Fragment>
-                ))}
-            </motion.div>
-        </div>
-    )
+const TestimonialsColumn = (props: {
+  className?: string
+  testimonials: typeof testimonials
+  duration?: number
+}) => {
+  return (
+    <div className={props.className}>
+      <motion.div
+        animate={{
+          translateY: '-50% ',
+        }}
+        transition={{
+          duration: props.duration || 10,
+          repeat: Infinity,
+          ease: 'linear',
+          repeatType: 'loop',
+        }}
+        className="flex flex-col gap-6 pb-6"
+      >
+        {[...new Array(2)].fill(0).map((_, index) => (
+          <React.Fragment key={index}>
+            {props.testimonials.map(({ text, imageSrc, name, username }) => (
+              <div className="card" key={text}>
+                <div>{text}</div>
+                <div className="flex items-center gap-2 mt-5">
+                  <Image
+                    src={imageSrc}
+                    alt={name}
+                    className="h-10 w-10 rounded-full"
+                  />
+                  <div className="flex flex-col">
+                    <div className="font-medium tracking-tight leading-5">
+                      {name}
+                    </div>
+                    <div className="leading-5 tracking-tight">{username}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </React.Fragment>
+        ))}
+      </motion.div>
+    </div>
+  )
 }
-
 
 const Testimonials = () => {
     return (
@@ -112,7 +120,7 @@ const Testimonials = () => {
                 </div>
             </div>
         </section>
-    )
+  )
 }
 
 export default Testimonials
