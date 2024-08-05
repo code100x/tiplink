@@ -11,13 +11,11 @@
 <<<<<<< HEAD
     "postinstall": "prisma generate",
     "format": "prettier --write .",
+    "format": "prettier --write .",
     "ts": "tsc --noEmit",
     "typecheck": "tsc --pretty --noEmit",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\""
-=======
-    "postinstall": "prisma generate"
->>>>>>> 72daf38 (Next Js top loader)
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
