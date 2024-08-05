@@ -12,7 +12,7 @@ const FeatureCard = ({title, description, image}: FeatureProps) => {
   return (
     <div>
       <div className='border rounded-lg shadow-inner hover:shadow-2xl transition-all'>
-        <div className=' p-3 h-[60%]'>
+        <div className=' p-6 h-[60%]'>
             <img src={image} alt='Feature Image' className='w-full h-[200px] object-cover' />
         </div>
         <div className='w-full p-4'>

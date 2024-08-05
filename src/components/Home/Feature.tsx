@@ -1,26 +1,30 @@
 import React from 'react'
 import FeatureCard from '../ui/feature-card'
+import wallet from '@/assets/wallet.png'
+import pro from '@/assets/pro.png'
+import adapter from '@/assets/adapter.png'
+import token from '@/assets/token.png'
 
 const features = [
     {
         title: 'TipLink Wallet',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
-        image: 'https://example.com/image1.jpg'
+        image: `${wallet.src}`
     },
     {
         title: 'TipLink Pro',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
-        image: 'https://example.com/image2.jpg'
+        image: `${pro.src}`
     },
     {
         title: 'TipLink Wallet Adapter',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
-        image: 'https://example.com/image3.jpg'
+        image: `${adapter.src}`
     },
     {
-        title: 'TipLink Swip Token',
+        title: 'TipLink Swap Token',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis at mauris consectetur dignissim.',
-        image: 'https://example.com/image3.jpg'
+        image: `${token.src}`
     }
 
 ]
@@ -40,7 +44,7 @@ const Feature = () => {
                 Explore the Comprehensive Features of Our Secure Crypto Wallet Generator
                 </div>
             </div>
-            <div className='my-10 max-w-[1200px] mx-auto'>
+            <div className='my-10 max-w-[1000px] mx-auto'>
             <div className='px-4 grid gap-8 md:grid-cols-2'>
                 {
                     features.map((feature, index) => <FeatureCard key={index} title={feature.title} description={feature.description} image={feature.image} />)
