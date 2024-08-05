@@ -4,14 +4,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 import { Providers } from './providers'
-import { ScrollToTopButton } from '@/components/ui/scroll-to-top-button'
-=======
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-const inter = Inter({ subsets: ["latin"] });
-import { Providers } from "./providers";
-import { ScrollToTopButton } from "@/components/ui/scroll-to-top-button";
 import NextTopLoader from 'nextjs-toploader';
 >>>>>>> 72daf38 (Next Js top loader)
 export const metadata: Metadata = {
@@ -33,7 +25,6 @@ export default function RootLayout({
           <NextTopLoader color="#333" />
 >>>>>>> 72daf38 (Next Js top loader)
           {children}
-          <ScrollToTopButton />
         </body>
       </Providers>
     </html>
