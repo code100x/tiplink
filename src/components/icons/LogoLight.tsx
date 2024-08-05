@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 interface LogoProps {
-  className?: string;
+  className?: string
 }
 
 const LogoLight: React.FC<LogoProps> = ({ className }) => (
@@ -18,6 +18,6 @@ const LogoLight: React.FC<LogoProps> = ({ className }) => (
       fill="white" // Set fill color to black
     />
   </svg>
-);
+)
 
-export default LogoLight;
+export default LogoLight
