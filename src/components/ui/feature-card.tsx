@@ -3,7 +3,6 @@
 
 import React from 'react'
 import { Button } from './button'
-import Image from 'next/image'
 
 interface FeatureProps {
   title: string
@@ -16,8 +15,7 @@ const FeatureCard = ({ title, description, image }: FeatureProps) => {
     <div>
       <div className="border rounded-lg shadow-inner hover:shadow-2xl transition-all">
         <div className=" p-3 h-[60%]">
-          <Image
-            unoptimized
+          <img
             src={image}
             alt="Feature Image"
             className="w-full h-[200px] object-cover"
