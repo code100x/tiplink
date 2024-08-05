@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 
-import { FaGoogle } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa";
 import { Button } from "../ui/button";
 import Logo from "../icons/Logo";
@@ -49,10 +48,12 @@ const Appbar = () => {
                 </Button>
               ) : (
                 <>
+                <Link href='pages/wallet'>
                   <Button variant="outline">
-                    <FaWallet className="hover:text-black/80" />
-                  </Button>
-                  <LoginWithGoogleButton/>
+                      <FaWallet className="hover:text-black/80" />
+                    </Button>
+                    <LoginWithGoogleButton/>
+                </Link>
                 </>
               )
 

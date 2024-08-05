@@ -6,7 +6,7 @@ const SendMoney = () => {
                 <p className = 'flex justify-center text-gray-300 text-sm'>Start by buying or depositing funds:</p>
             </div>
             <div className = 'flex justify-center pt-2'>
-                <button className = 'bg-sky-700  hover:bg-sky-800 rounded-lg text-white font-bold p-3'>+ Add Funds</button>
+                <button className = 'bg-sky-700 hover:bg-sky-800 rounded-lg text-white font-bold p-3'>+ Add Funds</button>
             </div>
         </div>
     )

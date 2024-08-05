@@ -1,11 +1,11 @@
 "use client"
 import { useState } from "react";
-import { GoogleIcon } from "@/components/ui/googleicon";
 import WalletButtons from "@/components/WalletButtons/WalletButtons";
 import Footer from "./Footer";
 import AddFunds from "@/components/WalletButtons/AddFunds";
 import Withdraw from "@/components/WalletButtons/Withdraw";
 import Appbar from "@/components/Appbar/Appbar";
+import { FaGoogle } from "react-icons/fa6";
 
 const Wallet = () => {
     const [ userName, setUserName ] = useState("google");
@@ -33,11 +33,11 @@ const Wallet = () => {
             <div className = 'bg-slate-100 min-h-screen pt-0'>
                 <Appbar />
                 <div>
-                    <div className = 'flex justify-center pt-5'>
+                    <div className = 'flex justify-center items-center pt-28'>
                         <div className = 'w-1/2  bg-white rounded-lg p-6'>
                             {showUserName && <div className = 'flex space-x-2 pb-2 font-extrabold text-2xl text-gray-600'>
                                 <div className = 'pt-1'>
-                                    <GoogleIcon />
+                                    <FaGoogle />
                                 </div>
                                 <div>Welcome back, { userName }!</div>
                             </div> }
@@ -64,9 +64,6 @@ const Wallet = () => {
                     {showUserName && <WalletButtons /> }
                     {ShowFunds && <AddFunds />}
                     {showWithdraw && <Withdraw /> }
-                </div>
-                <div className = ''>
-                    <Footer /> 
                 </div>
             </div>
         </div>

@@ -3,7 +3,6 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel, HStack, Box } from '@chakra-ui
 import SendMoney from './SendMoney';
 import Activity from './Activity';
 
-
 const WalletButtons = () => { 
 
     return (
