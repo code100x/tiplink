@@ -1,3 +1,9 @@
 node_modules
 .next
 .env
+.env.sample
+.git
+.github
+.gitignore
+LICENSE
+README.md
