@@ -88,13 +88,6 @@ const TestimonialsColumn = (props: { className?: string; testimonials: typeof te
     )
 }
 
-// interface Options {
-//     text: string;
-//     imageSrc: string;
-//     name: string;
-//     username: string;
-// }
-
 
 const Testimonials = () => {
     return (

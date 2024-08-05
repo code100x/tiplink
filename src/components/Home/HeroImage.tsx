@@ -1,7 +1,6 @@
 import hero from '@/assets/hero.png'
 import Image from "next/image";
 
-
 const HeroImage = () => {
     return (
         <section className=' max-w-[1300px] mx-auto px-4 md:mt-20 my-10 '>
