@@ -1,4 +1,4 @@
-name: "docker-dev"
+name: 'docker-dev'
 services:
   ethlink:
     build:
@@ -7,7 +7,7 @@ services:
       target: development
       # target: production # uncomment for production build
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:/app
       - /app/node_modules
@@ -20,7 +20,7 @@ services:
   postgres:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - '5432:5432'
     restart: always
     environment:
       POSTGRES_DB: mydatabase
