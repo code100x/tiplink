@@ -15,6 +15,7 @@ const Appbar = () => {
   const [isUSer, setIsUser] = useState(false)
   const { data } = useSession()
 
+  //data?.user should be in the dependency array to linting warnings
   useEffect(() => {
     if (data?.user) setIsUser(true)
   }, [data?.user])
