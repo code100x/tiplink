@@ -1,5 +1,7 @@
 # Project Name: Tiplink
 
+### The following description is going to be updated once the project is complete till then look for all the research and development related progress here at this [Notion Page](https://axatbhardwaj.notion.site/Tiplink-47ebac1bab1b484d89fc5476c9860202?pvs=4)
+
 ## Table of Content
 
 - [Description](https://github.com/mehetab-01/tiplink-project#description)
@@ -8,12 +10,12 @@
 - [Getting Started](https://github.com/mehetab-01/tiplink-project#getting-started)
 - [Contributing](https://github.com/mehetab-01/tiplink-project#contributing)
 
-
 ## Description
 
 Tiplink is a decentralized application (dApp) designed to create and manage Solana crypto wallets. Users can sign up using their Google credentials, upon which a crypto wallet is automatically created and linked to their account. The application securely stores the user's public key, allowing seamless interaction with the Solana blockchain.
 
 ## Features
+
 - **User Registration with Google OAuth:** Secure and easy registration using Google credentials.
 
 - **Crypto Wallet Generation:** Automatic creation of a Solana wallet for each registered user.
@@ -41,7 +43,6 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 - `github/pull_request_template.md`: Template for pull requests.
 - `github/issue_template.md`: Template for issues.
-
 
 ## License
 
