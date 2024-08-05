@@ -34,9 +34,8 @@ To get started with the Tiplink, follow these steps:
 1. **Clone the repository:** `git clone https://github.com/code100x/tiplink`
 2. **Install dependencies:** `npm install`
 3. **Run this command:**     `cp .env.sample .env` and change the DATABASE_URL in the .env file with your postgres url
-4. **Add some secret code to NEXTAUTH_URL in the .env:** Example NEXTAUTH_URL="SECRET_CODE"
-5. **Migrate the prisma and Generate the clients:** Run this command `prisma migrate dev && prisma generate`
-6. **Start the application:** `npm run dev`
+4. **Migrate the prisma and Generate the clients:** Run this command `prisma migrate dev && npx prisma generate`
+5. **Start the application:** `npm run dev`
 
 ## Contributing
 
