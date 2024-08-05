@@ -32,8 +32,8 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 To get started with the Tiplink, follow these steps:
 
 1. **Clone the repository:** `git clone https://github.com/code100x/tiplink`
-2. **Install dependencies:** `npm install` or `yarn install`
-3. **Start the application:** `npm run start` or `yarn start`
+2. **Install dependencies:** `npm install` 
+3. **Start the application:** `npm run start`
 
 ## Contributing
 
