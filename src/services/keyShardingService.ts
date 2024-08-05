@@ -53,7 +53,7 @@ async function main() {
 
 
 // function to combine and decrypt the secret
-
+// NOTE : This function is not tested yet and is WIP
 async function combineAndDecryptSecret(userEncryptedShare: string, platformEncryptedShares: string[], platformSecretKey: string, userPin: string) {
     if (!userEncryptedShare || !platformEncryptedShares || !platformSecretKey || !userPin) {
         throw new Error('Invalid input');
