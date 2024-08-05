@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Link from "next/link"
+import Link from "next/link";
 
 import { FaGoogle } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa";
@@ -10,8 +10,7 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import LoginWithGoogleButton from "../ui/login-with-google";
-
-
+import { ModeToggle } from "../Home/mode-toggle";
 
 const Appbar = () => {
   const [isUSer, setIsUser] = useState(false);
@@ -19,7 +18,7 @@ const Appbar = () => {
 
   useEffect(() => {
     if (data?.user) setIsUser(true);
-  }, [])
+  }, []);
   return (
     <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
       <div className="container mx-auto px-4 ">
@@ -31,38 +30,60 @@ const Appbar = () => {
           </div>
           <div className="hidden md:block">
             <nav className="flex gap-8 text-sm">
-              <Link className="text-black/70 hover:text-black transition" href="#">Products</Link>
-              <Link className="text-black/70 hover:text-black transition" href="#">API & Docs</Link>
-              <Link className="text-black/70 hover:text-black transition" href="#">FAQ</Link>
-              <Link className="text-black/70 hover:text-black transition" href="#">Company</Link>
-              <Link className="hidden lg:block text-black/70 hover:text-black transition" href="#">Blogs</Link>
+              <Link
+                className="text-black/70 hover:text-black transition"
+                href="#"
+              >
+                Products
+              </Link>
+              <Link
+                className="text-black/70 hover:text-black transition"
+                href="#"
+              >
+                API & Docs
+              </Link>
+              <Link
+                className="text-black/70 hover:text-black transition"
+                href="#"
+              >
+                FAQ
+              </Link>
+              <Link
+                className="text-black/70 hover:text-black transition"
+                href="#"
+              >
+                Company
+              </Link>
+              <Link
+                className="hidden lg:block text-black/70 hover:text-black transition"
+                href="#"
+              >
+                Blogs
+              </Link>
             </nav>
           </div>
           <div className="flex gap-4 items-center">
-            {
-              isUSer ? (
-                <Button
-                  size="sm"
-                  variant="default"
-                >
-                  Sign out
+            {isUSer ? (
+              <Button size="sm" variant="default">
+                Sign out
+              </Button>
+            ) : (
+              <>
+                <Button variant="outline">
+                  <FaWallet className=" text-black" />
                 </Button>
-              ) : (
-                <>
-                  <Button variant="outline">
-                    <FaWallet className="hover:text-black/80" />
-                  </Button>
-                  <LoginWithGoogleButton/>
-                </>
-              )
-
-            }
-            <span className="md:hidden"><Menu /></span>
+                <LoginWithGoogleButton />
+                <ModeToggle />
+              </>
+            )}
+            <span className="md:hidden">
+              <Menu />
+            </span>
           </div>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Appbar
+export default Appbar;

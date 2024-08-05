@@ -98,7 +98,7 @@ const TestimonialsColumn = (props: { className?: string; testimonials: typeof te
 
 const Testimonials = () => {
     return (
-        <section className="bg-white">
+        <section className="bg-zinc-200">
             <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
                 <div className="max-w-[540px] mx-auto">
 
@@ -110,7 +110,7 @@ const Testimonials = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias ipsum commodi!
                     </p>
                 </div>
-                <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">
+                <div className="flex justify-center text-zinc-600 gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">
                     <TestimonialsColumn testimonials={firstColumn} duration={15} />
                     <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
                     <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

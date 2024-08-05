@@ -17,13 +17,13 @@ const FeatureCard = ({title, description, image}: FeatureProps) => {
         </div>
         <div className='w-full p-4'>
             <div className='py-4'>
-          <h1 className='text-4xl md:text-3xl lg:text-4xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text '>{title}</h1>
+          <h1 className='text-4xl md:text-3xl lg:text-4xl font-bold tracking-tighter bg-gradient-to-b text-zinc-400 text-transparent bg-clip-text '>{title}</h1>
             </div>
         <div className='w-full py-4'>
-          <p className='text-lg tracking-tighter text-black/70'>{description}</p>
+          <p className='text-lg tracking-tighter text-zinc-400'>{description}</p>
         </div>
         <div className='w-full py-2'>
-          <Button className='w-full text-lg py-7'>
+          <Button className='w-full text-lg py-7 border-2 border-white'>
             Learn More
           </Button>
         </div>

@@ -7,8 +7,8 @@ const CallToAction = () => {
     <section className="my-28">
         <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
             <div className="max-w-[540px] mx-auto">
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">Sign up to get</h2>
-            <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
+            <h2 className="text-4xl md:text-5xl text-zinc-500 lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">Sign up to get</h2>
+            <p className="text-lg tracking-tighter text-zinc-400 text-center mt-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eaque deserunt debitis vero accusantium.
             </p>
             </div>
