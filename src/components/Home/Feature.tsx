@@ -37,7 +37,7 @@ const Feature = () => {
                     Key features
                 </div>
                 <div className="text-lg tracking-tighter text-black/70 text-center mt-5">
-                    Explore the Core Features of Our Tool!
+                Explore the Comprehensive Features of Our Secure Crypto Wallet Generator
                 </div>
             </div>
             <div className='my-10 max-w-[1200px] mx-auto'>
