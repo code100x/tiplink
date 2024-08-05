@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
-import eth from '@/assets/eth.svg'
-import sol from '@/assets/solana.svg'
+import eth from '/assets/eth.svg'
+import sol from '/assets/solana.svg'
 import Image from 'next/image'
 import { signIn } from 'next-auth/react'
 
