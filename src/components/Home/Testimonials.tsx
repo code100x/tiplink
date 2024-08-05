@@ -107,7 +107,7 @@ const Testimonials = () => {
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">What our users say</h2>
                     <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias ipsum commodi!
+                    Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
                     </p>
                 </div>
                 <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">
