@@ -4,6 +4,7 @@ import ProfileHeader from "./ProfileHeader";
 import logo from "../../../public/logo.svg"
 import Image from "next/image";
 import { NavigationMenu } from "./NavMenu";
+import { useState } from "react";
 
 interface navMenutItemType {
   title: string;
@@ -13,6 +14,7 @@ interface navMenutItemType {
 export default function Appbar() {
 
   const navMenutItem: Array<navMenutItemType> = [{ title: "Products", link: "/products" }, { title: "FAQs", link: "/faqs" }, { title: "Company", link: "/company" }]
+  const [ nav, setNav ] = useState(true);
 
   return (
     <nav className="inset-x-0 top-0 backdrop-blur-2xl z-50 border-y-2">
@@ -24,13 +26,13 @@ export default function Appbar() {
             SolLink
           </Link>
           {/* NavMenu */}
-          <nav className="hidden md:flex gap-14">
+          { nav && <nav className="hidden md:flex gap-14">
             {
               navMenutItem.map((item) => (
                 <NavigationMenu title={item.title} link={item.link} />
               ))
             }
-          </nav>
+          </nav> }
           {/* ProfileHeader */}
           <div className="flex gap-3 items-center">
             <Link href = 'pages/wallet'>
