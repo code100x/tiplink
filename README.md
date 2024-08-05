@@ -1,5 +1,7 @@
 # Project Name: Tiplink
 
+### The following description is going to be updated once the project is complete till then look for all the research and development related progress here at this [Notion Page](https://axatbhardwaj.notion.site/Tiplink-47ebac1bab1b484d89fc5476c9860202?pvs=4)
+
 ## Table of Content
 
 - [Description](https://github.com/mehetab-01/tiplink-project#description)
