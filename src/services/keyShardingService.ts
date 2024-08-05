@@ -24,19 +24,8 @@ async function splitAndEncryptSecret(secretKey: Uint8Array, platformSecretKey: s
         const platformShare2String = Buffer.from(platformShare2).toString('hex');
         const platformShare3String = Buffer.from(platformShare3).toString('hex');
 
-        // Encrypt the first share with the user PIN
-        const userEncryptedShare = CryptoJS.AES.encrypt(userShareString, userPin).toString();
-        // log('User Encrypted Share:', userEncryptedShare);
 
-        // Encrypt each platform share separately with the platform secret key
-        const platformEncryptedShares = [
-            CryptoJS.AES.encrypt(platformShare1String, platformSecretKey).toString(),
-            CryptoJS.AES.encrypt(platformShare2String, platformSecretKey).toString(),
-            CryptoJS.AES.encrypt(platformShare3String, platformSecretKey).toString()
-        ];
-        // log('Platform Encrypted Shares:', ...platformEncryptedShares);
-
-        return { userEncryptedShare, platformEncryptedShares };
+        return { userShareString, platformShare1String ,platformShare2String , platformShare3String };
     } catch (error) {
         console.error('Error splitting and encrypting secret:', error);
     }
