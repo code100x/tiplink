@@ -1,8 +1,13 @@
 # Project Name: Tiplink
 
-## What we are building
+## Table of Content
 
-**https://tiplink.io/**
+- [Description](https://github.com/mehetab-01/tiplink-project#description)
+- [Features](https://github.com/mehetab-01/tiplink-project#features)
+- [Technologies](https://github.com/mehetab-01/tiplink-project#technologies)
+- [Getting Started](https://github.com/mehetab-01/tiplink-project#getting-started)
+- [Contributing](https://github.com/mehetab-01/tiplink-project#contributing)
+
 
 ## Description
 
@@ -21,3 +26,23 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 - **Database:** PostgreSQL, Prisma ORM
 - **Authentication:** Google OAuth via next-auth
 - **Blockchain:** Solana
+
+## Getting Started
+
+To get started with the Tiplink, follow these steps:
+
+1. **Clone the repository:** `git clone https://github.com/code100x/tiplink`
+2. **Install dependencies:** `npm install` 
+3. **Start the application:** `npm run start`
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to the Tiplink project, please fork the repository and submit a pull request.
+
+- `github/pull_request_template.md`: Template for pull requests.
+- `github/issue_template.md`: Template for issues.
+
+
+## License
+
+The Tiplink is licensed under the [MIT License](https://opensource.org/licenses/MIT).
