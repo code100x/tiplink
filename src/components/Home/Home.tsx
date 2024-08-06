@@ -1,32 +1,25 @@
-"use client"
+'use client'
 import React from 'react'
-import { Hero } from './Hero'
-import { Card } from './Card'
-import CustomSections from '../ui/home-custom-sections'
-import { CustomSectionItems } from './CustomSectionItems'
-
+import Hero from './Hero'
+import HeroImage from './HeroImage'
+import LogoTicker from './Logoticker'
+import Feature from './Feature'
+import DocsShowcase from './DocsShowcase'
+import Testimonials from './Testimonials'
+import CallToAction from './CallToAction'
 
 const Home = () => {
-    return (
-        <div className="flex flex-col items-center bg-gradient-to-b from-[#FFFFFF] to-[#AFA3FF] mt-10 md:mt-0">
-            <Hero />
-            <Card />
-            {
-                CustomSectionItems.map((item, index)=>(
-                    <CustomSections 
-                        title={item.title}
-                        description={item.description}
-                        image={item.image} 
-                        bgBlue={item.bgBlue} 
-                        iconSvg={item.iconSvg} 
-                        iconTitle={item.iconTitle} 
-                        imgDirLeft={item.imgDirLeft} 
-                        key={index}
-                    />
-                ))
-            }
-        </div>
-    )
+  return (
+    <>
+      <Hero />
+      <HeroImage />
+      <LogoTicker />
+      <Feature />
+      <DocsShowcase />
+      <Testimonials />
+      <CallToAction />
+    </>
+  )
 }
 
 export default Home

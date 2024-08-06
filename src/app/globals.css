@@ -16,9 +16,20 @@
   }
 }
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-[540px] mx-auto;
+  }
+  .card {
+    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+  }
+  .logo-ticker-img {
+    @apply w-[130px];
   }
 }
