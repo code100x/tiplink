@@ -8,7 +8,7 @@ import { Button } from '../ui/button'
 import Logo from '../icons/Logo'
 import { Menu } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
 
 const Appbar = () => {
@@ -64,7 +64,7 @@ const Appbar = () => {
           </div>
           <div className="flex gap-4 items-center">
             {isUSer ? (
-              <Button size="sm" variant="default">
+              <Button onClick={async () => await signOut()} size="sm" variant="default">
                 Sign out
               </Button>
             ) : (

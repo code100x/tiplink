@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
 import eth from '@/assets/eth.svg'
 import sol from '@/assets/solana.svg'
 import Image from 'next/image'
+import { signIn, useSession } from 'next-auth/react'
 
 const Hero = () => {
+
+  const [isUser, setIsUser] = useState(false)
+  const { data } = useSession()
+
+  useEffect(() => {
+    if (data?.user) setIsUser(true)
+      console.log("Here am i",data?.user);
+  }, [data?.user])
+
   return (
     <section className="items-center md:mt-40 mt-28">
       <div className="container mx-auto px-4">
@@ -35,14 +45,19 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex items-center justify-center mt-5">
-          <Button className="pl-2 py-6 text-sm md:text-base">
-            <span className="flex items-center gap-2">
-              <div className="px-3 py-2 rounded-lg border bg-white text-black">
-                <FaGoogle />
-              </div>
-              Sign up with Google
-            </span>
-          </Button>
+        {isUser ? (
+          <></>
+        ) : (
+          <Button onClick={async () => await signIn('google')} className="pl-2 py-6 text-sm md:text-base">
+          <span className="flex items-center gap-2">
+            <div className="px-3 py-2 rounded-lg border bg-white text-black">
+              <FaGoogle />
+            </div>
+            Sign up with Google
+          </span>
+        </Button>
+        )}
+          
         </div>
       </div>
     </section>
