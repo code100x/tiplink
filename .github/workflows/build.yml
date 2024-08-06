@@ -21,7 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install --frozen-lockfile
-      - name: Generate Prisma Client
-        run: npm run postinstall
+   
       - name: Run Build
         run: npm run build
