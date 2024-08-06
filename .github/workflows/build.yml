@@ -1,4 +1,4 @@
-name: Lint
+name: Build on PR
 
 on:
   pull_request:
@@ -7,8 +7,8 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  code-quality-checks:
-    name: Code Quality Checks
+  build:
+    name: Build Application
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,9 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install --frozen-lockfile
-
-      - name: Linting and Formatting Checks
-        run: npm run lint
-
-      - name: Type checking
-        run: npm run typecheck
+      - name: Generate Prisma Client
+        run: npm run postinstall
+      - name: Run Build
+        run: npm run build
