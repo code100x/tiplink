@@ -13,9 +13,12 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: '/signin',
-  },
+
+  // Uncomment the following lines to add custom pages
+  // pages: {
+  //   signIn: '/signin',
+  // },
+
   session: {
     strategy: 'jwt' as SessionStrategy,
   },
