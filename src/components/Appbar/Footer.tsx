@@ -1,4 +1,10 @@
-import { FaDiscord, FaDribbble, FaFacebook, FaGithub, FaXTwitter } from 'react-icons/fa6'
+import {
+  FaDiscord,
+  FaDribbble,
+  FaFacebook,
+  FaGithub,
+  FaXTwitter,
+} from 'react-icons/fa6'
 import Logo from '../icons/Logo'
 import Link from 'next/link'
 
@@ -80,35 +86,35 @@ export function Footer() {
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
-              <FaFacebook/>
+              <FaFacebook />
               <span className="sr-only">Facebook page</span>
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
-              <FaDiscord/>
+              <FaDiscord />
               <span className="sr-only">Discord community</span>
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
-              <FaXTwitter/>
+              <FaXTwitter />
               <span className="sr-only">Twitter page</span>
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
-              <FaGithub/>
+              <FaGithub />
               <span className="sr-only">GitHub account</span>
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
-              <FaDribbble/>
+              <FaDribbble />
               <span className="sr-only">Dribbble account</span>
             </Link>
           </div>

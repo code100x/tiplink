@@ -72,7 +72,7 @@ const TestimonialsColumn = (props: {
       >
         {[...new Array(2)].fill(0).map((_, index) => (
           <React.Fragment key={index}>
-            {props.testimonials.map(({ text, imageSrc, name, username },i) => (
+            {props.testimonials.map(({ text, imageSrc, name, username }, i) => (
               <div className="card" key={i}>
                 <div>{text}</div>
                 <div className="flex items-center gap-2 mt-5">
@@ -118,7 +118,8 @@ const Testimonials = () => {
             What our users say
           </h2>
           <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
-          Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
+            Hear from Our Satisfied Users About Their Secure Crypto Wallet
+            Experience.
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">
