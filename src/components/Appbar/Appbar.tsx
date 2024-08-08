@@ -35,7 +35,7 @@ const Appbar = () => {
       <div className="container mx-auto px-4 ">
         <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
           <div>
-            <div className="border h-10 w-10 rounded-lg inline-flex justify-center items-center">
+            <div className="border h-10 w-10 rounded-lg inline-flex justify-center zitems-center">
               <Logo className="h-8 w-8" fill="#000000" />
             </div>
           </div>
