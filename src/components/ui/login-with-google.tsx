@@ -5,12 +5,14 @@ import { signIn } from 'next-auth/react'
 
 const LoginWithGoogleButton = () => {
   return (
-      <Button onClick={async () => await signIn('google', {callbackUrl: '/wallet'})}>
-        <span className="flex items-center gap-2">
-          <FaGoogle />
-          Login
-        </span>
-      </Button>
+    <Button
+      onClick={async () => await signIn('google', { callbackUrl: '/wallet' })}
+    >
+      <span className="flex items-center gap-2">
+        <FaGoogle />
+        Login
+      </span>
+    </Button>
   )
 }
 
