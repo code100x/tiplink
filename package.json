@@ -12,7 +12,7 @@
     "ts": "tsc --noEmit",
     "typecheck": "tsc --pretty --noEmit",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,scss,css}\"",
     "postinstall": "prisma generate"
   },
   "dependencies": {
