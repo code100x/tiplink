@@ -4,11 +4,11 @@
 
 ## Table of Content
 
-- [Description](https://github.com/mehetab-01/tiplink-project#description)
-- [Features](https://github.com/mehetab-01/tiplink-project#features)
-- [Technologies](https://github.com/mehetab-01/tiplink-project#technologies)
-- [Getting Started](https://github.com/mehetab-01/tiplink-project#getting-started)
-- [Contributing](https://github.com/mehetab-01/tiplink-project#contributing)
+- [Description](https://github.com/code100x/tiplink#description)
+- [Features](https://github.com/code100x/tiplink#features)
+- [Technologies](https://github.com/code100x/tiplink#technologies)
+- [Getting Started](https://github.com/code100x/tiplink#getting-started)
+- [Contributing](https://github.com/code100x/tiplink#contributing)
 
 ## Description
 
@@ -43,6 +43,17 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 - `github/pull_request_template.md`: Template for pull requests.
 - `github/issue_template.md`: Template for issues.
+
+### Note
+
+Please take an updated pull from the dev branch, and request branches for further features or services we need to add, and make pull requests to the relevant branches, not the main branch itself
+
+- **main** - Stable branch
+- **dev** - Branch for all the developer changes (Where your code will reside before moving to production)
+- **dev-backend**- Branch for all developer changes in the backend
+- **dev-backend/*** - Branch for changes in specific features within the backend 
+- **dev-frontend** - Branch for all developer changes in the frontend
+- **dev-frontend/*** - Branch for changes in specific features within the frontend
 
 ## License
 

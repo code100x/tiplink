@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 interface LogoProps {
-  className?: string;
-  fill?: string;
+  className?: string
+  fill?: string
 }
 
 const Logo: React.FC<LogoProps> = ({ className, fill }) => (
@@ -19,6 +19,6 @@ const Logo: React.FC<LogoProps> = ({ className, fill }) => (
       fill={fill} // Set fill color to black
     />
   </svg>
-);
+)
 
-export default Logo;
+export default Logo
