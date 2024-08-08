@@ -10,4 +10,4 @@ export default withAuth(
 );
 
 // Middleware configuration for matching routes
-export const config = { matcher: ["/protected/:path*", "/wallet"] };
+export const config = { matcher: ["/wallet"] };
