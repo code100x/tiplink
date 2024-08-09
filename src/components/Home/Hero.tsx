@@ -1,8 +1,6 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
-import eth from '@/assets/eth.svg'
-import sol from '@/assets/solana.svg'
 import Image from 'next/image'
 
 const Hero = () => {
@@ -10,14 +8,14 @@ const Hero = () => {
     <section className="items-center md:mt-40 mt-28">
       <div className="container mx-auto px-4">
         <Image
-          src={sol.src}
+          src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
           alt=""
           className="relative left-[10%] lg:left-[30%]"
           width={50}
           height={50}
         />
         <Image
-          src={eth.src}
+          src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236912/eth_la99pn.svg"
           alt=""
           className="absolute md:right-[20%] right-[10%] lg:right-[28%] rotate-12 md:top-[26%] top-[34%] lg:top-[34%]"
           width={50}

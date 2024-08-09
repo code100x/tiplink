@@ -1,47 +1,41 @@
 import Image from 'next/image'
-import avatar1 from '@/assets/avatar-1.png'
-import avatar2 from '@/assets/avatar-2.png'
-import avatar3 from '@/assets/avatar-3.png'
-import avatar4 from '@/assets/avatar-4.png'
-import avatar5 from '@/assets/avatar-5.png'
-import avatar6 from '@/assets/avatar-6.png'
 import { motion } from 'framer-motion'
 import React from 'react'
 
 const testimonials = [
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar1,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-1_xxgkqm.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar2,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-2_jddbqk.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar3,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-3_xdijdf.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar4,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-4_ppdr5c.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar5,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-5_uzpthr.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: avatar6,
+    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/avatar-6_tkivlz.png",
     name: 'Alex Rose',
     username: '@alexrose06',
   },
@@ -79,7 +73,9 @@ const TestimonialsColumn = (props: {
                   <Image
                     src={imageSrc}
                     alt={name}
-                    className="h-10 w-10 rounded-full"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
                   />
                   <div className="flex flex-col">
                     <div className="font-medium tracking-tight leading-5">

@@ -1,34 +1,30 @@
 import React from 'react'
 import FeatureCard from '../ui/feature-card'
-import wallet from '@/assets/wallet.png'
-import walletaddapter from '@/assets/addapter.png'
-import token from '@/assets/token.png'
-import pro from '@/assets/pro.png'
 
 const features = [
   {
     title: 'TipLink Wallet',
     description:
       'Create or login to your secured TipLink wallet with just 2 clicks.',
-    image: `${wallet.src}`,
+    image: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236917/wallet_krzexr.png",
   },
   {
     title: 'TipLink Pro',
     description:
       'TipLink makes distributing digital assets as simple as clicking a link.',
-    image: `${pro.src}`,
+    image: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236917/pro_odeyp5.png"
   },
   {
     title: 'TipLink Wallet Adapter',
     description:
       'Let your users login with just a Google account and start signing transactions.',
-    image: `${walletaddapter.src}`,
+    image: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236913/addapter_zq3why.png"
   },
   {
     title: 'TipLink Swap Token',
     description:
       'Experience Effortless Token Swaps with TipLink, Simplifying Crypto Transactions for All Users',
-    image: `${token.src}`,
+    image: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/token_t1atps.png"
   },
 ]
 
