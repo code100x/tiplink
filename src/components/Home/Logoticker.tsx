@@ -1,10 +1,5 @@
 'use client'
 
-import achmeLogo from '@/assets/logo-acme.png'
-import quantumLogo from '@/assets/logo-quantum.png'
-import echoLogo from '@/assets/logo-echo.png'
-import celestialLogo from '@/assets/logo-celestial.png'
-import pulseLogo from '@/assets/logo-pulse.png'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -27,70 +22,70 @@ const LogoTicker = () => {
               }}
             >
               <Image
-                src={achmeLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/logo-acme_chpmz7.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={quantumLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-quantum_hvfwas.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={echoLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-echo_i5hnpv.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={celestialLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/logo-celestial_dv5uka.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={pulseLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-pulse_woeaxa.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={achmeLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/logo-acme_chpmz7.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={100}
                 height={100}
               />
               <Image
-                src={quantumLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-quantum_hvfwas.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={echoLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-echo_i5hnpv.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={celestialLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/logo-celestial_dv5uka.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
                 height={200}
               />
               <Image
-                src={pulseLogo.src}
+                src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/logo-pulse_woeaxa.png"
                 alt="Acme Logo"
                 className="logo-ticker-img"
                 width={200}
