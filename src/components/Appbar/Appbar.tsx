@@ -2,12 +2,10 @@
 
 import Link from 'next/link'
 
-import { FaGoogle } from 'react-icons/fa6'
 import { FaWallet } from 'react-icons/fa'
 import { Button } from '../ui/button'
 import Logo from '../icons/Logo'
 import {LogOut, Menu, UserRound} from 'lucide-react'
-import { useEffect, useState } from 'react'
 import {signOut, useSession} from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
 import {
@@ -28,14 +26,10 @@ const dropDownData = [
 ];
 
 const Appbar = () => {
-  const [isUSer, setIsUser] = useState(false)
+
   const { data } = useSession()
   const router = useRouter();
 
-  //data?.user should be in the dependency array to linting warnings
-  useEffect(() => {
-    if (data?.user) setIsUser(true)
-  }, [data?.user])
   return (
     <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
       <div className="container mx-auto px-4 ">
@@ -80,7 +74,7 @@ const Appbar = () => {
             </nav>
           </div>
           <div className="flex gap-4 items-center">
-            {/*{isUSer ? (*/}
+            {/*{data && data?.user ? (*/}
             {/*  <Button size="sm" variant="default">*/}
             {/*    Sign out*/}
             {/*  </Button>*/}
@@ -93,7 +87,7 @@ const Appbar = () => {
             {/*  </>*/}
             {/*)}*/}
             {
-              isUSer && data && data?.user ? (
+              data && data?.user ? (
                   <DropdownMenu>
                     <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition">
                       {!data?.user.image ? (
