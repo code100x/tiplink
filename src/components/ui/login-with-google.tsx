@@ -9,8 +9,8 @@ const LoginWithGoogleButton = () => {
       onClick={async () => await signIn('google', { callbackUrl: '/wallet' })}
     >
       <span className="flex items-center gap-2">
-        <FaGoogle />
         Login
+        <FaGoogle />
       </span>
     </Button>
   )
