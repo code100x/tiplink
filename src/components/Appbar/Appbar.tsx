@@ -38,6 +38,9 @@ const Appbar = () => {
     if (connected) {
       router.push('/wallet-adapter')
     }
+    if (!connected) {
+      router.push('/')
+    }
     setIsMounted(true) // Set mounted state to true after the component mounts
   }, [connected, router])
 
