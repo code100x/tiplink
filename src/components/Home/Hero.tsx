@@ -1,9 +1,14 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
+import { FaArrowRight } from 'react-icons/fa6'
 import Image from 'next/image'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const Hero = () => {
+  const session = useSession()
+  const router = useRouter()
   return (
     <section className="items-center md:mt-40 mt-28">
       <div className="container mx-auto px-4">
@@ -32,16 +37,42 @@ const Hero = () => {
             Google Auth for seamless, secure access.
           </p>
         </div>
-        <div className="flex items-center justify-center mt-5">
-          <Button className="pl-2 py-6 text-sm md:text-base">
-            <span className="flex items-center gap-2">
-              <div className="px-3 py-2 rounded-lg border bg-white text-black">
-                <FaGoogle />
-              </div>
-              Sign up with Google
-            </span>
-          </Button>
-        </div>
+
+        {session.data?.user ? (
+          <>
+            <div
+              onClick={() => {
+                router.push('/wallet')
+              }}
+              className="flex items-center justify-center mt-5"
+            >
+              <Button className="pl-2 py-6 text-sm md:text-base">
+                <span className="flex items-center gap-2">
+                  Go to DashBoard
+                  <div className=" py-2  text-white">
+                    <FaArrowRight />
+                  </div>
+                </span>
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div
+            onClick={() => {
+              signIn()
+            }}
+            className="flex items-center justify-center mt-5"
+          >
+            <Button className="pl-2 py-6 text-sm md:text-base">
+              <span className="flex items-center gap-2">
+                <div className="px-3 py-2 rounded-lg border bg-white text-black">
+                  <FaGoogle />
+                </div>
+                Sign up with Google
+              </span>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
