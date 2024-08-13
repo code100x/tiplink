@@ -7,8 +7,7 @@ import Logo from '../icons/Logo'
 import { LogOut, Menu, UserRound } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
-
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined'
 
 import {
   DropdownMenu,
@@ -165,8 +164,7 @@ const Appbar = () => {
       </div>
       <div className="p-4">
         <Button variant="outline">
-          
-          <WbSunnyOutlinedIcon/>
+          <WbSunnyOutlinedIcon />
         </Button>
       </div>
     </header>
