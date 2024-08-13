@@ -1,9 +1,7 @@
 'use client'
-
-import { useState } from 'react'
-import LeftSideBar from './LeftSideBar'
-import RightSideBar from './RightSideBar'
-import TopBar from './TopBar'
+import LeftSideBar from '../../components/WalletPage/LeftSideBar'
+import RightSideBar from '../../components/WalletPage/RightSideBar'
+import TopBar from '../../components/WalletPage/TopBar'
 import WalletDetail from './WalletDetail'
 
 const Wallet = () => {
