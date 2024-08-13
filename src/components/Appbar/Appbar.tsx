@@ -2,24 +2,24 @@
 
 import Link from 'next/link'
 
+import { FaWallet } from 'react-icons/fa'
+import { Button } from '../ui/button'
 import Logo from '../icons/Logo'
 import { LogOut, Menu, UserRound } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import UserImage from '@/components/Appbar/UserImage'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { FaWallet } from 'react-icons/fa6'
-import { useWallet } from '@solana/wallet-adapter-react'
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import UserImage from "@/components/Appbar/UserImage";
+import {useRouter} from "next/navigation";
 
 const dropDownData = [
   {
@@ -31,24 +31,10 @@ const dropDownData = [
 
 const Appbar = () => {
   const { data } = useSession()
-  const router = useRouter()
-  const [isMounted, setIsMounted] = useState(false)
-  const { connected } = useWallet()
-  useEffect(() => {
-    if (connected) {
-      router.push('/wallet-adapter')
-    }
-    if (!connected) {
-      router.push('/')
-    }
-    setIsMounted(true) // Set mounted state to true after the component mounts
-  }, [connected, router])
-
-  // Prevent rendering until component is mounted
-  if (!isMounted) return null
+  const router = useRouter();
 
   return (
-    <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
+    <header className="flex items-center py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
       <div className="container mx-auto px-4 ">
         <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
           <div>
@@ -136,45 +122,37 @@ const Appbar = () => {
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
 
-                  {dropDownData.map((item, index) => {
-                    return (
-                      <DropdownMenuItem
-                        className="flex gap-2 cursor-pointer text-black/70 hover:text-black transition"
-                        onClick={() => router.push('/profile')}
-                        key={index}
-                      >
-                        <span>{item.icon}</span>
-                        <span>{item.name}</span>
-                      </DropdownMenuItem>
-                    )
-                  })}
-                  <DropdownMenuSeparator />
-                  {data?.user && (
-                    <DropdownMenuItem
-                      onClick={async () => {
-                        await signOut()
-                        router.push('/')
-                      }}
-                      className="flex gap-2 cursor-pointer text-black/70 hover:text-black transition"
-                    >
-                      <LogOut size={15} />
-                      Logout
-                    </DropdownMenuItem>
-                  )}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <>
-                {isMounted && (
-                  <WalletMultiButton
-                    style={{
-                      backgroundColor: 'black',
-                      height: '40px',
-                      borderRadius: '8px',
-                    }}
-                    endIcon={<FaWallet />}
-                  />
-                )}
+                      {dropDownData.map((item, index) => {
+                        return (
+                            <DropdownMenuItem
+                                className="flex gap-2 cursor-pointer text-black/70 hover:text-black transition"
+                                onClick={() => router.push("/profile")}
+                                key={index}
+                            >
+                              <span>{item.icon}</span>
+                              <span>{item.name}</span>
+                            </DropdownMenuItem>
+                        );
+                      })}
+                      <DropdownMenuSeparator />
+                      {data?.user && (
+                          <DropdownMenuItem
+                              onClick={async () => {
+                                await signOut();
+                                router.push("/");
+                              }}
+                              className="flex gap-2 cursor-pointer text-black/70 hover:text-black transition"
+                          >
+                            <LogOut size={15} />
+                            Logout
+                          </DropdownMenuItem>
+                      )}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+              ):<>
+                <Button variant="outline">
+                  <FaWallet className="hover:text-black/80" />
+                </Button>
                 <LoginWithGoogleButton />
               </>
             )}
@@ -183,6 +161,11 @@ const Appbar = () => {
             </span>
           </div>
         </div>
+      </div>
+      <div className="p-4">
+        <Button variant="outline">
+          <WbSunnyOutlinedIcon />
+        </Button>
       </div>
     </header>
   )
