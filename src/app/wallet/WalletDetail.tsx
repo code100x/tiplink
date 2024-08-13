@@ -90,7 +90,7 @@ const WalletDetail = () => {
           <div>
             <div className="p-2">
               <p className="flex justify-center text-slate-800 font-bold text-xl pt-4 pb-1">
-                You don't have any assets yet!
+                You don&apos;t have any assets yet!
               </p>
               <p className="flex justify-center text-gray-300 text-sm pt-2">
                 Start by buying or depositing funds:

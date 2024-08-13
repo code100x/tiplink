@@ -27,7 +27,7 @@ export default function AppWalletProvider({
       // manually add any legacy wallet adapters here
       // new UnsafeBurnerWalletAdapter(),
     ],
-    [network],
+    [],
   )
 
   return (
