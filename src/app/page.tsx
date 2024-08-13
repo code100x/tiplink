@@ -6,7 +6,6 @@ import { ScrollToTopButton } from '@/components/ui/scroll-to-top-button'
 export default function Page() {
   return (
     <>
-      <Appbar />
       <Home />
       <Footer />
       <ScrollToTopButton />
