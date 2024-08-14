@@ -1,9 +1,14 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
 import Image from 'next/image'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const Hero = () => {
+const session = useSession();
+const router = useRouter();
   return (
     <section className="items-center md:mt-40 mt-28">
       <div className="container mx-auto px-4">
@@ -33,7 +38,10 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex items-center justify-center mt-5">
-          <Button className="pl-2 py-6 text-sm md:text-base">
+        {!session?.data?.user?
+          <Button className="pl-2 py-6 text-sm md:text-base" onClick={async()=>{
+            await signIn("google")
+          }} >
             <span className="flex items-center gap-2">
               <div className="px-3 py-2 rounded-lg border bg-white text-black">
                 <FaGoogle />
@@ -41,10 +49,22 @@ const Hero = () => {
               Sign up with Google
             </span>
           </Button>
+          :
+          <Button className="pl-2 py-6 text-sm md:text-base" onClick={()=>{
+            router.push("/wallet");
+          }}>
+          <span className="flex items-center gap-2">
+            <div className="px-3 py-2 rounded-lg border bg-white text-black">
+              <FaGoogle />
+            </div>
+            Continue to Dashboard
+          </span>
+        </Button>
+        }
         </div>
       </div>
     </section>
   )
 }
 
-export default Hero
+export default Hero
