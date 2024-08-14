@@ -52,7 +52,7 @@ const RightSideBar = () => {
           </svg>
           <p>NFTs</p>
         </button>
-        <button className="flex space-x-3 p-2 text-white hover:bg-gray-800 hover:bg-gray-800 rounded-lg md:text-sm">
+        <button className="flex space-x-3 p-2 text-white hover:bg-gray-800  rounded-lg md:text-sm">
           <svg
             className="size-5"
             xmlns="http://www.w3.org/2000/svg"
