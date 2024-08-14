@@ -1,5 +1,6 @@
+'use client'
 import React, { useState } from 'react';
-import LeftSideBar from '../../../components/WalletPage/LeftSideBar';
+import LeftSideBar from './LeftSideBar';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

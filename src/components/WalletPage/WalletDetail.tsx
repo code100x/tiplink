@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 
 const WalletDetail = () => {
@@ -5,7 +6,7 @@ const WalletDetail = () => {
   return (
     <div>
       <div className="pl-5">
-        <div className="flex-2 rounded-lg sm:w-[450px] sm:h-[460px] border-2 p-5 sm:p-10 rounded-[20%]">
+        <div className="flex-2 rounded-lg sm:w-[450px] sm:h-[460px] border-2 p-5 sm:p-10">
           <div className="text-gray-200 mb-4">
             <p className="text-gray-400 text-xs sm:text-sm semi-bold">
               Total Balance
@@ -15,7 +16,7 @@ const WalletDetail = () => {
             $ {money}
           </p>
           <div className="flex space-x-6">
-            <button className="flex justify-center items-center w-[66px] h-[63px] w-[77px] h-[73px] bg-black opacity-80 rounded-[40%] text-white">
+            <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 className="h-8 w-8 text-white-500"
                 width="24"
@@ -32,7 +33,7 @@ const WalletDetail = () => {
                 <path d="M21 3L14.5 21a.55 .55 0 0 1 -1 0L10 14L3 10.5a.55 .55 0 0 1 0 -1L21 3" />
               </svg>
             </button>
-            <button className="flex justify-center items-center w-[66px] h-[63px] w-[77px] h-[73px] bg-black opacity-80 rounded-[40%] text-white">
+            <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -48,7 +49,7 @@ const WalletDetail = () => {
                 />
               </svg>
             </button>
-            <button className="flex justify-center items-center w-[66px] h-[63px] w-[77px] h-[73px] bg-black opacity-80 rounded-[40%] text-white">
+            <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 className="h-8 w-8 text-white-500"
                 fill="none"
