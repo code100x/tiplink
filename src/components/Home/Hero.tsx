@@ -1,9 +1,15 @@
+'use client'
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
 import Image from 'next/image'
+  import { useRouter } from 'next/navigation'
+import { signIn,useSession } from 'next-auth/react'
+import {  WalletCards } from 'lucide-react'
 
 const Hero = () => {
+  const router = useRouter()
+  const user = useSession()
   return (
     <section className="items-center md:mt-40 mt-28">
       <div className="container mx-auto px-4">
@@ -33,14 +39,26 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex items-center justify-center mt-5">
-          <Button className="pl-2 py-6 text-sm md:text-base">
-            <span className="flex items-center gap-2">
-              <div className="px-3 py-2 rounded-lg border bg-white text-black">
-                <FaGoogle />
-              </div>
-              Sign up with Google
-            </span>
-          </Button>
+          {user.data?.user ? (
+            <div>
+
+              <Button className="p-2 py-6 text-sm md:text-base w-[150px]" onClick={()=>{router.push("/wallet")}}>
+              <span className="flex items-center gap-2">
+                <WalletCards/>
+                Wallet
+              </span>
+            </Button>
+            </div>
+          ) : (
+            <Button className="pl-2 py-6 text-sm md:text-base"  onClick={async () => await signIn('google', { callbackUrl: '/wallet' })}>
+              <span className="flex items-center gap-2">
+                <div className="px-3 py-2 rounded-lg border bg-white text-black">
+                  <FaGoogle />
+                </div>
+                Sign up with Google
+              </span>
+            </Button>
+          )}
         </div>
       </div>
     </section>

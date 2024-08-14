@@ -1,27 +1,18 @@
-import LeftSideBar from '../../components/WalletPage/LeftSideBar'
-import RightSideBar from '../../components/WalletPage/RightSideBar'
-import TopBar from '../../components/WalletPage/TopBar'
-import WalletDetail from '../../components/WalletPage/WalletDetail'
+import { ContentSidebar } from "@/components/Wallet-content/ContentSidebar"
+import { DetailsCard } from "@/components/Wallet-content/Wallet-details-card"
 
-const Wallet = () => {
+
+const page = () => {
   return (
-    <div>
-      <div>
-        <TopBar />
+    <div className="max-h-screen lg:grid lg:grid-cols-6 w-full border-2 border-zinc-300">
+      <div className="col-span-1 lg:col-span-4 flex items-center justify-center mt-2" >
+        <DetailsCard/>
       </div>
-      <div className="flex justify-between pt-10">
-        <div className="hidden sm:block">
-          <LeftSideBar />
-        </div>
-        <div>
-          <WalletDetail />
-        </div>
-        <div className="pr-15 hidden md:block">
-          <RightSideBar />
-        </div>
+      <div className="flex items-center justify-center lg:col-span-2">
+        <ContentSidebar/>
       </div>
-    </div>
+     </div>
   )
 }
 
-export default Wallet
+export default page
