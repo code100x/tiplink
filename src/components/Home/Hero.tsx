@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
 import Image from 'next/image'
