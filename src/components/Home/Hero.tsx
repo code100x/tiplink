@@ -53,9 +53,9 @@ const router = useRouter();
           <Button className="pl-2 py-6 text-sm md:text-base" onClick={()=>{
             router.push("/wallet");
           }}>
-          <span className="flex items-center gap-2">
+          <div className="px-3 py-2 rounded-lg bg-black text-white">
              Go to wallet
-          </span>
+          </div>
         </Button>
         }
         </div>
