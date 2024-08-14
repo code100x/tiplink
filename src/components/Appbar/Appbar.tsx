@@ -34,7 +34,6 @@ const Appbar = () => {
   const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
-  console.log(data);
   useEffect(() => {
     if (connected) {
       router.push('/wallet-adapter')
