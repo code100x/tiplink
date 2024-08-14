@@ -1,7 +1,7 @@
 FROM node:20-alpine AS base
 COPY package* .
 COPY ./prisma ./prisma
-RUN npm install && \
+RUN npm ci && \
     npx prisma generate
 
 
