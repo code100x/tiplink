@@ -54,9 +54,6 @@ const router = useRouter();
             router.push("/wallet");
           }}>
           <span className="flex items-center gap-2">
-            <div className="px-3 py-2 rounded-lg border bg-white text-black">
-              <FaGoogle />
-            </div>
              Go to wallet
           </span>
         </Button>
