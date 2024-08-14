@@ -1,7 +1,8 @@
+'use client'
 const LeftSideBar = () => {
   return (
     <div>
-      <div className="flex flex-col space-y-10 pl-4 text-bold pl-0">
+      <div className="flex flex-col space-y-10 pl-4 text-bold">
         <button className="flex space-x-3 p-1 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
           <svg
             className="size-5"
