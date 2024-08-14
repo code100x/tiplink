@@ -20,6 +20,8 @@
     "@prisma/client": "^5.17.0",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/web3.js": "^1.95.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
