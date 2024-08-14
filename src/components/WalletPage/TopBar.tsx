@@ -1,3 +1,5 @@
+"use client"
+
 import Logo from '../icons/Logo'
 import Sidebar from './Sidebar'
 
