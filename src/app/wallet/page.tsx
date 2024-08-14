@@ -1,8 +1,7 @@
-'use client'
 import LeftSideBar from '../../components/WalletPage/LeftSideBar'
 import RightSideBar from '../../components/WalletPage/RightSideBar'
 import TopBar from '../../components/WalletPage/TopBar'
-import WalletDetail from './WalletDetail'
+import WalletDetail from '../../components/WalletPage/WalletDetail'
 
 const Wallet = () => {
   return (
