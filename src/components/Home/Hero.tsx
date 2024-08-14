@@ -57,7 +57,7 @@ const router = useRouter();
             <div className="px-3 py-2 rounded-lg border bg-white text-black">
               <FaGoogle />
             </div>
-            Continue to Dashboard
+             Go to wallet
           </span>
         </Button>
         }
