@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { FaGoogle } from 'react-icons/fa6'
 import Image from 'next/image'
+import Appbar from '../Appbar/Appbar'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
@@ -11,6 +12,7 @@ const session = useSession();
 const router = useRouter();
   return (
     <section className="items-center md:mt-40 mt-28">
+      <Appbar />
       <div className="container mx-auto px-4">
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
