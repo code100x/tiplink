@@ -1,18 +1,39 @@
-import { Keypair, Transaction } from '@solana/web3.js';
+"use server"
+import { Keypair, Transaction } from "@solana/web3.js";
+import prisma from "@/db";
+import { User } from "@prisma/client";
 
 
-
-export function createKeypair() {
-    const keypair = Keypair.generate();
-    return {
-        publicKey: keypair.publicKey,
-        secretKey: keypair.secretKey   //uint8Array
-        // secretKey: Buffer.from(keypair.secretKey).toString('base64'),    string
-    };
+export async function createWallet(user: User ) {
+    const existingWallet = await prisma.user.findUnique({
+        where: {
+          id: user.id
+        },
+        select: {
+          publicKey: true
+        }
+    })
+    if (!existingWallet) {
+        try { 
+            const keypair = Keypair.generate();
+            const publicKey = keypair.publicKey.toString()
+            await prisma.user.update({
+                where: {
+                    id: user.id
+                },
+                data: {
+                    publicKey: publicKey
+                }
+            })
+            return publicKey
+        } catch(error) {
+            throw new Error(`Failed to create wallet: ${error}`);
+        }
+    }
 }
 
 // reconstrucitng keypair from secret key as 1:1 mapping is maintained between secret key and keypair
-export function createKeypairFromSecretKey(secretKey: Uint8Array) {
+export async function getKeypairFromSecretKey(secretKey: Uint8Array) {
     const keypair = Keypair.fromSecretKey(secretKey);
     return {
         publicKey: keypair.publicKey,
@@ -20,10 +41,7 @@ export function createKeypairFromSecretKey(secretKey: Uint8Array) {
     };
 }
 
-
-// creating a function to sign a transaction
-
-export function signTransaction(transaction: Transaction, secretKey: Uint8Array) {
+export async function signTransaction(transaction: Transaction, secretKey: Uint8Array) {
     // we need to reconstruct the keypair from the secret key to sign the transaction only public key won't work
     const keypair = Keypair.fromSecretKey(secretKey); 
     transaction.sign(keypair);
