@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 const WalletDetail = () => {
-  const [money, setMoney] = useState(2122.1)
+  const [money, setMoney] = useState(2122.1) //TODO
   return (
     <div>
       <div className="pl-5">
