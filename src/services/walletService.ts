@@ -13,7 +13,7 @@ export async function createWallet(user: User ) {
           publicKey: true
         }
     })
-    if (!existingWallet) {
+    if (!existingWallet?.publicKey) {
         try { 
             const keypair = Keypair.generate();
             const publicKey = keypair.publicKey.toString()
