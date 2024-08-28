@@ -1,10 +1,9 @@
-import { split as shamirSplit } from 'shamir-secret-sharing';
+import { split as shamirSplit , combine as shamirCombine } from 'shamir-secret-sharing';
 
 interface SecretShares {
     userShareString: string;
     platformShare1String: string;
     platformShare2String: string;
-    platformShare3String: string;
 }
 
 async function splitSecret(secretKey: Uint8Array): Promise<SecretShares>  {
@@ -13,18 +12,17 @@ async function splitSecret(secretKey: Uint8Array): Promise<SecretShares>  {
     }
     
     try {
-        // Split the secret into 4 parts with a threshold of 4
-        const shares = await shamirSplit(secretKey, 4, 4);
+        // Split the secret into 3 parts with a threshold of 3
+        const shares = await shamirSplit(secretKey, 3, 3);
 
-        const [usershare, platformShare1, platformShare2, platformShare3] = shares;
+        const [usershare, platformShare1, platformShare2] = shares;
 
         // Convert Uint8Array shares to strings
         const userShareString = Buffer.from(usershare).toString('hex');
         const platformShare1String = Buffer.from(platformShare1).toString('hex');
         const platformShare2String = Buffer.from(platformShare2).toString('hex');
-        const platformShare3String = Buffer.from(platformShare3).toString('hex');
         
-        return { userShareString, platformShare1String ,platformShare2String , platformShare3String };
+        return { userShareString, platformShare1String, platformShare2String };
     
     } catch (error) {
         console.error('Error splitting and encrypting secret:', error);
@@ -33,3 +31,23 @@ async function splitSecret(secretKey: Uint8Array): Promise<SecretShares>  {
 }
 
 
+async function combineSecret(userShareString: string, platformShare1String: string, platformShare2String: string): Promise<Uint8Array> {
+    if (!userShareString || !platformShare1String || !platformShare2String) {
+        throw new Error('Shares are undefined');
+    }
+
+    try {
+        // Combine the shares to reconstruct the secret
+        const shares = [
+            Buffer.from(userShareString, 'hex'),
+            Buffer.from(platformShare1String, 'hex'),
+            Buffer.from(platformShare2String, 'hex')
+        ];
+
+        const secret = shamirCombine(shares);
+        return secret;
+    } catch (error) {
+        console.error('Error combining and decrypting secret:', error);
+        throw(error)
+    }
+}
