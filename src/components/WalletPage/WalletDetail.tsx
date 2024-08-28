@@ -9,9 +9,7 @@ interface WalletDetailProps {
 
 const WalletDetail = ({ wallet }: WalletDetailProps) => {
   const [money, setMoney] = useState<number | null>(null)
-  const customRpcUrl =
-    process.env.NEXT_PUBLIC_SOLANA_RPC ||
-    'https://solana-mainnet.g.alchemy.com/v2/ZdxMDAp5HFXaA84BtnP6a4ClFClk-81p'
+  const customRpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC || ''
 
   useEffect(() => {
     fetchBalance()
