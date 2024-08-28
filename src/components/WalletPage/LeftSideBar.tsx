@@ -3,7 +3,7 @@ const LeftSideBar = () => {
   return (
     <div>
       <div className="flex flex-col space-y-10 pl-4 text-bold">
-        <button className="flex space-x-3 p-1 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex space-x-3 p-1 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ const LeftSideBar = () => {
           </svg>
           <p className="text-bold">Wallet</p>
         </button>
-        <button className="flex  space-x-1 sm:space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex  space-x-1 sm:space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-5"
             fill="none"
@@ -34,7 +34,7 @@ const LeftSideBar = () => {
           </svg>
           <p>Swap</p>
         </button>
-        <button className="flex space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const LeftSideBar = () => {
           </svg>
           <p>Wallet Adapter</p>
         </button>
-        <button className="flex  space-x-3 p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex  space-x-3 p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-3 sm:size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const LeftSideBar = () => {
           </svg>
           <p>API</p>
         </button>
-        <button className="flex space-x-3 p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex space-x-3 p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const LeftSideBar = () => {
           <p>Pro Version</p>
         </button>
         <hr className="border-1"></hr>
-        <button className="flex space-x-3 p-2 sm:text-black text-bold text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex space-x-3 p-2 sm:text-black text-bold text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-5"
             viewBox="0 0 576 512"
@@ -96,7 +96,7 @@ const LeftSideBar = () => {
           </svg>
           <p>KeyBoard Shortcuts</p>
         </button>
-        <button className="flex space-x-3  p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button className="flex space-x-3  p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg items-center">
           <svg
             className="size-3 sm:size-5"
             xmlns="http://www.w3.org/2000/svg"
