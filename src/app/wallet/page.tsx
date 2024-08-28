@@ -8,6 +8,8 @@ import prisma from '@/db'
 const Wallet = async() => {
   const session = await getServerSession()
 
+  let wallet
+
   if(session){
     const email = session.user?.email ?? undefined
     const user = await prisma.user.findUnique({
@@ -16,8 +18,7 @@ const Wallet = async() => {
       }
     }) 
     if(user){
-      const wallet = await createWallet(user)
-      console.log(wallet)
+      wallet = user?.publicKey ? user.publicKey : await createWallet(user)
     }
   }
   
@@ -31,7 +32,7 @@ const Wallet = async() => {
           <LeftSideBar />
         </div>
         <div>
-          <WalletDetail />
+          <WalletDetail wallet={wallet}/>
         </div>
         <div className="pr-15 hidden md:block">
           <RightSideBar />

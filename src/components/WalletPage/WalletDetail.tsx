@@ -1,8 +1,43 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 
-const WalletDetail = () => {
-  const [money, setMoney] = useState(2122.1) //TODO
+interface WalletDetailProps {
+  wallet?: string
+}
+
+const WalletDetail = ({ wallet }: WalletDetailProps) => {
+  const [money, setMoney] = useState<number | null>(null)
+  const customRpcUrl =
+    process.env.NEXT_PUBLIC_SOLANA_RPC ||
+    'https://solana-mainnet.g.alchemy.com/v2/ZdxMDAp5HFXaA84BtnP6a4ClFClk-81p'
+
+  useEffect(() => {
+    fetchBalance()
+  }, [])
+
+  const fetchBalance = async () => {
+    if (!customRpcUrl) {
+      console.error('RPC URL is not defined.')
+      return
+    }
+
+    try {
+      const res = await axios.post(customRpcUrl, {
+        jsonrpc: '2.0',
+        id: 1,
+        method: 'getBalance',
+        params: [`${wallet}`],
+      })
+      const balance = res?.data?.result?.value
+      const solBalance = balance / LAMPORTS_PER_SOL
+      setMoney(solBalance)
+    } catch (error) {
+      console.error('Failed to fetch balance:', error)
+    }
+  }
+
   return (
     <div>
       <div className="pl-5">
@@ -12,9 +47,15 @@ const WalletDetail = () => {
               Total Balance
             </p>
           </div>
-          <p className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
-            $ {money}
-          </p>
+          <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
+            {money === null ? (
+              <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
+                {''}
+              </div>
+            ) : (
+              `$ ${money}`
+            )}
+          </div>
           <div className="flex space-x-6">
             <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
