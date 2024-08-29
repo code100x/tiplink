@@ -2,8 +2,8 @@ FROM node:20-alpine AS base
 COPY package* .
 COPY ./prisma ./prisma
 RUN npm install && \
-    npx prisma generate
-
+    npx prisma generate && \
+    npx prisma db push
 
 FROM node:20-alpine AS development
 WORKDIR /app
@@ -33,4 +33,3 @@ CMD ["npm","run", "start"]
 
 
 EXPOSE 3000
-
