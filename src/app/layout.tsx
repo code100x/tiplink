@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>
-          <NextTopLoader color="#333" />
           <AppWalletProvider>
+        <body className={`${inter.className}  h-[100vh]`}>
+          <NextTopLoader color="#333" />
             {children}
-          </AppWalletProvider>
         </body>
+          </AppWalletProvider>
       </Providers>
     </html>
   )
