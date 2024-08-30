@@ -1,8 +1,11 @@
 'use client'
-import { useState } from 'react'
 
-const WalletDetail = () => {
-  const [money, setMoney] = useState(2122.1) //TODO
+interface WalletDetailProps {
+  wallet?: string
+  balance?: number
+}
+
+const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
   return (
     <div>
       <div className="pl-5">
@@ -12,9 +15,15 @@ const WalletDetail = () => {
               Total Balance
             </p>
           </div>
-          <p className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
-            $ {money}
-          </p>
+          <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
+            {balance === null ? (
+              <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
+                {''}
+              </div>
+            ) : (
+              `$ ${balance}`
+            )}
+          </div>
           <div className="flex space-x-6">
             <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
