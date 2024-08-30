@@ -5,19 +5,17 @@ import WalletDetail from '../../components/WalletPage/WalletDetail'
 
 const Wallet = () => {
   return (
-    <div>
-      <div>
+    <div className="h-full flex flex-col ">
         <TopBar />
-      </div>
-      <div className="flex justify-between pt-10">
-        <div className="hidden sm:block">
+      <div className="flex justify-between  grow ">
+        <div className="hidden sm:block w-1/5">
           <LeftSideBar />
         </div>
-        <div>
+        <div className=" w-4/5 flex justify-center items-center">
           <WalletDetail />
         </div>
-        <div className="pr-15 hidden md:block">
-          <RightSideBar />
+        <div className=" hidden md:block">
+          {/* <RightSideBar /> */}
         </div>
       </div>
     </div>
