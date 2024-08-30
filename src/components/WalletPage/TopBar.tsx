@@ -37,7 +37,7 @@ const TopBar = () => {
       </div>
       <div className="pl-[5%] sm:pl-[30%] pt-3 sm:pt-0 ">
         <input
-          className="bg-black rounded-full p-2 w-[70%] sm:w-[150%] lg text-white"
+          className="bg-black rounded-full px-3 py-2 w-[70%] sm:w-[150%] lg text-white"
           placeholder="search"
         ></input>
       </div>

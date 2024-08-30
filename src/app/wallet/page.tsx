@@ -3,24 +3,26 @@ import LeftSideBar from '../../components/WalletPage/LeftSideBar'
 import RightSideBar from '../../components/WalletPage/RightSideBar'
 import TopBar from '../../components/WalletPage/TopBar'
 import WalletDetail from '../../components/WalletPage/WalletDetail'
-import { createWallet } from '@/services/walletService'
+import { createWallet, fetchUserBalance } from '@/services/walletService'
 import prisma from '@/db'
-const Wallet = async() => {
+const Wallet = async () => {
   const session = await getServerSession()
 
-  if(session){
+  let wallet, balance
+
+  if (session) {
     const email = session.user?.email ?? undefined
     const user = await prisma.user.findUnique({
       where: {
-        email: email
-      }
-    }) 
-    if(user){
-      const wallet = await createWallet(user)
-      console.log(wallet)
+        email: email,
+      },
+    })
+    if (user) {
+      wallet = user?.publicKey ? user.publicKey : await createWallet(user)
+      balance = await fetchUserBalance(wallet)
     }
   }
-  
+
   return (
     <div>
       <div>
@@ -31,7 +33,7 @@ const Wallet = async() => {
           <LeftSideBar />
         </div>
         <div>
-          <WalletDetail />
+          <WalletDetail wallet={wallet} balance={balance} />
         </div>
         <div className="pr-15 hidden md:block">
           <RightSideBar />
