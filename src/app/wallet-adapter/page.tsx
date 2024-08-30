@@ -140,7 +140,7 @@ const page = () => {
                 className="bg-background p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <p className="mb-4 italic">"{testimonial.quote}"</p>
+                <p className="mb-4 italic">{testimonial.quote}</p>
                 <p className="font-semibold">{testimonial.name}</p>
                 <p className="text-sm text-foreground/60">{testimonial.role}</p>
               </div>
