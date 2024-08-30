@@ -1,7 +1,6 @@
 "use client"
 
 import Logo from '../icons/Logo'
-import Sidebar from './Sidebar'
 
 import { useSession } from 'next-auth/react'
 import {
@@ -10,27 +9,52 @@ import {
 } from '@radix-ui/react-dropdown-menu'
 import { UserRound } from 'lucide-react'
 import UserImage from '@/components/Appbar/UserImage'
+import { useState } from 'react'
+import LeftSideBar from './LeftSideBar'
 
 const TopBar = () => {
   const { data } = useSession()
+  const [open,setOpen]=useState(false);
   return (
-    <div className="flex sm:p-5 sm:pb-0">
+    <div className="flex justify-between p-2 items-center border-b-[1px] h-[4rem]">
       <div className="block sm:hidden">
-        <Sidebar />
+        {/* <Sidebar /> */}
+        <button
+            className="
+                       text-black font-bold py-2 px-4 rounded"
+            onClick={() => setOpen(!open)}>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            
+          </button>
+        {}
       </div>
-      <div className="hidden sm:block border h-6 w-6 sm:h-10 sm:w-10 rounded-lg inline-flex justify-center items-center">
+      <div className="block sm:hidden">
+       {open?<div className="bg-[#1c1c1cd3] bg-blur-md transition-y mt-9 duration-300 z-10  w-[95%] h-[88%] fixed left-1/2  m-0 rounded-md overflow-hidden origin-top -translate-x-1/2"><LeftSideBar/></div>:<>
+       </>}
+      </div>
+      <div className="hidden sm:block  ">
         <Logo className="h-4 w-4 sm:h-8 sm:w-8" fill="#000000" />
       </div>
-      <div className="pl-[5%] sm:pl-[30%] pt-3 sm:pt-0 ">
+      <div className="hidden sm:block sm:w-1/2 md:w-[50%] ">
         <input
-          className="bg-black rounded-full p-2 w-[70%] sm:w-[150%] lg text-white"
+          className="rounded-full p-2 border-[1px] w-full  text-center "
           placeholder="search"
-        ></input>
+        />
       </div>
-      <div className="sm:pl-[50%] pt-3 sm:pt-0">
+      <div className="">
         {data && data?.user && (
           <DropdownMenu>
-            <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition">
+            <DropdownMenuTrigger className=" flex items-center   justify-center  transition">
               {!data?.user.image ? (
                 <div className="p-1 border-2 rounded-md">
                   <UserRound />
