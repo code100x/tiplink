@@ -1,4 +1,3 @@
-
 ---
 
 # Contributing to Tiplink
@@ -27,13 +26,14 @@ We’re excited that you want to contribute to Tiplink! To make the process smoo
 5. **Test Locally**: Test your changes locally to ensure they work as expected.
 
 6. **Commit Changes**: Add the changes to the branch you just created and commit your changes with a clear and concise commit message.
-   ```bash
+```bash
+   git commit -m "Describe your changes here"
    git add "name of the file you add or edit"
    git commit -m "Add your detailed description here"
    ```
 
 7. **Push Changes**: Push your changes to your forked repository.
-   ```bash
+```bash
    git push origin your-branch-name
    ```
 

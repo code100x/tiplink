@@ -1,10 +1,13 @@
-version: '3.8'
+name: 'docker-dev'
 services:
   ethlink:
-    image: tiplink
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      # target: production # uncomment for production build
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:/app
       - /app/node_modules
@@ -17,7 +20,7 @@ services:
   postgres:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - '5432:5432'
     restart: always
     environment:
       POSTGRES_DB: mydatabase
