@@ -7,7 +7,7 @@ interface WalletDetailProps {
 
 const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
   return (
-    <div>
+    <div className="mt-10">
       <div className="pl-5">
         <div className="flex-2 rounded-lg sm:w-[450px] sm:h-[460px] border-2 p-5 sm:p-10">
           <div className="text-gray-200 mb-4">
