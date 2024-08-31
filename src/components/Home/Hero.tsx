@@ -12,7 +12,7 @@ const session = useSession();
 const router = useRouter();
   return (
     <section className="items-center md:mt-40 mt-28">
-      <Appbar />
+    
       <div className="container mx-auto px-4">
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
@@ -21,12 +21,14 @@ const router = useRouter();
           width={50}
           height={50}
         />
+        {/* improves the postion */}
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236912/eth_la99pn.svg"
           alt=""
-          className="absolute md:right-[20%] right-[10%] lg:right-[28%] rotate-12 md:top-[26%] top-[34%] lg:top-[34%]"
+          className="absolute md:right-[20%] right-[10%] lg:right-[28%] rotate-12 md:top-[24%] top-[24%] lg:top-[24%]"
           width={50}
           height={50}
+          
         />
         <div className="max-w-[600px] lg:max-w-[900px] mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center">
