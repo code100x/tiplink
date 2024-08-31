@@ -73,7 +73,7 @@ const TopBar = () => {
           placeholder="search"
         />
       </div>
-      {data?.user && (
+      {data && data?.user ? (
         <DropdownMenu>
           <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition outline-none">
             {!data?.user.image ? (
@@ -133,6 +133,10 @@ const TopBar = () => {
             )}
           </DropdownMenuContent>
         </DropdownMenu>
+      ) : (
+        <div className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition outline-none">
+          <div className="p-4 border-2 rounded-full bg-gray-300 animate-pulse"></div>
+        </div>
       )}
     </div>
   )
