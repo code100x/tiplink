@@ -48,11 +48,11 @@ const Appbar = () => {
   if (!isMounted) return null
 
   return (
-    <header className="py-4 border-b md:border-none fixed top-0 left-0 right-0 z-10 bg-white md:bg-white/0">
-      <div className="container pl-32 px-4">
+    <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 ">
+      <div className="container pl-32 px-4 ">
         <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
           <div>
-            <div className="border h-10 w-10 rounded-lg inline-flex justify-center zitems-center">
+            <div className="border h-10 w-10 rounded-lg inline-flex justify-center items-center">
               <Logo className="h-8 w-8" fill="#000000" />
             </div>
           </div>
@@ -149,7 +149,7 @@ const Appbar = () => {
 
                     <div className="flex flex-col">
                       <span className="max-w-[200px]">{data?.user?.name}</span>
-                      <span className="text-[0.8rem] max-w-[200px] text-gray-400">
+                      <span className="text-[0.8rem] max-w-[200px] text-gray-400 break-all">
                         {data?.user?.email}
                       </span>
                     </div>
