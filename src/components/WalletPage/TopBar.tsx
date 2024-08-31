@@ -3,7 +3,7 @@
 import Logo from '../icons/Logo'
 import Sidebar from './Sidebar'
 import { useRouter } from 'next/navigation'
-import { LogOut,UserRound } from 'lucide-react'
+import { LogOut, UserRound } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import {
   DropdownMenu,
@@ -18,8 +18,7 @@ import { useState } from 'react'
 import LeftSideBar from './LeftSideBar'
 
 const TopBar = () => {
-  const router = useRouter();
-
+  const router = useRouter()
   const { data } = useSession()
   const [open,setOpen]=useState(false);
   return (
@@ -49,8 +48,12 @@ const TopBar = () => {
        {open?<div className="bg-[#1c1c1cd3] bg-blur-md transition-y mt-9 duration-300 z-10  w-[95%] h-[88%] fixed left-1/2  m-0 rounded-md overflow-hidden origin-top -translate-x-1/2"><LeftSideBar/></div>:<>
        </>}
       </div>
-      <div className="hidden sm:block border h-6 w-6 sm:h-10 sm:w-10 rounded-lg justify-center items-center">
-        <Logo className="h-4 w-4 sm:h-8 sm:w-8" fill="#000000" />
+
+      {/* Logo */}
+      <div className="flex items-center sm:flex-none">
+        <div className="border h-6 w-6 sm:h-10 sm:w-10 rounded-lg flex justify-center items-center">
+          <Logo className="h-4 w-4 sm:h-8 sm:w-8" fill="#000000" />
+        </div>
       </div>
       <div className="hidden sm:block sm:w-1/2 md:w-[50%] ">
         <input

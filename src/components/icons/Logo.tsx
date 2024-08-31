@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className, fill }) => (
-  <Link href='/'>
+  <Link href='/' className='flex justify-center items-center'>
     <svg
       viewBox="0 0 120 120"
       fill="none"

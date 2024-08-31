@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white p-10">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="">
+      <div className="bg-black mx-auto p-8 md:p-10 md:w-11/12  md:rounded-tl-[40px] md:rounded-tr-[40px] max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <div className="bg-black border border-white/25 rounded-md shadow-inner shadow-white/55 h-10 w-10 flex items-center justify-center">
