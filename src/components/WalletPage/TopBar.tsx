@@ -1,7 +1,6 @@
 "use client"
 
 import Logo from '../icons/Logo'
-import Sidebar from './Sidebar'
 import { useRouter } from 'next/navigation'
 import { LogOut,UserRound } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
