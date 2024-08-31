@@ -31,11 +31,83 @@ Tiplink is a decentralized application (dApp) designed to create and manage Sola
 
 ## Getting Started
 
-To get started with the Tiplink, follow these steps:
+Using Docker:
 
-1. **Clone the repository:** `git clone https://github.com/code100x/tiplink`
-2. **Install dependencies:** `npm install`
-3. **Start the application:** `npm run dev`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/code100x/tiplink
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd tiplink
+   ```
+3. Create a .env file in the root folder of your project. Update it following the convention of the .env.example file. 
+   Here's an example:
+   ```bash
+    CLIENT_SECRET = '' #Get it from Google developers console
+    CLIENT_ID = '' #Get it from Google developers console
+    NEXTAUTH_SECRET = '' 
+    NEXTAUTH_URL = '' #Your frontend base URL
+    #DATABASE_URL = 'postgresql://postgres:password@localhost:5432/mydatabase'   
+    DATABASE_URL = 'postgresql://postgres:password@postgres:5432/mydatabase'  #Use this for setting up docker
+    NEXT_PUBLIC_SOLANA_RPC = '' #Your Custom Solana RPC URL
+   ```
+4. To generate AUTH_SECRET,
+
+   Run this command in your terminal:
+
+   ```bash
+   openssl rand -base64 33
+   ```
+
+   or
+
+   [Run in browser](https://www.cryptool.org/en/cto/openssl/)
+
+5. Run the following command in your root to start the application:
+   ```bash
+   docker compose up
+   ```
+Without Docker
+
+### Without Docker
+
+1. clone the repository:
+   ```bash
+   git clone https://github.com/code100x/tiplink.git
+   ```
+
+2. (optional) Start a PostgreSQL database using Docker:
+   ```bash
+   docker run -d \
+       --name tiplink-db \
+       -e POSTGRES_USER=myuser \
+       -e POSTGRES_PASSWORD=mypassword \
+       -e POSTGRES_DB=mydatabase \
+       -p 5432:5432 \
+       postgres
+   ```
+   based on this command the connection url will be
+   ```
+   DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydatabase?schema=public
+   ```
+3. Create a .env file based on the .env.example file and configure the DATABASE_URL with your postgreSQL connection string.
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Run database migrations:
+   ```bash
+   npx prisma generate
+   ```
+6. Seed the database:
+   ```bash
+   npm run db:push
+   ```
+7. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Contributing
 
