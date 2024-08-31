@@ -8,8 +8,7 @@ COPY package*.json ./
 COPY ./prisma ./prisma
 RUN apk add --no-cache python3 make g++ libusb-dev linux-headers eudev-dev \
     && npm install --only=production \
-    && npx prisma generate \
-    && npm rebuild
+    && npx prisma generate
 
 FROM node:20-alpine AS development
 ENV DATABASE_URL=$DATABASE_URL
