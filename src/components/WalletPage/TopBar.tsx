@@ -23,7 +23,7 @@ const TopBar = () => {
   const { data } = useSession()
   const [open,setOpen]=useState(false);
   return (
-    <div className="flex justify-between p-2 items-center border-b-[1px] h-[4rem]">
+    <div className="flex justify-between py-2 px-10 items-center border-b-[1px] h-[4rem]">
       <div className="block sm:hidden">
         {/* <Sidebar /> */}
         <button
@@ -61,7 +61,7 @@ const TopBar = () => {
       <div className="">
         {data && data?.user && (
           <DropdownMenu>
-            <DropdownMenuTrigger className=" flex items-center   justify-center  transition">
+            <DropdownMenuTrigger className=" w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition">
               {!data?.user.image ? (
                 <div className="p-1 border-2 rounded-md">
                   <UserRound />
