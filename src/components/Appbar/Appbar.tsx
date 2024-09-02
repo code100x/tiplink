@@ -122,7 +122,7 @@ const Appbar = () => {
             }
             {data && data?.user ? (
               <DropdownMenu>
-                <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition">
+                <DropdownMenuTrigger asChild className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition">
                   {!data?.user.image ? (
                     <div className="p-1 border-2 rounded-md">
                       <UserRound />
