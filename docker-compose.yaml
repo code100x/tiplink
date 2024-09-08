@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
       target: development
       # target: production # uncomment for production build
+      args:
+        DATABASE_URL: ${DATABASE_URL}
     ports:
       - '3000:3000'
     volumes:
