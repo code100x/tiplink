@@ -35,6 +35,7 @@ model Session {
 
 model User {
   id            String       @id @default(uuid())
+  publicKey     String?
   name          String?
   email         String?   @unique
   emailVerified DateTime?
