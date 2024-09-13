@@ -35,12 +35,12 @@ const Appbar = () => {
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
   useEffect(() => {
-    // if (connected) {
-    //   router.push('/wallet-adapter')
-    // }
-    // if (!connected) {
-    //   router.push('/')
-    // }
+    if (connected) {
+      router.push('/wallet-adapter')
+    }
+    if (!connected) {
+      router.push('/')
+    }
     setIsMounted(true) // Set mounted state to true after the component mounts
   }, [connected, router])
 
