@@ -37,19 +37,19 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
-      <Card className="w-full max-w-md mx-auto bg-black border-gray-800">
+    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-black">
+      <Card className="w-full max-w-md mx-auto bg-white dark:bg-black border-gray-200 dark:border-gray-800">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-white">
+          <CardTitle className="text-2xl font-bold text-black dark:text-white">
             Sign Up / Sign In
           </CardTitle>
-          <CardDescription className="text-gray-300">
+          <CardDescription className="text-gray-600 dark:text-gray-300">
             Click on Google Sign in as we only support Google Sign-In for now
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Button
-            className="w-full bg-white text-black hover:bg-gray-200"
+            className="w-full dark:bg-white bg-gray-800 dark:text-black text-white hover:bg-gray-400 dark:hover:bg-gray-400 hover:text-black border border-gray-300 dark:border-gray-600"
             variant="outline"
             onClick={handleGoogleSignIn}
             disabled={loading}
@@ -66,18 +66,18 @@ export default function SignIn() {
           </Button>
         </CardContent>
         <CardFooter className="flex justify-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             By signing up, you agree to our{' '}
             <a
               href="#"
-              className="underline underline-offset-4 hover:text-gray-200"
+              className="underline underline-offset-4 hover:text-black dark:hover:text-gray-200"
             >
               Terms of Service
             </a>{' '}
             and{' '}
             <a
               href="#"
-              className="underline underline-offset-4 hover:text-gray-200"
+              className="underline underline-offset-4 hover:text-black dark:hover:text-gray-200"
             >
               Privacy Policy
             </a>
