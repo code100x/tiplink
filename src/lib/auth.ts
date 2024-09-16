@@ -15,9 +15,9 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 
   // Uncomment the following lines when add custom signin page added
-  // pages: {
-  //   signIn: '/signin',
-  // },
+  pages: {
+    signIn: '/signin',
+  },
 
   session: {
     strategy: 'jwt' as SessionStrategy,
