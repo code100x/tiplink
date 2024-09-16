@@ -38,7 +38,6 @@ body {
   }
 }
 
-
 .scrollToTheTop {
   position: fixed;
   bottom: 30px;
@@ -67,4 +66,3 @@ body {
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
 }
-
