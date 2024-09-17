@@ -42,9 +42,9 @@ model User {
   image             String?
   accounts          Account[]
   sessions          Session[]
-  privateKeyShare1  String?
-  privateKeyShare2  String?
-  privateKeyShare3  String?
+  aesShare String?
+  awsShare  String?
+  gcpShare  String?
 }
 
 model VerificationToken {
