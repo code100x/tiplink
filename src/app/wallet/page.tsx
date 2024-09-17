@@ -25,12 +25,14 @@ const Wallet = async () => {
 
   return (
     <div className="h-full flex flex-col ">
+      <div className='border-2'>
         <TopBar />
+      </div>
       <div className="flex justify-between  grow ">
-        <div className="hidden sm:block w-1/5">
+        <div className="hidden sm:block min-w-max md:w-1/5">
           <LeftSideBar />
         </div>
-        <div>
+        <div className='mx-auto px-4'>
           <WalletDetail wallet={wallet} balance={balance} />
         </div>
         <div className=" hidden md:block">

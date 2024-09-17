@@ -31,7 +31,7 @@ const TopBar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="flex justify-between p-2 items-center border-b-[1px] h-[4rem]">
+    <div className="flex justify-between p-2 items-center border-b-[1px] h-[4rem] md:w-4/5 md:mx-auto">
       <div className="block sm:hidden">
         {/* <Sidebar /> */}
         <button

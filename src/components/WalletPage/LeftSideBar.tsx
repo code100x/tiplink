@@ -112,12 +112,12 @@ title:"Setting"
 },]
 
 const LeftSideBar = () => 
-      <div className="flex flex-col justify-between space-y-2  text-bold border-r-2 h-full pt-2 ">
+      <div className="flex flex-col justify-between space-y-4  text-bold border-r-2 h-full pt-2">
        <div>
         {PrimaryOptions.map((option,index)=>
-        <button key={index} className="flex w-[90%] mx-2 space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button key={index} className="flex w-[90%] mx-2 my-3 space-x-3 px-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg transition duration-500 ease-in-out">
         {option.svg}
-        <p className="text-bold">{option.title}</p>
+        <p className="text-bold sm:text-sm md:text-base">{option.title}</p>
       </button>
         )}
        </div>
@@ -125,9 +125,9 @@ const LeftSideBar = () =>
         <div className="pb-2">
         <hr className="border-1 mb-2"></hr>
         {SecondaryOption.map((option,index)=>
-        <button key={index} className="flex w-[90%] mx-2 space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg">
+        <button key={index} className="flex items-center w-[90%] mx-2 my-3 space-x-3 p-1 sm:p-2 text-white sm:text-black hover:bg-black hover:text-white rounded-lg transition duration-500 ease-in-out whitespace-nowrap">
         {option.svg}
-        <p className="text-bold">{option.title}</p>
+        <p className="text-bold sm:text-sm md:text-base">{option.title}</p>
       </button>
         )}
         </div>

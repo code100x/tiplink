@@ -7,15 +7,15 @@ interface WalletDetailProps {
 
 const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
   return (
-    <div className="mt-10">
-      <div className="pl-5">
-        <div className="flex-2 rounded-lg sm:w-[450px] sm:h-[460px] border-2 p-5 sm:p-10">
+    <div className="mt-5">
+      <div>
+        <div className="flex-2 rounded-lg sm:w-auto md:w-[520px] h-auto border-2 p-5 shadow-lg hover:shadow-xl">
           <div className="text-gray-200 mb-4">
             <p className="text-gray-400 text-xs sm:text-sm semi-bold">
               Total Balance
             </p>
           </div>
-          <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
+          <div className="font-bold text-black opacity-80 text-xl sm:text-4xl md:text-7xl mb-8">
             {balance === null ? (
               <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
                 {''}
@@ -24,7 +24,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
               `$ ${balance}`
             )}
           </div>
-          <div className="flex space-x-6">
+          <div className="flex justify-between space-x-6 mt-4">
+            <div className="flex flex-col">
             <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 className="h-8 w-8 text-white-500"
@@ -42,6 +43,9 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
                 <path d="M21 3L14.5 21a.55 .55 0 0 1 -1 0L10 14L3 10.5a.55 .55 0 0 1 0 -1L21 3" />
               </svg>
             </button>
+            <span className="text-base mt-1 mx-auto">Swap</span>
+            </div>
+            <div className="flex flex-col">
             <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +62,10 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
                 />
               </svg>
             </button>
+            <span className="text-base mt-1 mx-auto">Receive</span>
+            </div>
+            <div className="flex flex-col">
+
             <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 className="h-8 w-8 text-white-500"
@@ -73,7 +81,11 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
                 />
               </svg>
             </button>
-            <button className="flex justify-center items-center w-[66px] h-[63px] sm:w-[77px] sm:h-[73px] bg-black opacity-80 rounded-[40%] text-white">
+            <span className="text-base mt-1 mx-auto">Buy</span>
+            </div>
+            <div className="flex flex-col">
+
+            <button className="flex justify-center items-center w-[66px] h-[63px] bg-black opacity-80 rounded-[40%] text-white">
               <svg
                 className="h-8 w-8 text-white-500"
                 fill="none"
@@ -88,6 +100,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
                 />
               </svg>
             </button>
+            <span className="text-base mt-1 mx-auto">Swap</span>
+            </div>
           </div>
           <div className="flex justify-center pt-4">
             <div className="flex bg-gray-200 w-[100%] h-[12%] pt-2 rounded-lg space-x-16 p-2">
