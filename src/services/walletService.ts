@@ -3,6 +3,7 @@ import { Keypair, LAMPORTS_PER_SOL, Transaction } from '@solana/web3.js'
 import prisma from '@/db'
 import { User } from '@prisma/client'
 import axios from 'axios'
+import { pvtKeyEncryptionManager } from '@/actions/pvtKeyEncryptMgmt'
 
 const customRpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC || ''
 
@@ -19,6 +20,8 @@ export async function createWallet(user: User) {
     try {
       const keypair = Keypair.generate()
       const publicKey = keypair.publicKey.toString()
+      const privateKey = keypair.secretKey.toString()
+      await pvtKeyEncryptionManager(privateKey)
       await prisma.user.update({
         where: {
           id: user.id,
