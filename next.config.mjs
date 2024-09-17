@@ -10,8 +10,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-      }
+      },
     ],
+  },
+  env: {
+    ENCRYPTION_KEY: process.env.ENCRYPTION_KEY,
   },
 }
 
