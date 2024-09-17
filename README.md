@@ -12,7 +12,7 @@
 
 ## Description
 
-Tiplink is a decentralized application (dApp) designed to create and manage Solana crypto wallets. Users can sign up using their Google credentials, upon which a crypto wallet is automatically created and linked to their account. The application securely stores the user's public key, allowing seamless interaction with the Solana blockchain.
+Tiplink is a Web Based Solana wallet. Users can sign up using their Google credentials, upon which a Solana wallet is automatically created and linked to their account. The application securely stores the user's public key & private key, allowing seamless interaction with the Solana blockchain. Also it provides features like making transactions on Solana possible through Links.
 
 ## Features
 
@@ -116,6 +116,17 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 - `github/pull_request_template.md`: Template for pull requests.
 - `github/issue_template.md`: Template for issues.
 
+## Resource Reference Section for various pieces of the project
+
+### For reading up on AWS KMS: 
+- [AWS KMS Docs](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/js-examples.html)
+- [Data Encryption on AWS](https://enlear.academy/data-encryption-on-aws-8d6be6033351)
+- [AWS Encryption SDK Guide](https://enlear.academy/aws-encryption-sdk-d38bfae40e9f)
+
+### For reading up on GCP KMS: 
+- [GCP KMS Docs](https://cloud.google.com/nodejs/docs/reference/kms/latest)
+- [Video Guide for GCP on Google Cloud Tech](https://www.youtube.com/watch?v=WKZC93y-aWI)
+
 ### Note
 
 Please take an updated pull from the dev branch, and request branches for further features or services we need to add, and make pull requests to the relevant branches, not the main branch itself
@@ -129,4 +140,4 @@ Please take an updated pull from the dev branch, and request branches for furthe
 
 ## License
 
-The Tiplink is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Tiplink is licensed under the [MIT License](https://opensource.org/licenses/MIT).
