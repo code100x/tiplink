@@ -15,7 +15,7 @@ if (!projectId || !locationId || !keyRingId || !keyId) {
 
 const keyName = client.cryptoKeyPath(projectId, locationId, keyRingId, keyId)
 
-export async function encryptData(plaintext: string): Promise<string> {
+export async function gcpEncrypt(plaintext: string): Promise<string> {
   try {
     const [encryptResponse] = await client.encrypt({
       name: keyName,
@@ -33,7 +33,7 @@ export async function encryptData(plaintext: string): Promise<string> {
   }
 }
 
-export async function decryptData(ciphertext: string): Promise<string> {
+export async function gcpDecrypt(ciphertext: string): Promise<string> {
   try {
     const [decryptResponse] = await client.decrypt({
       name: keyName,
