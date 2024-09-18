@@ -17,7 +17,7 @@ import {
 import UserImage from '@/components/Appbar/UserImage'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
 
@@ -34,8 +34,32 @@ const Appbar = () => {
   const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      const fadeStart = 0;
+      const fadeEnd = windowHeight * 0.4;
+
+      if (scrollPosition <= fadeStart) {
+        setOpacity(1);
+      } else if (scrollPosition >= fadeEnd) {
+        setOpacity(0);
+      } else {
+        setOpacity(1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 ">
+    <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 z-50 "
+    style={{ opacity: opacity }}
+    >
       <div className="container pl-32 px-4 ">
         <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
           <div>
