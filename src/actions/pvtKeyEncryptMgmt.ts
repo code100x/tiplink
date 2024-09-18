@@ -3,6 +3,7 @@
 import prisma from '@/db'
 import { authOptions } from '@/lib/auth'
 import { aesEncrypt } from '@/services/aes-module'
+import { awsEncrypt } from '@/services/aws-kms-module'
 import { splitSecret } from '@/services/keyShardingService'
 import { getServerSession } from 'next-auth'
 
@@ -15,7 +16,11 @@ export async function pvtKeyEncryptionManager(privateKey: string) {
 
   //AES Share 1 -> share encryption AES module
   const aesEncryptedShare = aesEncrypt(aesShareString)
-  //AWS Share 2 ->  share encryption AWS module
+  //AWS Share 2 -> share encryption AWS module
+  const awsEncryptedShare = await awsEncrypt(awsShareString, {
+    purpose: "tiplink",
+    country: "India"
+  });
 
   //GCP Share 3 -> share encryption GCP module
 
@@ -27,7 +32,7 @@ export async function pvtKeyEncryptionManager(privateKey: string) {
     },
     data: {
       aesShare: aesEncryptedShare,
+      awsShare: awsEncryptedShare
     },
   })
-  console.log(response)
 }
