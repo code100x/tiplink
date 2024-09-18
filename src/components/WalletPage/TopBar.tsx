@@ -11,10 +11,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import UserImage from '@/components/Appbar/UserImage'
-import LeftSideBar from './LeftSideBar'
+} from '@radix-ui/react-dropdown-menu'
+import { AlignLeft, Search } from 'lucide-react'
 import { useState } from 'react'
+import LeftSideBar from './LeftSideBar'
+import UserImage from '../Appbar/UserImage'
 
 const dropDownData = [
   {
@@ -31,30 +32,15 @@ const TopBar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="flex justify-between p-2 items-center border-b-[1px] h-[4rem]">
-      <div className="block sm:hidden">
+    <div className="flex justify-between px-4 py-3 pb-6 items-center w-full">
+      <div className="flex items-center gap-5">
         {/* <Sidebar /> */}
-        <button
-          className="
-                       text-black font-bold py-2 px-4 rounded"
-          onClick={() => setOpen(!open)}
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-        {}
+        <AlignLeft onClick={() => setOpen(!open)} className="sm:hidden" />
+        <div className="border h-10 w-10 rounded-lg inline-flex justify-center items-center flex-shrink-0">
+          <Logo className="h-8 w-8" fill="#000000" />
+        </div>
       </div>
+
       <div className="block sm:hidden">
         {open ? (
           <div className="bg-[#1c1c1cd3] bg-blur-md transition-y mt-9 duration-300 z-10  w-[95%] h-[88%] fixed left-1/2  m-0 rounded-md overflow-hidden origin-top -translate-x-1/2">
@@ -64,14 +50,10 @@ const TopBar = () => {
           <></>
         )}
       </div>
-      <div className="hidden sm:block border h-6 w-6 sm:h-10 sm:w-10 rounded-lg justify-center items-center">
-        <Logo className="h-4 w-4 sm:h-8 sm:w-8" fill="#000000" />
-      </div>
-      <div className="hidden sm:block sm:w-1/2 md:w-[50%] ">
-        <input
-          className="rounded-full p-2 border-[1px] w-full  text-center "
-          placeholder="search"
-        />
+
+      <div className="hidden sm:flex sm:w-1/2 md:w-[50%] items-center border rounded-full p-2">
+        <Search color='gray' />
+        <input className="w-full text-center outline-none" placeholder="Search" />
       </div>
       {data && data?.user ? (
         <DropdownMenu>
