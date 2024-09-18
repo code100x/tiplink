@@ -15,16 +15,16 @@ interface WalletDetailProps {
 
 const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
   return (
-    <div className="rounded-[22px] flex flex-col items-center gap-3 sm:w-[450px] border-2 p-7 sm:p-10 shadow-md">
+    <div className="m-auto rounded-3xl flex flex-col items-center gap-3 sm:w-[450px] border-2 dark:border-white/20 p-7 sm:p-10 shadow-md dark:shadow-black">
       <div className="flex flex-col items-start gap-2 w-full">
         <div className="text-gray-200">
           <p className="text-gray-400 text-xs sm:text-sm font-semibold">
             Total Balance
           </p>
         </div>
-        <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
+        <div className="font-bold text-black dark:text-slate-200 opacity-80 text-xl sm:text-4xl mb-6">
             {balance === null ? (
-              <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
+              <div className=" bg-gray-200 dark:bg-slate-800 rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
                 {''}
               </div>
             ) : (
@@ -34,7 +34,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
       </div>
 
       <div className="flex flex-col items-center w-full gap-3">
-        <div className="flex space-x-6 w-full items-center justify-between">
+        <div className="flex flex-wrap gap-6 w-full items-center justify-evenly">
           {actions.map((action, index) => (
             <div key={index} className="flex flex-col items-center gap-1">
               <button className="flex justify-center items-center w-[66px] h-[67px] bg-black opacity-80 rounded-[30%] text-white">
@@ -58,7 +58,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
       
             <div className="w-full">
               <div className="p-2">
-                <p className="flex justify-center text-slate-800 font-bold text-xl pt-4 pb-1">
+                <p className="flex justify-center text-slate-800 dark:text-slate-200 font-bold text-xl pt-4 pb-1">
                   You don&apos;t have any assets yet!
                 </p>
                 <p className="flex justify-center text-gray-300 text-sm pt-2">

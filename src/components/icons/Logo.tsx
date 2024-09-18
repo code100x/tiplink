@@ -5,7 +5,7 @@ interface LogoProps {
   fill?: string
 }
 
-const Logo: React.FC<LogoProps> = ({ className, fill }) => (
+const Logo: React.FC<LogoProps> = ({ className, fill = "currentColor" }) => (
   <Link href='/'>
     <svg
       viewBox="0 0 120 120"

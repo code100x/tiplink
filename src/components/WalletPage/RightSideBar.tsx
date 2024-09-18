@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation"
+import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const RightSideBar = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
-    <div className="pr-6">
-      <div className="flex flex-col space-y-6 p-16 rounded-lg text-bold bg-black">
+    <div className="pr-6 mt-4 w-60">
+      <div className="flex flex-col space-y-6 p-4 rounded-lg text-bold bg-black">
         <button className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm">
           <svg
             className="size-5"
@@ -94,7 +94,7 @@ const RightSideBar = () => {
           </svg>
           <p>Pro Version</p>
         </button>
-        <hr className="border-2"></hr>
+        <hr className="border border-slate-800"></hr>
         <button className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,9 +112,12 @@ const RightSideBar = () => {
           </svg>
           <p>Blogs</p>
         </button>
-        <button className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm" onClick={async()=>{
-          await signOut({callbackUrl:"/"});
-        }}>
+        <button
+          className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm"
+          onClick={async () => {
+            await signOut({ callbackUrl: '/' })
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

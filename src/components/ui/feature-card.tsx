@@ -13,7 +13,7 @@ interface FeatureProps {
 const FeatureCard = ({ title, description, image }: FeatureProps) => {
   return (
     <div>
-      <div className="border rounded-lg shadow-inner hover:shadow-2xl transition-all">
+      <div className="border dark:border-black rounded-lg shadow-inner hover:shadow-2xl transition-all">
         <div className="md:p-20">
           <img
             src={image}
@@ -23,12 +23,12 @@ const FeatureCard = ({ title, description, image }: FeatureProps) => {
         </div>
         <div className="w-full p-4">
           <div className="py-4">
-            <h1 className="text-4xl md:text-3xl lg:text-4xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text ">
+            <h1 className="text-4xl md:text-3xl lg:text-4xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 dark:from-slate-200 dark:to-slate-400 text-transparent bg-clip-text ">
               {title}
             </h1>
           </div>
           <div className="w-full py-4">
-            <p className="text-lg tracking-tighter text-black/70">
+            <p className="text-lg tracking-tighter text-black/70 dark:text-slate-200">
               {description}
             </p>
           </div>

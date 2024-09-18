@@ -9,7 +9,7 @@ export function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <div className="bg-black border border-white/25 rounded-md shadow-inner shadow-white/55 h-10 w-10 flex items-center justify-center">
-              <Logo className="h-8 w-8" fill="#ffffff" />
+              <Logo className="h-8 w-8" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

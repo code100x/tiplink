@@ -66,7 +66,7 @@ const TestimonialsColumn = (props: {
       >
         {[...new Array(2)].fill(0).map((_, index) => (
           <React.Fragment key={index}>
-            {props.testimonials.map(({ text, imageSrc, name, username },i) => (
+            {props.testimonials.map(({ text, imageSrc, name, username }, i) => (
               <div className="card" key={i}>
                 <div>{text}</div>
                 <div className="flex items-center gap-2 mt-5">
@@ -102,7 +102,7 @@ const TestimonialsColumn = (props: {
 
 const Testimonials = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white dark:bg-black">
       <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
         <div className="max-w-[540px] mx-auto">
           <div className="flex justify-center">
@@ -110,11 +110,11 @@ const Testimonials = () => {
               Testimonials
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 dark:from-slate-200 dark:to-slate-400 text-transparent bg-clip-text text-center mt-5">
             What our users say
           </h2>
-          <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
-          Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
+          <p className="text-lg tracking-tighter text-black/70 dark:text-slate-400 text-center mt-5">
+            Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">

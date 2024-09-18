@@ -18,7 +18,7 @@ const Wallet = async () => {
       },
     })
     if (user) {
-      wallet = user?.publicKey ? user.publicKey :  await createWallet(user) 
+      wallet = user?.publicKey ? user.publicKey : await createWallet(user)
       balance = await fetchUserBalance(wallet)
       console.log(balance)
     }
@@ -32,10 +32,12 @@ const Wallet = async () => {
         <div className="hidden sm:block min-w-1/5">
           <LeftSideBar />
         </div>
-        <div>
+        <div className='w-full container'>
           <WalletDetail wallet={wallet} balance={balance} />
         </div>
-        <div className=" hidden md:block">{/* <RightSideBar /> */}</div>
+        <div className="hidden lg:block">
+          {/* <RightSideBar /> */}
+        </div>
       </div>
     </div>
   )
