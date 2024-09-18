@@ -77,7 +77,9 @@ const LeftSideBar = () => {
             key={index}
             className={cn(
               'flex items-center gap-2 w-full space-x-3 sm:p-3 text-black dark:text-white hover:bg-black hover:text-white rounded-lg',
-              pathName === option?.href ? 'sm:bg-black text-white' : 'text-black',
+              pathName === option?.href
+                ? 'sm:bg-black text-white'
+                : 'text-black',
             )}
           >
             {option.svg}

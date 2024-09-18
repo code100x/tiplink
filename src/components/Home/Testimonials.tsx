@@ -5,37 +5,43 @@ import React from 'react'
 const testimonials = [
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-1_xxgkqm.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-1_xxgkqm.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-2_jddbqk.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236914/avatar-2_jddbqk.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-3_xdijdf.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-3_xdijdf.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-4_ppdr5c.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-4_ppdr5c.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-5_uzpthr.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236915/avatar-5_uzpthr.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut fuga magni!',
-    imageSrc: "https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/avatar-6_tkivlz.png",
+    imageSrc:
+      'https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/avatar-6_tkivlz.png',
     name: 'Alex Rose',
     username: '@alexrose06',
   },
@@ -114,7 +120,8 @@ const Testimonials = () => {
             What our users say
           </h2>
           <p className="text-lg tracking-tighter text-black/70 dark:text-slate-400 text-center mt-5">
-            Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
+            Hear from Our Satisfied Users About Their Secure Crypto Wallet
+            Experience.
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">

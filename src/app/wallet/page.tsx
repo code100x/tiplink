@@ -24,7 +24,6 @@ const Wallet = async () => {
     }
   }
 
-
   return (
     <div className="h-full flex flex-col items-center">
       <TopBar />
@@ -32,12 +31,10 @@ const Wallet = async () => {
         <div className="hidden sm:block min-w-1/5">
           <LeftSideBar />
         </div>
-        <div className='w-full container'>
+        <div className="w-full container">
           <WalletDetail wallet={wallet} balance={balance} />
         </div>
-        <div className="hidden lg:block">
-          {/* <RightSideBar /> */}
-        </div>
+        <div className="hidden lg:block">{/* <RightSideBar /> */}</div>
       </div>
     </div>
   )

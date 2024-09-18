@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 import { Providers } from './providers'
 import NextTopLoader from 'nextjs-toploader'
 import AppWalletProvider from '@/components/AppWalletProvider'
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   title: 'Tiplink',
@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} h-screen`}>
         <Providers>
-          <ThemeProvider attribute='class'>
+          <ThemeProvider attribute="class">
             <AppWalletProvider>
               <NextTopLoader color="#333" />
               {children}

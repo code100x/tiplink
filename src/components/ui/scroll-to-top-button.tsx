@@ -27,8 +27,8 @@ export const ScrollToTopButton = () => {
 
   return (
     <Button
-      aria-label='scroll to the top button'
-      size='sm'
+      aria-label="scroll to the top button"
+      size="sm"
       className={`text-xs fixed bottom-4 right-4 rounded-full p-2 outline-none scrollToTheTop transition-opacity duration-200 ${
         isVisible ? 'showBtn' : 'opacity-0'
       }`}
