@@ -17,7 +17,7 @@ const { encrypt, decrypt } = buildClient(
   CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT,
 )
 
-export async function encryptData(
+export async function awsEncrypt(
   plainText: string,
   context: Record<string, string>,
 ) {
@@ -32,7 +32,7 @@ export async function encryptData(
   }
 }
 
-export async function decryptData(
+export async function awsDecrypt(
   encryptedData: string,
   context: Record<string, string>,
 ) {
