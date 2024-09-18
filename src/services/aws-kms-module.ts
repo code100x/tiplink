@@ -39,8 +39,6 @@ export async function awsDecrypt(
   try {
     const encryptedBuffer = Buffer.from(encryptedData, 'base64')
     const { plaintext, messageHeader } = await decrypt(keyring, encryptedBuffer)
-    console.log('===== Message Header =======')
-    console.log(JSON.stringify(messageHeader.encryptionContext))
 
     Object.entries(context).forEach(([key, value]) => {
       if (messageHeader.encryptionContext[key] !== value) {

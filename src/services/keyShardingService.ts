@@ -1,21 +1,41 @@
-import { split as shamirSplit, combine as shamirCombine } from 'shamir-secret-sharing';
-const CryptoJS = require('crypto-js');
+import {
+  split as shamirSplit,
+  combine as shamirCombine,
+} from 'shamir-secret-sharing'
 
-export async function splitSecret(secretKey: Uint8Array) {
-    if (!secretKey) {
-        throw new Error('Secret is undefined');
-    }
-    try {
-        const shares = await shamirSplit(secretKey, 3, 3);
+import * as bs58 from 'bs58'
 
-        const [aesShare, awsShare, gcpShare] = shares;
-        const aesShareString = Buffer.from(aesShare).toString('hex');
-        const awsShareString = Buffer.from(awsShare).toString('hex');
-        const gcpShareString = Buffer.from(gcpShare).toString('hex');
+export async function splitSecret(privateKey: string) {
+  if (!privateKey) {
+    throw new Error('Private key is undefined')
+  }
+  try {
+    const secretKeyUint8Array = new Uint8Array(bs58.decode(privateKey))
 
+    const shares = await shamirSplit(secretKeyUint8Array, 3, 3)
 
-        return { aesShareString, awsShareString, gcpShareString };
-    } catch (error) {
-        console.error('Error splitting and encrypting secret:', error);
-    }
+    const [aesShare, awsShare, gcpShare] = shares
+    const aesShareString = Buffer.from(aesShare).toString('hex')
+    const awsShareString = Buffer.from(awsShare).toString('hex')
+    const gcpShareString = Buffer.from(gcpShare).toString('hex')
+
+    return { aesShareString, awsShareString, gcpShareString }
+  } catch (error) {
+    console.error('Error splitting secret:', error)
+    throw error
+  }
+}
+
+export async function combineSecret(shares: Uint8Array[]) {
+  if (!shares || shares.length === 0) {
+    throw new Error('Shares are undefined or empty')
+  }
+
+  try {
+    const secretKey = await shamirCombine(shares)
+    return new Uint8Array(secretKey)
+  } catch (e) {
+    console.error('Error while combining shares: ', e)
+    throw e
+  }
 }

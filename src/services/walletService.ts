@@ -4,6 +4,7 @@ import prisma from '@/db'
 import { User } from '@prisma/client'
 import axios from 'axios'
 import { pvtKeyEncryptionManager } from '@/actions/pvtKeyEncryptMgmt'
+import base58 from 'bs58'
 
 const customRpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC || ''
 
@@ -20,7 +21,7 @@ export async function createWallet(user: User) {
     try {
       const keypair = Keypair.generate()
       const publicKey = keypair.publicKey.toString()
-      const privateKey = keypair.secretKey.toString()
+      const privateKey = base58.encode(keypair.secretKey)
       await pvtKeyEncryptionManager(privateKey)
       await prisma.user.update({
         where: {
