@@ -75,7 +75,7 @@ const faqs = [
 
 const page = () => {
   return (
-    <div className="w-screen ">
+    <div>
       <TopBar />
 
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-30">
@@ -105,7 +105,7 @@ const page = () => {
       </section>
 
       <section className="py-20 px-4 bg-gray-200">
-        <div className="max-w-6xl mx-auto ">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
