@@ -12,25 +12,18 @@ export async function pvtKeyEncryptionManager(privateKey: string) {
   const session = await getServerSession(authOptions)
   const userId = session?.user?.id
 
-  const { aesShareString, awsShareString, gcpShareString }: any =
-    await splitSecret(new Uint8Array(Buffer.from(privateKey, 'hex')))
+  const { aesShareString, awsShareString, gcpShareString } =
+    await splitSecret(privateKey)
 
-  //AES Share 1 -> share encryption AES module
   const aesEncryptedShare = aesEncrypt(aesShareString)
-  //AWS Share 2 -> share encryption AWS module
   const awsEncryptedShare = await awsEncrypt(awsShareString, {
     purpose: 'tiplink',
     country: 'India',
   })
-
-  //GCP Share 3 -> share encryption GCP module
   const gcpEncryptedShare = await gcpEncrypt(gcpShareString)
-  // DB write
 
   await prisma.user.update({
-    where: {
-      id: userId,
-    },
+    where: { id: userId },
     data: {
       aesShare: aesEncryptedShare,
       awsShare: awsEncryptedShare,
