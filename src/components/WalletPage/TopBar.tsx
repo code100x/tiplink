@@ -1,33 +1,13 @@
 'use client'
 
 import Logo from '../icons/Logo'
-import { useRouter } from 'next/navigation'
-import { LogOut, UserRound } from 'lucide-react'
-import { signOut, useSession } from 'next-auth/react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu'
+import { useSession } from 'next-auth/react'
 import { AlignLeft, Search } from 'lucide-react'
 import { useState } from 'react'
 import LeftSideBar from './LeftSideBar'
-import UserImage from '../Appbar/UserImage'
-
-const dropDownData = [
-  {
-    name: 'Profile',
-    icon: <UserRound size={15} />,
-    href: '/profile',
-  },
-]
+import ProfileDropDown from '../common/ProfileDropDown'
 
 const TopBar = () => {
-  const router = useRouter()
-
   const { data } = useSession()
   const [open, setOpen] = useState(false)
 
@@ -55,67 +35,7 @@ const TopBar = () => {
         <Search color='gray' />
         <input className="w-full text-center outline-none" placeholder="Search" />
       </div>
-      {data && data?.user ? (
-        <DropdownMenu>
-          <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition outline-none">
-            {!data?.user.image ? (
-              <div className="p-1 border-2 rounded-md">
-                <UserRound />
-              </div>
-            ) : (
-              <UserImage image={data?.user.image} />
-            )}
-          </DropdownMenuTrigger>
-
-          <DropdownMenuContent className="translate-y-8 scale-110 -translate-x-10 shadow-lg bg-white">
-            <DropdownMenuLabel className="flex gap-4 items-center">
-              <div className="!w-[2rem] flex items-center p-[0.2rem]  justify-center !h-[2rem]">
-                {!data?.user.image ? (
-                  <div className="p-1 border-2 rounded-full border-[#1a1a1a]">
-                    <UserRound />
-                  </div>
-                ) : (
-                  <UserImage image={data?.user.image} />
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <span className="max-w-[200px]">{data?.user?.name}</span>
-                <span className="text-[0.8rem] max-w-[200px] text-gray-400">
-                  {data?.user?.email}
-                </span>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-
-            {dropDownData.map((item, index) => {
-              return (
-                <DropdownMenuItem
-                  className="flex gap-2 cursor-pointer text-black/70 hover:text-black transition"
-                  onClick={() => router.push('/profile')}
-                  key={index}
-                >
-                  <span>{item.icon}</span>
-                  <span>{item.name}</span>
-                </DropdownMenuItem>
-              )
-            })}
-            <DropdownMenuSeparator />
-            {data?.user && (
-              <DropdownMenuItem
-                onClick={async () => {
-                  await signOut()
-                  router.push('/')
-                }}
-                className="flex gap-2 cursor-pointer text-black/70"
-              >
-                <LogOut size={15} />
-                Logout
-              </DropdownMenuItem>
-            )}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      ) : (
+      {data && data?.user ? <ProfileDropDown /> : (
         <div className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition outline-none">
           <div className="p-4 border-2 rounded-full bg-gray-300 animate-pulse"></div>
         </div>
