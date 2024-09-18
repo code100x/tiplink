@@ -17,7 +17,7 @@ import {
 import UserImage from '@/components/Appbar/UserImage'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
 
@@ -34,19 +34,6 @@ const Appbar = () => {
   const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
-  useEffect(() => {
-    if (connected) {
-      router.push('/wallet-adapter')
-    }
-    if (!connected) {
-      router.push('/')
-    }
-    setIsMounted(true) // Set mounted state to true after the component mounts
-  }, [connected, router])
-
-  // Prevent rendering until component is mounted
-  if (!isMounted) return null
-
   return (
     <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 ">
       <div className="container pl-32 px-4 ">
