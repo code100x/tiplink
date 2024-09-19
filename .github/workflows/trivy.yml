@@ -1,0 +1,48 @@
+name: Trivy Security Scan
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  trivy_scan:
+    runs-on: ubuntu-latest
+    # continue-on-error: true  # Continue even if vulnerabilities are found
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install NPM dependencies (if applicable)
+      - name: Install NPM Dependencies
+        run: npm install
+
+      # Run Trivy to scan for vulnerabilities
+      - name: Run Trivy to scan for vulnerabilities
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/src aquasec/trivy:latest fs /src --severity CRITICAL,HIGH --ignore-unfixed --pkg-types os,library --scanners vuln --format table > trivy-report.txt
+
+      # Display the Trivy report in the logs
+      - name: Display Trivy Report
+        run: cat trivy-report.txt
+
+      # Upload the Trivy scan report as an artifact
+      - name: Upload Trivy Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: trivy-report
+          path: trivy-report.txt
+
+  # approval:
+  #   needs: trivy_scan
+  #   runs-on: ubuntu-latest
+  #   if: always()  # Ensure this runs no matter what
+  #   steps:
+  #     - name: Manual Approval Required
+  #       run: echo "Waiting for manual approval before proceeding."
+  #       # In real use, this would trigger an environment approval in GitHub..
