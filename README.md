@@ -1,3 +1,7 @@
+# DISCLAIMER
+
+### We have ended up rewriting the commit history due to a faulty commit, let's take this as a learning to double check our triple checks before making a PR, just to get a PR merged you don't have to rush, you have ample time to work on an issue once assigned, depending on the magnitude of the issue, anyways due to the same you have to take a fresh fork if you are a recurring contributor and if you are a new contributor, do keep this in mind and start contributing, you are good to go 
+
 # Project Name: Tiplink
 
 ### The following description is going to be updated once the project is complete till then look for all the research and development related progress here at this [Notion Page](https://axatbhardwaj.notion.site/Tiplink-47ebac1bab1b484d89fc5476c9860202?pvs=4)
