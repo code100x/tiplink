@@ -12,9 +12,10 @@ import { useEffect, useState } from 'react'
 import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
 import ProfileDropDown from '../common/ProfileDropDown'
+import SkeletonHeader from './SkeletonHeader'
 
 const Appbar = () => {
-  const { data } = useSession()
+  const { data, status } = useSession()
   const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
@@ -42,6 +43,10 @@ const Appbar = () => {
   }, []);
   
   return (
+    <div>
+      {status == 'loading' ?
+       <><SkeletonHeader/></>
+        :
     <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 z-50 "
     style={{ opacity: opacity }}
     >
@@ -141,6 +146,8 @@ const Appbar = () => {
         </div>
       </div>
     </header>
+    }
+  </div>  
   )
 }
 
