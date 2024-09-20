@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 import Logo from '../icons/Logo'
 import { Menu } from 'lucide-react'
-import { useSession } from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { useRouter } from 'next/navigation'
@@ -12,13 +11,16 @@ import { useEffect, useState } from 'react'
 import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
 import ProfileDropDown from '../common/ProfileDropDown'
+import { useSession } from 'next-auth/react'
+import Spinner from './Spinner'
 
 const Appbar = () => {
-  const { data } = useSession()
-  const router = useRouter()
+  const { data,status }  = useSession();
+  const router = useRouter();
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
   const [opacity, setOpacity] = useState(1);
+  console.log(status);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,7 +101,9 @@ const Appbar = () => {
             {/*    <LoginWithGoogleButton />*/}
             {/*  </>*/}
             {/*)}*/}
-            {data && (
+
+            {status === 'loading' && <Spinner />}
+            {status === "authenticated" && data && (
               <button
                 onClick={() => {
                   router.push('/wallet')
@@ -131,7 +135,7 @@ const Appbar = () => {
                     endIcon={<FaWallet />}
                   />
                 )}
-                <LoginWithGoogleButton />
+                {status === 'unauthenticated' && <LoginWithGoogleButton />}
               </>
             )}
             <span className="md:hidden">
