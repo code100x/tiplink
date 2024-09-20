@@ -1,7 +1,5 @@
 'use client'
-
 import Link from 'next/link'
-
 import Logo from '../icons/Logo'
 import { Menu } from 'lucide-react'
 import LoginWithGoogleButton from '../ui/login-with-google'
@@ -20,7 +18,6 @@ const Appbar = () => {
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
   const [opacity, setOpacity] = useState(1);
-  console.log(status);
 
   useEffect(() => {
     const handleScroll = () => {
