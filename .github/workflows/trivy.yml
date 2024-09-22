@@ -1,0 +1,96 @@
+name: Trivy Vulnerability and Secret Scan
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  trivy_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+            npm install --no-audit
+
+      - name: Run Trivy vulnerability scan
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/src aquasec/trivy:latest fs /src \
+            --severity CRITICAL,HIGH \
+            --ignore-unfixed \
+            --scanners vuln \
+            --format table > trivy-vuln-report.txt
+
+      - name: Run Trivy secret scan
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/src aquasec/trivy:latest fs /src \
+            --scanners secret \
+            --format table > trivy-secret-report.txt
+
+        # custom check
+      - name: Check for outdated npm packages
+        run: |
+          npm outdated > npm-outdated-report.txt || echo "Some packages may be outdated."
+
+      - name: Handling empty files
+        run: |
+          is_empty(){
+            file_name="$1"
+            content="$2"
+            if [ ! -s "$file_name" ]; then
+              echo "$content" > "$file_name"
+            fi
+          }
+
+          is_empty trivy-vuln-report.txt "No vulnerability found"
+          is_empty trivy-secret-report.txt "No Secret expose found"
+          is_empty npm-outdated-report.txt "No outdated package found"
+
+      - name: Generate Enhanced Security Report
+        run: |
+          cat << EOF > trivy-V-and-S-Scan-report.md
+          # Security Scan Report
+          
+          ## Table of Contents
+          - [Trivy Vulnerability Scan](#trivy-vulnerability-scan)
+          - [Trivy Secrets Scan](#trivy-secrets-scan)
+          - [NPM Outdated Packages](#npm-outdated-packages)
+          
+          ## Trivy Vulnerability Scan
+          
+          \`\`\`
+          $(if [ -s trivy-vuln-report.txt ]; then cat trivy-vuln-report.txt; else echo "No vulnerabilities found."; fi)
+          \`\`\`
+          
+          ## Trivy Secrets Scan
+          
+          \`\`\`
+          $(if [ -s trivy-secret-report.txt ]; then cat trivy-secret-report.txt; else echo "No secrets found."; fi)
+          \`\`\`
+          
+          ## NPM Outdated Packages
+          
+          \`\`\`
+          $(if [ -s npm-outdated-report.txt ]; then cat npm-outdated-report.txt; else echo "No outdated packages found."; fi)
+          \`\`\`
+          
+          ---
+          Report generated on $(date)
+          EOF
+
+      - name: Display Combined Report
+        run: cat trivy-V-and-S-Scan-report.md
+
+      - name: Upload Combined Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy scan (vs and ss)
+          path: trivy-V-and-S-Scan-report.md
