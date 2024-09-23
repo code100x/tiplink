@@ -10,7 +10,6 @@ import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
 import ProfileDropDown from '../common/ProfileDropDown'
 import { useSession } from 'next-auth/react'
-import Spinner from './Spinner'
 
 const Appbar = () => {
   const { data,status }  = useSession();
@@ -98,8 +97,6 @@ const Appbar = () => {
             {/*    <LoginWithGoogleButton />*/}
             {/*  </>*/}
             {/*)}*/}
-
-            {status === 'loading' && <Spinner />}
             {status === "authenticated" && data && (
               <button
                 onClick={() => {
