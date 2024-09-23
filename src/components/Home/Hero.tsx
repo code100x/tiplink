@@ -6,13 +6,14 @@ import Image from 'next/image'
 import Appbar from '../Appbar/Appbar'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import AppBarSkeleton from '../Appbar/AppBarSkeleton'
 
 const Hero = () => {
-  const session = useSession()
+  const session = useSession();
   const router = useRouter()
   return (
     <section className="items-center md:mt-40 mt-28">
-      <Appbar />
+      {session.status === 'loading' ? <AppBarSkeleton /> : <Appbar />}
       <div className="container relative mx-auto px-4">
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
