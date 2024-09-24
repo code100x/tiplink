@@ -1,7 +1,7 @@
 import { withAuth } from "next-auth/middleware";
 
 export default withAuth(
-    function middleware(req) {},
+    function middleware(req) { },
     {
         callbacks: {
             authorized: ({ token }) => !!token,
@@ -10,4 +10,4 @@ export default withAuth(
 );
 
 // Middleware configuration for matching routes
-export const config = { matcher: ["/wallet"] };
+export const config = { matcher: ["/wallet", "/connection"] };

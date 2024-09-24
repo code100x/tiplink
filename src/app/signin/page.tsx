@@ -10,15 +10,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { useSearchParams } from 'next/navigation'
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false)
+  const searchParams = useSearchParams();
 
   const handleGoogleSignIn = async () => {
     setLoading(true)
+    const callbackUrl = searchParams.get('callbackUrl')?.toString();
+
     try {
       const result = await signIn('google', {
-        callbackUrl: '/',
+        callbackUrl,
         redirect: false,
       })
       handleSignInResult(result)
