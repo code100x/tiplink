@@ -9,5 +9,8 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.Buffer = require('buffer').Buffer; // Polyfill for Buffer in browsers
+    </script>
   </body>
 </html>
