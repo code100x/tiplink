@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { Button } from '../ui/button'
 import { FaArrowRightLong } from 'react-icons/fa6'
+import ShimmerButton from '../ui/shimmer-button'
 
 const DocsShowcase = () => {
   return (
-    <section className="items-center my-28 md:px-4">
-      <div className="lg:max-w-[1200px] md:max-w-[900px]   md:rounded-2xl mx-auto pl-8 pt-8 bg-black text-white">
+    <section className="items-center my-28 md:px-4 ">
+      <div className="lg:max-w-[1200px] md:max-w-[900px]   md:rounded-2xl mx-auto pl-8 pt-8 bg-[#131315] text-white shadow-2xl">
         <div className="text-sm inline-flex border border-[#fff]/20 px-2 pt-2 pb-1 rounded-lg tracking-tight shadow-inner shadow-white text-white/70">
           <span></span> Tiplink API
         </div>
@@ -20,12 +20,17 @@ const DocsShowcase = () => {
                 tokens and NFTs at scale with our API.
               </p>
             </div>
-            <Button className="bg-white text-black hover:bg-white/90 mt-5 flex gap-3 mb-10">
+            <ShimmerButton
+              shimmerColor="#000" // Customize the shimmer color if needed
+              shimmerDuration="2s" // Optional: Adjust duration
+              background="#ffffff" // Set background color to white
+              className="text-black hover:bg-white/90 mt-5 flex gap-3 px-4 mb-10"
+            >
               Read Docs
               <span>
                 <FaArrowRightLong />
               </span>
-            </Button>
+            </ShimmerButton>
           </div>
           <div className="hidden md:flex items-end justify-end pl-3 pt-3 pb-3 md:pb-0 rounded-lg rounded-r-none md:rounded-b-none bg-zinc-950 backdrop:blur-sm shadow-inner shadow-white/60 h-fit">
             <Image
