@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation"
+import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const RightSideBar = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div className="pr-6">
@@ -112,9 +112,12 @@ const RightSideBar = () => {
           </svg>
           <p>Blogs</p>
         </button>
-        <button className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm" onClick={async()=>{
-          await signOut({callbackUrl:"/"});
-        }}>
+        <button
+          className="flex space-x-3 p-2 text-white hover:bg-gray-800 rounded-lg md:text-sm"
+          onClick={async () => {
+            await signOut({ callbackUrl: '/' })
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

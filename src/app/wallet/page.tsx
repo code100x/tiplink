@@ -18,12 +18,11 @@ const Wallet = async () => {
       },
     })
     if (user) {
-      wallet = user?.publicKey ? user.publicKey :  await createWallet(user) 
+      wallet = user?.publicKey ? user.publicKey : await createWallet(user)
       balance = await fetchUserBalance(wallet)
       console.log(balance)
     }
   }
-
 
   return (
     <div className="h-full flex flex-col items-center">

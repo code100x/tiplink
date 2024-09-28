@@ -9,7 +9,7 @@ const actions = [
 ]
 
 interface WalletDetailProps {
-  wallet?: string;
+  wallet?: string
   balance?: number
 }
 
@@ -23,13 +23,13 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
           </p>
         </div>
         <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
-            {balance === null ? (
-              <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
-                {''}
-              </div>
-            ) : (
-              `$ ${balance}`
-            )}
+          {balance === null ? (
+            <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
+              {''}
+            </div>
+          ) : (
+            `$ ${balance}`
+          )}
         </div>
       </div>
 
@@ -41,39 +41,37 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
                 {action.icon}
               </button>
               <p>{action.label}</p>
-              </div>
-              ))}
-              </div>
-      
-              <div className="flex items-center justify-between bg-gray-200 w-full rounded-[16px] p-[2px]">
-                <button className="flex justify-center items-center py-3 bg-black opacity-80 rounded-[14px] w-[49%] text-white p-2 text-xl">
-                  Token
-                </button>
-      
-                <button className="flex justify-center items-center py-3 opacity-80 rounded-[14px] w-[49%] text-black p-2 text-xl">
-                  NFTs
-                </button>
-              </div>
             </div>
-      
-            <div className="w-full">
-              <div className="p-2">
-                <p className="flex justify-center text-slate-800 font-bold text-xl pt-4 pb-1">
-                  You don&apos;t have any assets yet!
-                </p>
-                <p className="flex justify-center text-gray-300 text-sm pt-2">
-                  Start by buying or depositing funds:
-                </p>
-              </div>
-              <div className="flex justify-center pt-2">
-                <button className="bg-black opacity-80 rounded-lg text-white font-bold p-3">
-                  + Add Funds
-                </button>
-                </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between bg-gray-200 w-full rounded-[16px] p-[2px]">
+          <button className="flex justify-center items-center py-3 bg-black opacity-80 rounded-[14px] w-[49%] text-white p-2 text-xl">
+            Token
+          </button>
+
+          <button className="flex justify-center items-center py-3 opacity-80 rounded-[14px] w-[49%] text-black p-2 text-xl">
+            NFTs
+          </button>
+        </div>
+      </div>
+
+      <div className="w-full">
+        <div className="p-2">
+          <p className="flex justify-center text-slate-800 font-bold text-xl pt-4 pb-1">
+            You don&apos;t have any assets yet!
+          </p>
+          <p className="flex justify-center text-gray-300 text-sm pt-2">
+            Start by buying or depositing funds:
+          </p>
+        </div>
+        <div className="flex justify-center pt-2">
+          <button className="bg-black opacity-80 rounded-lg text-white font-bold p-3">
+            + Add Funds
+          </button>
+        </div>
       </div>
     </div>
   )
 }
 export default WalletDetail
-          
-          

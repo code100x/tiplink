@@ -32,10 +32,15 @@ const TopBar = () => {
       </div>
 
       <div className="hidden sm:flex sm:w-1/2 md:w-[50%] items-center border rounded-full p-2">
-        <Search color='gray' />
-        <input className="w-full text-center outline-none" placeholder="Search" />
+        <Search color="gray" />
+        <input
+          className="w-full text-center outline-none"
+          placeholder="Search"
+        />
       </div>
-      {data && data?.user ? <ProfileDropDown /> : (
+      {data && data?.user ? (
+        <ProfileDropDown />
+      ) : (
         <div className="w-[3rem] flex items-center p-[0.2rem]  justify-center h-[2rem] transition outline-none">
           <div className="p-4 border-2 rounded-full bg-gray-300 animate-pulse"></div>
         </div>
