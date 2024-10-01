@@ -1,110 +1,81 @@
 'use client'
+
 import Link from 'next/link'
 import Logo from '../icons/Logo'
-import { Menu } from 'lucide-react'
+import { LogOut, Menu, UserRound } from 'lucide-react'
+import { signOut, useSession } from 'next-auth/react'
 import LoginWithGoogleButton from '../ui/login-with-google'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import UserImage from '@/components/Appbar/UserImage'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { FaWallet } from 'react-icons/fa6'
 import { useWallet } from '@solana/wallet-adapter-react'
-import ProfileDropDown from '../common/ProfileDropDown'
-import { useSession } from 'next-auth/react'
+import { ModeToggle } from '../ui/darkmode'
+import { useTheme } from 'next-themes'
+
+const dropDownData = [
+  {
+    name: 'Profile',
+    icon: <UserRound size={15} />,
+    href: '/profile',
+  },
+]
 
 const Appbar = () => {
-  const { data,status }  = useSession();
-  const router = useRouter();
+  const { data } = useSession()
+  const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
   const { connected } = useWallet()
-  const [opacity, setOpacity] = useState(1);
+  const { theme } = useTheme()
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
+    if (connected) {
+      router.push('/')
+    }
+    if (!connected) {
+      router.push('/')
+    }
+    setIsMounted(true)
+  }, [connected, router])
 
-      const fadeStart = 0;
-      const fadeEnd = windowHeight * 0.4;
+  if (!isMounted) return null
 
-      if (scrollPosition <= fadeStart) {
-        setOpacity(1);
-      } else if (scrollPosition >= fadeEnd) {
-        setOpacity(0);
-      } else {
-        setOpacity(1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart));
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
   return (
-    <header className="w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 bg-white md:bg-white/0 z-50 "
-    style={{ opacity: opacity }}
-    >
-      <div className="container pl-32 px-4 ">
-        <div className="flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto md:bg-white/90 md:backdrop:blur-sm">
+    <header className={`w-screen py-4 border-b md:border-none fixed top-0 left-0 right-0 ${theme === 'dark' ? '' : 'bg-white'}`}>
+      <div className="container pl-32 px-4">
+        <div className={`flex justify-between items-center md:border md:p-2.5 rounded-xl max-w-2xl lg:max-w-4xl mx-auto ${theme === 'dark' ? '' : 'bg-white'} md:backdrop:blur-sm`}>
           <div>
-            <div className="border h-10 w-10 rounded-lg inline-flex justify-center items-center">
-              <Logo className="h-8 w-8" fill="#000000" />
+            <div className={`border h-10 w-10 rounded-lg inline-flex justify-center items-center ${theme === 'dark' ? 'border-white' : 'border-black'}`}>
+              <Logo className="h-8 w-8" fill={theme === 'dark' ? "#ffffff" : "#000000"} />
             </div>
           </div>
           <div className="hidden md:block">
             <nav className="flex gap-8 text-sm">
-              <Link
-                className="text-black/70 hover:text-black transition"
-                href="#"
-              >
-                Products
-              </Link>
-              <Link
-                className="text-black/70 hover:text-black transition"
-                href="#"
-              >
-                API & Docs
-              </Link>
-              <Link
-                className="text-black/70 hover:text-black transition"
-                href="#"
-              >
-                FAQ
-              </Link>
-              <Link
-                className="text-black/70 hover:text-black transition"
-                href="#"
-              >
-                Company
-              </Link>
-              <Link
-                className="hidden lg:block text-black/70 hover:text-black transition"
-                href="#"
-              >
-                Blogs
-              </Link>
+              {['Products', 'API & Docs', 'FAQ', 'Company', 'Blogs'].map((item) => (
+                <Link key={item} className={`${theme === 'dark' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'} transition`} href="#">
+                  {item}
+                </Link>
+              ))}
             </nav>
           </div>
           <div className="flex gap-4 items-center">
-            {/*{data && data?.user ? (*/}
-            {/*  <Button size="sm" variant="default">*/}
-            {/*    Sign out*/}
-            {/*  </Button>*/}
-            {/*) : (*/}
-            {/*  <>*/}
-            {/*    <Button variant="outline">*/}
-            {/*      <FaWallet className="hover:text-black/80" />*/}
-            {/*    </Button>*/}
-            {/*    <LoginWithGoogleButton />*/}
-            {/*  </>*/}
-            {/*)}*/}
-            {status === "authenticated" && data && (
+            {data && (
               <button
                 onClick={() => {
                   router.push('/wallet')
                 }}
               >
                 <svg
-                  className="size-10 text-black"
+                  className={`size-10 ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="128"
                   height="128"
@@ -117,24 +88,68 @@ const Appbar = () => {
                 </svg>
               </button>
             )}
-            {data && data?.user ? <ProfileDropDown /> : (
-              <>
-                {isMounted && (
-                  <WalletMultiButton
-                    style={{
-                      backgroundColor: 'black',
-                      height: '40px',
-                      borderRadius: '8px',
-                    }}
-                    endIcon={<FaWallet />}
-                  />
-                )}
-                {status === 'unauthenticated' && <LoginWithGoogleButton />}
-              </>
+            {data && data?.user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="w-[3rem] flex items-center p-[0.2rem] justify-center h-[2rem] transition outline-none">
+                  {!data?.user.image ? (
+                    <div className={`p-1 border-2 rounded-md ${theme === 'dark' ? 'border-white' : 'border-black'}`}>
+                      <UserRound />
+                    </div>
+                  ) : (
+                    <UserImage image={data?.user.image} />
+                  )}
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent className={`translate-y-8 scale-110 -translate-x-10 shadow-lg ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
+                  <DropdownMenuLabel className="flex gap-4 items-center">
+                    <div className="!w-[2rem] flex items-center p-[0.2rem] justify-center !h-[2rem]">
+                      {!data?.user.image ? (
+                        <div className={`p-1 border-2 rounded-full ${theme === 'dark' ? 'border-white' : 'border-black'}`}>
+                          <UserRound />
+                        </div>
+                      ) : (
+                        <UserImage image={data?.user.image} />
+                      )}
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className={`max-w-[200px] ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{data?.user?.name}</span>
+                      <span className="text-[0.8rem] max-w-[200px] text-gray-400 break-all">
+                        {data?.user?.email}
+                      </span>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+
+                  {dropDownData.map((item, index) => (
+                    <DropdownMenuItem
+                      className={`${theme === 'dark' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'} transition cursor-pointer`}
+                      onClick={() => router.push(item.href)}
+                      key={index}
+                    >
+                      <span>{item.icon}</span>
+                      <span>{item.name}</span>
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  {data?.user && (
+                    <DropdownMenuItem
+                      onClick={async () => {
+                        await signOut()
+                        router.push('/')
+                      }}
+                      className={`${theme === 'dark' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'} transition cursor-pointer`}
+                    >
+                      <LogOut size={15} />
+                      Logout
+                    </DropdownMenuItem>
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <LoginWithGoogleButton />
             )}
-            <span className="md:hidden">
-              <Menu />
-            </span>
+            <ModeToggle />
           </div>
         </div>
       </div>

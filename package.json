@@ -42,6 +42,7 @@
     "lucide-react": "^0.419.0",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
+    "next-themes": "^0.3.0",
     "nextjs-toploader": "^1.6.12",
     "pino-pretty": "^11.2.2",
     "react": "^18",
