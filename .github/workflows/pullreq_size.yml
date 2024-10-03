@@ -1,0 +1,62 @@
+name: 'Label PR Based on Size'
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  label-pr-size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up jq (for processing JSON)
+        run: sudo apt-get install jq
+
+      - name: Label PR based on size
+        run: |
+          XS_LIMIT=10
+          SM_LIMIT=50
+          MD_LIMIT=200
+          LG_LIMIT=500
+          LABEL_XS="size-xs"
+          LABEL_SM="size-sm"
+          LABEL_MD="size-md"
+          LABEL_LG="size-lg"
+          LABEL_XL="size-xl"
+
+          GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_REPOSITORY="${{ github.repository }}"
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          API_URI="https://api.github.com"
+          API_HEADER="Accept: application/vnd.github.v3+json"
+          AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
+
+          # Function to calculate total lines added and deleted
+          additions=$(curl -sSL -H "$API_HEADER" -H "$AUTH_HEADER" \
+            "${API_URI}/repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" | jq '.additions')
+          deletions=$(curl -sSL -H "$API_HEADER" -H "$AUTH_HEADER" \
+            "${API_URI}/repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" | jq '.deletions')
+          total_modifications=$((additions + deletions))
+
+          # Determine the label based on total changes
+          if [ "$total_modifications" -lt "$XS_LIMIT" ]; then
+            label="$LABEL_XS"
+          elif [ "$total_modifications" -lt "$SM_LIMIT" ]; then
+            label="$LABEL_SM"
+          elif [ "$total_modifications" -lt "$MD_LIMIT" ]; then
+            label="$LABEL_MD"
+          elif [ "$total_modifications" -lt "$LG_LIMIT" ]; then
+            label="$LABEL_LG"
+          else
+            label="$LABEL_XL"
+          fi
+
+          # Apply the label
+          curl -sSL -H "$API_HEADER" -H "$AUTH_HEADER" -X POST -d "{\"labels\":[\"$label\"]}" \
+          "${API_URI}/repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/labels"
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
