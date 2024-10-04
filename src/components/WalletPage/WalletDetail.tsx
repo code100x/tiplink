@@ -1,19 +1,26 @@
 'use client'
-import { ArrowDownUp, CreditCard, Download, Send } from 'lucide-react'
+import React, { useState } from 'react'
+import { actions, ActionType } from './actions'
+import { ReceiveQR } from './ReceiveQR'
 
-const actions = [
-  { icon: <Send />, label: 'Send' },
-  { icon: <Download />, label: 'Receive' },
-  { icon: <CreditCard />, label: 'Buy' },
-  { icon: <ArrowDownUp />, label: 'Swap' },
-]
-
-interface WalletDetailProps {
+export interface WalletDetailProps {
   wallet?: string
   balance?: number
 }
 
 const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
+  const [currentAction, setCurrentAction] = useState<null | ActionType>(null);
+
+  const handleActionClick = (action: ActionType) => {
+   setCurrentAction(action)
+  };
+
+
+  const handleClose = () => {
+    setCurrentAction(null);
+  }
+
+
   return (
     <div className="rounded-[22px] flex flex-col items-center gap-3 sm:w-[450px] border-2 p-7 sm:p-10 shadow-md">
       <div className="flex flex-col items-start gap-2 w-full">
@@ -37,8 +44,11 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
         <div className="flex space-x-6 w-full items-center justify-between">
           {actions.map((action, index) => (
             <div key={index} className="flex flex-col items-center gap-1">
-              <button className="flex justify-center items-center w-[66px] h-[67px] bg-black opacity-80 rounded-[30%] text-white">
-                {action.icon}
+              <button
+                className="flex justify-center items-center w-[66px] h-[67px] bg-black opacity-80 rounded-[30%] text-white"
+                onClick={()=> handleActionClick(action.type)}
+              >
+                {<action.icon/>}
               </button>
               <p>{action.label}</p>
             </div>
@@ -71,6 +81,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
           </button>
         </div>
       </div>
+      {/*Now depends on current action render the components */}
+      {currentAction === 'receive' && <ReceiveQR wallet={wallet} onClose={handleClose}/>}
     </div>
   )
 }

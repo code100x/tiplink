@@ -6,6 +6,7 @@ import { AlignLeft, Search } from 'lucide-react'
 import { useState } from 'react'
 import LeftSideBar from './LeftSideBar'
 import ProfileDropDown from '../common/ProfileDropDown'
+import React from 'react'
 
 const TopBar = () => {
   const { data } = useSession()
