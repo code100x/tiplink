@@ -19,14 +19,14 @@ const Hero = () => {
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
           alt=""
-          className="absolute left-[5%] lg:left-[15%] top-10 lg:-top-5"
+          className="relative left-[10%] lg:left-[30%] lg:top-[10%]"
           width={50}
           height={50}
         />
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236912/eth_la99pn.svg"
           alt=""
-          className="absolute right-[5%] lg:right-[19%] top-[30%] lg:top-10 rotate-12"
+          className="absolute md:right-[20%] right-[10%] lg:right-[28%] rotate-12 md:top-[26%] top-[34%] lg:top-[34%]"
           width={50}
           height={50}
         />
