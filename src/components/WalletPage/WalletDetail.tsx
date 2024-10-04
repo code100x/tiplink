@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { actions, ActionType } from './actions'
 import { ReceiveQR } from './ReceiveQR'
+import Swap from './Swap'
 
 
 export interface WalletDetailProps {
@@ -84,6 +85,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
       </div>
       {/*Now depends on current action render the components */}
       {currentAction === 'receive' && <ReceiveQR wallet={wallet} onClose={handleClose}/>}
+     {currentAction === 'swap' && <Swap wallet={wallet} onClose={handleClose}/>}
+     
     </div>
   )
 }
