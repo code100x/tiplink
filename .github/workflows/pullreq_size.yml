@@ -7,6 +7,10 @@ on:
 jobs:
   label-pr-size:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
 
     steps:
       - name: Checkout code
