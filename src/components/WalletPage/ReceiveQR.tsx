@@ -18,6 +18,7 @@ const handleCopy = () => {
   setTimeout(() => setCopied(false), 2000)
 }
   
+//shows the public key in short like main tiplink
   const formatWallet = () => {
     if (wallet) {
       return `${wallet?.slice(0, 4)}...${wallet?.slice(-4)}`

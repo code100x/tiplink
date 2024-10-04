@@ -82,6 +82,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
           </button>
         </div>
       </div>
+      {/*Now depends on current action render the components */}
       {currentAction === 'receive' && <ReceiveQR wallet={wallet} onClose={handleClose}/>}
     </div>
   )
