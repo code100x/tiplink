@@ -1,92 +1,132 @@
-"use client";
-import { useState } from "react";
-import { WalletDetailProps } from "./WalletDetail";
-import { ArrowUpDown, X } from 'lucide-react';
+"use client"
 
-const Swap = ({ wallet, onClose }: WalletDetailProps & { onClose: () => void }) => {
-  const [amount, setAmount] = useState<number | string>(0);
-  const [payToken, setPayToken] = useState<string>("SOL");
-  const [receiveToken, setReceiveToken] = useState<string>("USDC");
+import { useState } from "react"
+import { ArrowUpDown, ChevronDown, Space } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import solanaIcon from "../icons/solana.png";
+import usdcIcon from "../icons/usdc.png";
+import { ActionType } from "./actions"
+const tokens = [
+  { symbol: "SOL", name: "Solana", icon: solanaIcon },
+  { symbol: "USDC", name: "USD", icon: usdcIcon },
+  // { symbol: "ETH", name: "Ethereum", icon: "💎" },
+  // { symbol: "BTC", name: "Bitcoin", icon: "🔶" },
+]
+import Image from "next/image"
+export default function TokenSwap({setCurrent}) {
+  const [payToken, setPayToken] = useState(tokens[0])
+  const [receiveToken, setReceiveToken] = useState(tokens[1])
+  const [payAmount, setPayAmount] = useState("")
+  const [receiveAmount, setReceiveAmount] = useState("")
 
   const handleSwap = () => {
-    // Swap the tokens
-    const tempToken = payToken;
-    setPayToken(receiveToken);
-    setReceiveToken(tempToken);
-    setAmount(0); // Reset amount when swapping
-  };
+    setPayToken(receiveToken)
+    setReceiveToken(payToken)
+    setPayAmount(receiveAmount)
+    setReceiveAmount(payAmount)
+  }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg p-6 shadow-lg max-w-sm w-full">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold">Swap Tokens</h3>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-800">
-            <X size={25} />
-          </button>
-        </div>
+    <div className="w-full max-w-md mx-auto p-6 space-y-6 bg-white rounded-lg ">
+      <div className="flex justify-between items-center">
+        <button className="text-sm font-medium text-gray-500" onClick={() => setCurrent('')}>← Back</button>
+        <h2 className="text-2xl font-bold">Swap Tokens</h2>
+        <div className="w-10" />
+      </div>
 
-        {/* Pay Section */}
-        <div className="flex justify-between items-center mb-4">
-          <div>
-            <label className="block font-semibold">You Pay:</label>
-            <select 
-              className="border rounded-lg px-3 py-2 mt-1" 
-              value={payToken}
-              onChange={(e) => setPayToken(e.target.value)}
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">You Pay:</label>
+          <div className="flex items-center space-x-2">
+            <Select
+              value={payToken.symbol}
+              onValueChange={(value) => {
+                const newToken = tokens.find((t) => t.symbol === value)
+                if (newToken && newToken !== receiveToken) setPayToken(newToken)
+              }}
             >
-              <option value="SOL" disabled={receiveToken === "SOL"}>SOL</option>
-              <option value="USDC" disabled={receiveToken === "USDC"}>USDC</option>
-              {/* Add more tokens if needed */}
-            </select>
+              <SelectTrigger className="w-[250px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-white">
+                {tokens.map((token) => (
+                  <SelectItem key={token.symbol} value={token.symbol} disabled={token === receiveToken}>
+                    <div className="flex gap-3">
+                      <Image height={20} width={20} alt={token.name} src={token.icon || ""} />
+                      <span>{token.name}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              placeholder="0.00"
+              value={payAmount}
+              onChange={(e) => setPayAmount(e.target.value)}
+              className="flex-grow text-right"
+            />
           </div>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="border rounded-lg px-3 py-2 w-24 text-right"
-            placeholder="0"
-            min={0}
-          />
+          <p className="text-sm text-gray-500 mt-1">Current Balance: 0 {payToken.symbol}</p>
         </div>
 
-        {/* Swap Icon */}
-        <div className="text-center mb-4">
-          <button onClick={handleSwap} className="p-2 border border-gray-300 rounded-full">
-            <ArrowUpDown />
-          </button>
+        <div className="flex justify-center">
+          <Button variant="outline" size="icon" onClick={handleSwap}>
+            <ArrowUpDown className="h-4 w-4" />
+          </Button>
         </div>
 
-        {/* Receive Section */}
-        <div className="flex justify-between items-center mb-4">
-          <div>
-            <label className="block font-semibold">You Receive:</label>
-            <select 
-              className="border rounded-lg px-3 py-2 mt-1" 
-              value={receiveToken}
-              onChange={(e) => setReceiveToken(e.target.value)}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">You Receive:</label>
+          <div className="flex items-center space-x-2">
+            <Select
+              value={receiveToken.symbol}
+              onValueChange={(value) => {
+                const newToken = tokens.find((t) => t.symbol === value)
+                if (newToken && newToken !== payToken) setReceiveToken(newToken)
+              }}
             >
-              <option value="SOL" disabled={payToken === "SOL"}>SOL</option>
-              <option value="USDC" disabled={payToken === "USDC"}>USDC</option>
-              {/* Add more tokens if needed */}
-            </select>
+              <SelectTrigger className="w-[250px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-white">
+                {tokens.map((token) => (
+                  <SelectItem key={token.symbol} value={token.symbol} disabled={token === payToken}>
+                    <div className="flex gap-3">
+                      <Image height={20} width={20} alt={token.name} src={token.icon || ""} />
+                      <span>{token.name}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              placeholder="0.00"
+              value={receiveAmount}
+              onChange={(e) => setReceiveAmount(e.target.value)}
+              className="flex-grow text-right"
+              readOnly
+            />
           </div>
-          <input
-            type="number"
-            value="0"
-            readOnly
-            className="border rounded-lg px-3 py-2 w-24 text-right"
-            min={0}
-          />
+          <p className="text-sm text-gray-500 mt-1">Current Balance: 0 {receiveToken.symbol}</p>
         </div>
+      </div>
 
-        {/* Swap Button */}
-        <button className="bg-blue-500 text-white font-semibold rounded-lg w-full py-3 mt-4">
-          Confirm & Swap
-        </button>
+      <div className="space-y-2">
+        <span className="w-full text-xs cursor-pointer flex gap-x-1 items-center" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg>
+
+
+
+          <span>  View Swap Details</span>
+        </span>
+        <Button className="w-full">Confirm & Swap</Button>
       </div>
     </div>
-  );
-};
-
-export default Swap;
+  )
+}
