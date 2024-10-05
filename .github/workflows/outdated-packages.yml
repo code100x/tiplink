@@ -1,0 +1,30 @@
+name: Check for outdated npm packages
+
+on: 
+  pull_request: 
+    types: [opened, reopened, synchronize] 
+
+jobs:
+  outdated-packages:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v3
+ 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x' 
+
+       
+      - name: Install dependencies
+        run: npm install
+
+       
+      - name: Check for outdated npm packages
+        run: npx npm-check-updates
+
+      # Optionally fail the workflow if any outdated packages are found
+      - name: Fail if outdated packages are found
+        run: npx npm-check-updates --error-level 2
