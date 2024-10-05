@@ -5,17 +5,16 @@ import { ArrowUpDown, ChevronDown, Space } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import solanaIcon from "../icons/solana.png";
-import usdcIcon from "../icons/usdc.png";
 import { ActionType } from "./actions"
-const tokens = [
-  { symbol: "SOL", name: "Solana", icon: solanaIcon },
-  { symbol: "USDC", name: "USD", icon: usdcIcon },
-  // { symbol: "ETH", name: "Ethereum", icon: "💎" },
-  // { symbol: "BTC", name: "Bitcoin", icon: "🔶" },
-]
+import {tokens,TokensType}from "./token"
+
 import Image from "next/image"
-export default function TokenSwap({setCurrent}) {
+
+interface TokenSwapProps {
+    setCurrent: (action: ActionType | null) => void;
+  }
+
+export default function TokenSwap({setCurrent}:TokenSwapProps) {
   const [payToken, setPayToken] = useState(tokens[0])
   const [receiveToken, setReceiveToken] = useState(tokens[1])
   const [payAmount, setPayAmount] = useState("")
@@ -29,9 +28,9 @@ export default function TokenSwap({setCurrent}) {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 space-y-6 bg-white rounded-lg ">
+    <div className="w-full max-w-md mx-auto p-6 space-y-6 bg-white rounded-lg">
       <div className="flex justify-between items-center">
-        <button className="text-sm font-medium text-gray-500" onClick={() => setCurrent('')}>← Back</button>
+        <button className="text-sm font-medium text-gray-500" onClick={() => setCurrent(null)}>← Back</button>
         <h2 className="text-2xl font-bold">Swap Tokens</h2>
         <div className="w-10" />
       </div>
@@ -42,7 +41,7 @@ export default function TokenSwap({setCurrent}) {
           <div className="flex items-center space-x-2">
             <Select
               value={payToken.symbol}
-              onValueChange={(value) => {
+              onValueChange={(value:TokensType) => {
                 const newToken = tokens.find((t) => t.symbol === value)
                 if (newToken && newToken !== receiveToken) setPayToken(newToken)
               }}
@@ -83,7 +82,7 @@ export default function TokenSwap({setCurrent}) {
           <div className="flex items-center space-x-2">
             <Select
               value={receiveToken.symbol}
-              onValueChange={(value) => {
+              onValueChange={(value:TokensType) => {
                 const newToken = tokens.find((t) => t.symbol === value)
                 if (newToken && newToken !== payToken) setReceiveToken(newToken)
               }}
