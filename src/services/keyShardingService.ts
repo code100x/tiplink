@@ -12,7 +12,7 @@ export async function splitSecret(privateKey: string) {
   try {
     const secretKeyUint8Array = new Uint8Array(base58.decode(privateKey))
 
-    const shares = await shamirSplit(secretKeyUint8Array, 4, 4)
+    const shares = await shamirSplit(secretKeyUint8Array, 3, 3)
 
     const [aesShare, awsShare, gcpShare] = shares
     const aesShareString = Buffer.from(aesShare).toString('hex')
