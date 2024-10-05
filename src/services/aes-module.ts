@@ -7,19 +7,20 @@ export function aesEncrypt(plainText: any) {
   if (!ENCRYPTION_KEY) {
     throw new Error('Encryption key is not set')
   }
-
-  const iv = crypto.randomBytes(IV_LENGTH)
-
-  const cipher = crypto.createCipheriv(
-    'aes-256-cbc',
-    Buffer.from(ENCRYPTION_KEY),
-    iv,
-  )
-
-  let encrypted = cipher.update(plainText, 'utf8', 'hex')
-  encrypted += cipher.final('hex')
-
-  return iv.toString('hex') + ':' + encrypted
+  try {
+    const encryptionKey32 = crypto.createHash('sha256').update(Buffer.from(ENCRYPTION_KEY, 'hex')).digest();
+    const iv = crypto.randomBytes(IV_LENGTH)
+    const cipher = crypto.createCipheriv(
+      'aes-256-ctr',
+      encryptionKey32,
+      iv
+    )
+    let encrypted = cipher.update(plainText, 'utf8', 'hex')
+    encrypted += cipher.final('hex')
+    return iv.toString('hex') + ':' + encrypted
+  } catch (error) {
+    throw new Error(`AES fails: ${error}`)
+  }
 }
 
 export function aesDecrypt(encryptedData: any) {
