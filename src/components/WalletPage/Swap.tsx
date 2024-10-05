@@ -61,10 +61,16 @@ export default function TokenSwap({setCurrent}:TokenSwapProps) {
               </SelectContent>
             </Select>
             <Input
-              type="number"
+              min={0}
+              type="text"
               placeholder="0.00"
               value={payAmount}
-              onChange={(e) => setPayAmount(e.target.value)}
+              onChange={(e) =>{
+
+                if(/^\d*\.?\d*$/.test(e.target.value)){
+                  setPayAmount(e.target.value)
+                }            
+               } }
               className="flex-grow text-right"
             />
           </div>
