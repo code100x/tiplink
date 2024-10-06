@@ -1,6 +1,6 @@
 # DISCLAIMER
 
-### We have ended up rewriting the commit history due to a faulty commit, let's take this as a learning to double check our triple checks before making a PR, just to get a PR merged you don't have to rush, you have ample time to work on an issue once assigned, depending on the magnitude of the issue, anyways due to the same you have to take a fresh fork if you are a recurring contributor and if you are a new contributor, do keep this in mind and start contributing, you are good to go 
+### We have ended up rewriting the commit history due to a faulty commit, let's take this as a learning to double check our triple checks before making a PR, just to get a PR merged you don't have to rush, you have ample time to work on an issue once assigned, depending on the magnitude of the issue, anyways due to the same you have to take a fresh fork if you are a recurring contributor and if you are a new contributor, do keep this in mind and start contributing, you are good to go
 
 # Project Name: Tiplink
 
@@ -45,14 +45,14 @@ Using Docker:
    ```bash
    cd tiplink
    ```
-3. Create a .env file in the root folder of your project. Update it following the convention of the .env.example file. 
+3. Create a .env file in the root folder of your project. Update it following the convention of the .env.example file.
    Here's an example:
    ```bash
     CLIENT_SECRET = '' #Get it from Google developers console
     CLIENT_ID = '' #Get it from Google developers console
-    NEXTAUTH_SECRET = '' 
+    NEXTAUTH_SECRET = ''
     NEXTAUTH_URL = '' #Your frontend base URL
-    #DATABASE_URL = 'postgresql://postgres:password@localhost:5432/mydatabase'   
+    #DATABASE_URL = 'postgresql://postgres:password@localhost:5432/mydatabase'
     DATABASE_URL = 'postgresql://postgres:password@postgres:5432/mydatabase'  #Use this for setting up docker
     NEXT_PUBLIC_SOLANA_RPC = '' #Your Custom Solana RPC URL
    ```
@@ -72,11 +72,12 @@ Using Docker:
    ```bash
    docker compose up
    ```
-Without Docker
+   Without Docker
 
 ### Without Docker
 
 1. clone the repository:
+
    ```bash
    git clone https://github.com/code100x/tiplink.git
    ```
@@ -122,12 +123,14 @@ Contributions are welcome! If you'd like to contribute to the Tiplink project, p
 
 ## Resource Reference Section for various pieces of the project
 
-### For reading up on AWS KMS: 
+### For reading up on AWS KMS:
+
 - [AWS KMS Docs](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/js-examples.html)
 - [Data Encryption on AWS](https://enlear.academy/data-encryption-on-aws-8d6be6033351)
 - [AWS Encryption SDK Guide](https://enlear.academy/aws-encryption-sdk-d38bfae40e9f)
 
-### For reading up on GCP KMS: 
+### For reading up on GCP KMS:
+
 - [GCP KMS Docs](https://cloud.google.com/nodejs/docs/reference/kms/latest)
 - [Video Guide for GCP on Google Cloud Tech](https://www.youtube.com/watch?v=WKZC93y-aWI)
 
@@ -138,9 +141,9 @@ Please take an updated pull from the dev branch, and request branches for furthe
 - **main** - Stable branch
 - **dev** - Branch for all the developer changes (Where your code will reside before moving to production)
 - **dev-backend**- Branch for all developer changes in the backend
-- **dev-backend/*** - Branch for changes in specific features within the backend 
+- **dev-backend/\*** - Branch for changes in specific features within the backend
 - **dev-frontend** - Branch for all developer changes in the frontend
-- **dev-frontend/*** - Branch for changes in specific features within the frontend
+- **dev-frontend/\*** - Branch for changes in specific features within the frontend
 
 ## License
 

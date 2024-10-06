@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { actions, ActionType } from './actions'
 import { ReceiveQR } from './ReceiveQR'
 
-
 export interface WalletDetailProps {
   wallet?: string
   balance?: number

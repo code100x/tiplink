@@ -10,7 +10,7 @@ import CallToAction from './CallToAction'
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-[#000000] pt-10">
       <Hero />
       <HeroImage />
       <LogoTicker />
@@ -18,7 +18,7 @@ const Home = () => {
       <DocsShowcase />
       <Testimonials />
       <CallToAction />
-    </>
+    </div>
   )
 }
 

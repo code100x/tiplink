@@ -7,9 +7,10 @@ import Appbar from '../Appbar/Appbar'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import AppBarSkeleton from '../Appbar/AppBarSkeleton'
+import ShimmerButton from '../ui/shimmer-button'
 
 const Hero = () => {
-  const session = useSession();
+  const session = useSession()
   const router = useRouter()
   return (
     <section className="items-center md:mt-40 mt-28">
@@ -18,7 +19,7 @@ const Hero = () => {
         <Image
           src="https://res.cloudinary.com/dtc9ysbnn/image/upload/v1723236916/solana_eoqyva.svg"
           alt=""
-          className="relative left-[10%] lg:left-[30%]"
+          className="relative left-[10%] lg:left-[30%] lg:top-[10%]"
           width={50}
           height={50}
         />
@@ -29,12 +30,12 @@ const Hero = () => {
           width={50}
           height={50}
         />
-        <div className="max-w-[600px] lg:max-w-[900px] mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center">
+        <div className="max-w-[600px] lg:max-w-[900px] mx-auto font-bold">
+          <h1 className="text-4xl md:text-5xl lg:text-[48px] font-sans tracking-tighter text-transparent bg-gradient-to-r from-[#7f8c8d] via-gray-200 to-[#f5f5f5] bg-clip-text text-center">
             Secure Your Crypto with Our Wallet Generator
           </h1>
 
-          <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
+          <p className="text-lg tracking-tighter text-[#676767] text-center mt-5">
             Generate a secure, private crypto wallet in minutes with our
             easy-to-use tool <br className="hidden md:block" /> Powered by
             Google Auth for seamless, secure access.
@@ -42,19 +43,21 @@ const Hero = () => {
         </div>
         <div className="flex items-center justify-center mt-5">
           {!session?.data?.user ? (
-            <Button
-              className="pl-2 py-6 text-sm md:text-base"
+            <ShimmerButton
+              shimmerColor="#4285F4"
+              shimmerDuration="2s"
+              className="px-2 py-2 text-sm md:text-base"
               onClick={async () => {
                 await signIn('google')
               }}
             >
               <span className="flex items-center gap-2">
-                <div className="px-3 py-2 rounded-lg border bg-white text-black">
+                <div className="px-3 py-2 rounded-lg  bg-[#000000] text-slate-200">
                   <FaGoogle />
                 </div>
                 Sign up with Google
               </span>
-            </Button>
+            </ShimmerButton>
           ) : (
             <Button
               className="pl-3 py-6 text-sm bg-black md:text-base"
@@ -63,7 +66,7 @@ const Hero = () => {
               }}
             >
               <span className="flex items-center gap-2">
-                <div className="px-3 py-2 rounded-lg bg-white text-black">
+                <div className="px-3 py-2 rounded-lg bg-[#000000] text-[#f8f8f8]">
                   <svg
                     className="size-5"
                     xmlns="http://www.w3.org/2000/svg"
