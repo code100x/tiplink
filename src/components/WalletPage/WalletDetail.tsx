@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { actions, ActionType } from './actions'
 import { ReceiveQR } from './ReceiveQR'
-import TokenSwap from './Swap'
+import TokenSwap from './Swap/Swap'
 
 
 export interface WalletDetailProps {

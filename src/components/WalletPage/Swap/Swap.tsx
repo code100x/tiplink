@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { ArrowUpDown, ChevronDown, Space } from "lucide-react";
+import { ArrowUpDown} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
 import Image from "next/image";
 import { tokens, TokensType } from "./token";
-import { ActionType } from "./actions";
-import { SUPPORTED_TOKENS } from "@/lib/token";
-import { RotatingLines, ThreeDots } from 'react-loader-spinner'
+import { ActionType } from "../actions";
+import { ThreeDots } from 'react-loader-spinner'
+import { Top } from "./Top";
+import { Bottom } from "./Bottom";
 
 interface TokenSwapProps {
   setCurrent: (action: ActionType | null) => void;
@@ -59,16 +60,16 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
     console.log('i have this: ', payToken, 'i want this: ', receiveToken)
   }, [payToken, receiveToken])
 
-  return (
-    <div className="w-full max-w-md mx-auto p-6 space-y-6 bg-white rounded-lg">
-      <div className="flex justify-between items-center">
-        <button className="text-sm font-medium text-gray-500" onClick={() => setCurrent(null)}>
-          ← Back
-        </button>
-        <h2 className="text-2xl font-bold">Swap Tokens</h2>
-        <div className="w-10" />
-      </div>
 
+  const selectTokenValue = (value: TokensType) => {
+      const newToken = tokens.find((t) => t.symbol === value);
+      if (newToken && newToken !== receiveToken) setPayToken(newToken);
+    }
+  
+
+  return (
+    <div className="w-full max-w-md mx-auto space-y-6 bg-white rounded-lg">
+       <Top setCurrent={setCurrent}/>
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">You Pay:</label>
@@ -121,10 +122,7 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
           <div className="flex items-center space-x-2">
             <Select
               value={receiveToken.symbol}
-              onValueChange={(value: TokensType) => {
-                const newToken = tokens.find((t) => t.symbol === value);
-                if (newToken && newToken !== payToken) setReceiveToken(newToken);
-              }}
+              onValueChange={selectTokenValue}
             >
               <SelectTrigger className="w-[250px]">
                 <SelectValue />
@@ -172,12 +170,7 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
           <p className="text-sm text-gray-500 mt-1">Current Balance: 0 {receiveToken.symbol}</p>
         </div>
       </div>
-
-      <div className="space-y-2">
-        <Button className="w-full" disabled={fetchingQuote || !receiveAmount}>
-          {fetchingQuote ? "Fetching Price..." : "Confirm & Swap"}
-        </Button>
-      </div>
+     <Bottom fetchingQuote={fetchingQuote} receiveAmount={receiveAmount}/>
     </div>
   );
 }
