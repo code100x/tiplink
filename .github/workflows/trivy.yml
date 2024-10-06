@@ -56,7 +56,8 @@ jobs:
       - name: Create Pull Request for updated Dependenncies
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: update-dependencies-branch  
+          branch: update-dependencies-branch
+          base: ${{ github.base_ref }}
           title: "chore: update outdated npm dependencies"
           body: |
             This PR updates the following outdated npm dependencies:
@@ -65,6 +66,7 @@ jobs:
           commit-message: "chore: update outdated npm dependencies"
           labels: "dependencies, automated update"
           assignees: "your-github-username" # Optional: assign the PR to someone
+   
       - name: Handling empty files
         run: |
           is_empty(){
