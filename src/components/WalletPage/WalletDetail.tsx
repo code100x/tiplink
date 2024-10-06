@@ -25,7 +25,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
 
 
   return (
-    <div className="flex flex-col items-center gap-3  border-2  sm:p-10 shadow-md mb-16  w-full max-w-md mx-auto p-6 space-y-6 bg-white rounded-lg">
+    <div className="flex flex-col items-center gap-3  border-2  sm:p-10 shadow-md mb-16  w-full max-w-md mx-auto space-y-6 bg-white rounded-lg">
       <div className="flex flex-col items-start gap-2 w-full">
         <div className="text-gray-200">
           <p className="text-gray-400 text-xs sm:text-sm font-semibold">
