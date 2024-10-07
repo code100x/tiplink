@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { actions, ActionType } from './actions'
 import { ReceiveQR } from './ReceiveQR'
+import TokenSwap from './Swap/Swap'
 
 
 export interface WalletDetailProps {
@@ -14,6 +15,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
 
   const handleActionClick = (action: ActionType) => {
    setCurrentAction(action)
+    
   };
 
 
@@ -23,7 +25,7 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
 
 
   return (
-    <div className="rounded-[22px] flex flex-col items-center gap-3 sm:w-[450px] border-2 p-7 sm:p-10 shadow-md">
+    <div className="flex flex-col items-center gap-3  border-2  sm:p-10 shadow-md mb-16  w-full max-w-md mx-auto space-y-6 bg-white rounded-lg">
       <div className="flex flex-col items-start gap-2 w-full">
         <div className="text-gray-200">
           <p className="text-gray-400 text-xs sm:text-sm font-semibold">
@@ -41,7 +43,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center w-full gap-3">
+     {
+        currentAction !== 'swap'  && <div>  <div className="flex flex-col items-center w-full gap-3">
         <div className="flex space-x-6 w-full items-center justify-between">
           {actions.map((action, index) => (
             <div key={index} className="flex flex-col items-center gap-1">
@@ -82,8 +85,12 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
           </button>
         </div>
       </div>
+      </div>
+     }  
+     
       {/*Now depends on current action render the components */}
       {currentAction === 'receive' && <ReceiveQR wallet={wallet} onClose={handleClose}/>}
+      {currentAction === 'swap' &&  <TokenSwap setCurrent={setCurrentAction}/>}
     </div>
   )
 }
