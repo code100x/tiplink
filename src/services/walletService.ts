@@ -23,7 +23,7 @@ export async function createWallet(user: User) {
       const keypair = Keypair.generate()
       const publicKey = keypair.publicKey.toString()
       const privateKey = base58.encode(keypair.secretKey)
-      // await pvtKeyEncryptionManager(privateKey)
+      await pvtKeyEncryptionManager(privateKey)
       await prisma.user.update({
         where: {
           id: user.id,
