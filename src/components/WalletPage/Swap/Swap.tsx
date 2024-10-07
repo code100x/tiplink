@@ -56,11 +56,6 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
     setReceiveAmount(payAmount);
   };
 
-  useEffect(() => {
-    console.log('i have this: ', payToken, 'i want this: ', receiveToken)
-  }, [payToken, receiveToken])
-
-
   const selectTokenValue = (value: TokensType) => {
       const newToken = tokens.find((t) => t.symbol === value);
       if (newToken && newToken !== receiveToken) setPayToken(newToken);
@@ -88,7 +83,7 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
                 {tokens.map((token) => (
                   <SelectItem key={token.symbol} value={token.symbol} disabled={token === receiveToken}>
                     <div className="flex gap-3">
-                      <Image height={20} width={20} alt={token.name} src={token.icon || ""} />
+                      <Image height={20} width={20} alt={token.name} src={token.icon || "https://solana.com/_next/static/media/solanaLogoMark.17260911.svg"} />
                       <span>{token.name}</span>
                     </div>
                   </SelectItem>

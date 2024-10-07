@@ -87,15 +87,10 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
       </div>
       </div>
      }  
-
-
-  {
-    currentAction === 'swap' &&  <TokenSwap setCurrent={setCurrentAction}/>
-  }
-
      
       {/*Now depends on current action render the components */}
       {currentAction === 'receive' && <ReceiveQR wallet={wallet} onClose={handleClose}/>}
+      {currentAction === 'swap' &&  <TokenSwap setCurrent={setCurrentAction}/>}
     </div>
   )
 }
