@@ -20,9 +20,7 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
   const [receiveToken, setReceiveToken] = useState(tokens[1]);
   const [payAmount, setPayAmount] = useState("");
   const [receiveAmount, setReceiveAmount] = useState("");
-  const [fetchingQuote, setFetchingQuote] = useState(false)
-
-    ;
+  const [fetchingQuote, setFetchingQuote] = useState(false);
 
   useEffect(() => {
     if (!payAmount || !/^\d*\.?\d*$/.test(payAmount)) {
