@@ -7,10 +7,11 @@ import TokenSwap from './Swap/Swap'
 
 export interface WalletDetailProps {
   wallet?: string
-  balance?: number
+  usdbalance?: number
+  solbalance?: number
 }
 
-const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
+const WalletDetail = ({ wallet, usdbalance , solbalance}: WalletDetailProps) => {
   const [currentAction, setCurrentAction] = useState<null | ActionType>(null);
 
   const handleActionClick = (action: ActionType) => {
@@ -32,13 +33,16 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
             Total Balance
           </p>
         </div>
-        <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
-          {balance === null ? (
+        <div className="font-bold text-black opacity-80 text-xl  mb-6">
+          {(solbalance === null || isNaN(Number(usdbalance))) ? (
             <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
               {''}
             </div>
           ) : (
-            `$ ${balance}`
+              <div>
+                <div className='sm:text-4xl'>$ {usdbalance}</div>
+                <div className='sm:text-md text-gray-500'>{solbalance} SOL</div>
+              </div>
           )}
         </div>
       </div>

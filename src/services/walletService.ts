@@ -7,6 +7,7 @@ import { pvtKeyEncryptionManager } from '@/actions/pvtKeyEncryptMgmt'
 import base58 from 'bs58'
 
 const customRpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC || ''
+const coinGeckoUrl = process.env.NEXT_PUBLIC_COIN_GECKO_API || ''
 
 export async function createWallet(user: User) {
   const existingWallet = await prisma.user.findUnique({
@@ -22,7 +23,7 @@ export async function createWallet(user: User) {
       const keypair = Keypair.generate()
       const publicKey = keypair.publicKey.toString()
       const privateKey = base58.encode(keypair.secretKey)
-      await pvtKeyEncryptionManager(privateKey)
+      // await pvtKeyEncryptionManager(privateKey)
       await prisma.user.update({
         where: {
           id: user.id,
@@ -57,6 +58,26 @@ export async function signTransaction(
   return transaction
 }
 
+export async function convertSoltoUSD(sol: number) {
+  if (!coinGeckoUrl) {
+    console.error('RPC URL is not defined.')
+    return
+  }
+
+  try {
+    const res = await axios.get(coinGeckoUrl,{
+      params:{
+        'ids': 'solana',
+        'vs_currencies': 'usd'
+      }
+    })
+    const price = res?.data?.solana?.usd
+    return (sol*price).toFixed(2);
+  } catch (error) {
+    console.error('Failed to fetch price:', error)
+  }
+}
+
 export async function fetchUserBalance(publicKey?: string) {
   if (!customRpcUrl) {
     console.error('RPC URL is not defined.')
@@ -72,7 +93,8 @@ export async function fetchUserBalance(publicKey?: string) {
     })
     const balance = res?.data?.result?.value
     const solBalance = balance / LAMPORTS_PER_SOL
-    return solBalance
+    const usdBalance = await convertSoltoUSD(solBalance)
+    return {usdBalance,solBalance};
   } catch (error) {
     console.error('Failed to fetch balance:', error)
   }
