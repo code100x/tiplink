@@ -1,14 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { IoMdArrowBack } from 'react-icons/io'
 
-const WalletTransfer = ({setType}:{setType:()=>void}) => {
+const WalletTransfer = ({ setType }: { setType: () => void }) => {
   return (
-    <div className='w-full max-w-2xl mx-auto p-6 space-y-6 flex flex-col'>
+    <div className="w-full max-w-2xl mx-auto space-y-6 flex flex-col">
+      <span
+        className="cursor-pointer text-gray-600 flex gap-2"
+        onClick={setType}
+      >
+        <IoMdArrowBack className="mt-1" />
+        Back
+      </span>
+      <div>
+        {/* heading */}
+        <div className="flex flex-col">
+          <span className="text-3xl font-semibold text-gray-900">
+            Send to solana wallet address
+          </span>
+          <span className="text-gray-500">
+            Specify amount and the designated wallet address:
+          </span>
+          {/* input fields */}
+          <div className="space-y-4 my-6">
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="$ 0 USD"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="absolute right-4 flex space-x-2">
+                <button className="bg-gray-100 text-gray-600 px-2 rounded-full">
+                  Max
+                </button>
+                <button className="bg-gray-100 text-gray-600 p-2 rounded-full">
+                  ↕
+                </button>
+              </div>
+            </div>
 
-
-    <span className='cursor-pointer' onClick={setType}>Back</span>
-         
-
-         <div>Wallet transfer</div>
+            <input
+              type="text"
+              placeholder="Enter Solana wallet address"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <p className="text-gray-400 text-sm text-center">
+              .sol and AllDomains addresses supported
+            </p>
+          </div>
+          {/* buttons */}
+          <div className="flex justify-between items-center w-full my-4">
+            <button className="bg-gray-200 text-black px-4 py-2 rounded-lg">
+              Cancel
+            </button>
+            <button className="bg-black text-white px-4 py-2 rounded-lg">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
