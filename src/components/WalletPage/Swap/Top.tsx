@@ -12,5 +12,4 @@ export const Top = ({ setCurrent }: TokenSwapProps) => {
     <h2 className="text-2xl font-bold">Swap Tokens</h2>
     <div className="w-10" />
   </div>
-
 }
