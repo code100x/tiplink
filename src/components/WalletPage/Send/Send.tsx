@@ -19,7 +19,7 @@ export default function SendToken({ setCurrent }: SendTokenProps) {
     return (
         <>
         {
-            !typeOfSend && <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+            !typeOfSend && <div className="w-full max-w-2xl mx-auto  space-y-6">
                 <h1 className="text-3xl font-medium text-gray-700">Send</h1>
                 <p className="text-lg  text-gray-600">
                     Send assets to a new TipLink or to a Solana wallet address:

@@ -46,8 +46,8 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
 
     {(currentAction !== 'send' && currentAction !== 'swap' ) &&
       <div>
-        <div className="flex flex-col items-center w-full gap-3">
-          <div className="flex space-x-6 w-full items-center justify-between">
+        <div className="flex flex-col items-center w-full gap-5">
+          <div className="flex space-x-10 w-full items-center justify-between">
             {actions.map((action, index) => (
               <div key={index} className="flex flex-col items-center gap-1">
                 <button

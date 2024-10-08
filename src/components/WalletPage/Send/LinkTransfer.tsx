@@ -14,6 +14,7 @@ import {
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 import solIcon from "@/components/icons/solana.png"
+import { IoMdArrowBack } from "react-icons/io"
 
 export default function LinkTransfer({ setType }: { setType: () => void }) {
   const [amount, setAmount] = useState("0")
@@ -48,10 +49,10 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
 
   const toggleCurrency = () => {
 
-      if(!amount){
-        setAmount('0');
-        return;
-      } 
+    if (!amount) {
+      setAmount('0');
+      return;
+    }
 
     setIsUSD(!isUSD)
     if (isUSD) {
@@ -80,20 +81,23 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
     return <div>Loading...</div>
   }
 
-  if (error) {
-    return <div>{error}</div>
-  }
+  // if (error) {
+  //   return <div>{error}</div>
+  // }
 
   return (
-    <Card className="w-full mx-auto border-none shadow-none">
+    <Card className="w-full mx-auto border-none shadow-none ">
       <CardHeader>
-        <Button variant="ghost" className="w-fit p-0" onClick={setType}>
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <span
+          className="cursor-pointer text-gray-600 flex gap-x-2 items-center"
+          onClick={setType}
+        >
+          <IoMdArrowBack />
           Back
-        </Button>
+        </span>
         <CardTitle className="text-2xl font-bold mt-4">Create & Send</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-2">
         <div>
           <p className="text-sm text-muted-foreground mb-2">
             Specify asset and amount to send (taken from your wallet balance):
