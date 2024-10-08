@@ -18,7 +18,6 @@ export default function SendToken({ setCurrent }: SendTokenProps) {
     const [typeOfSend, setTypeOfSend] = useState('');
     return (
         <>
-
         {
             !typeOfSend && <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
                 <h1 className="text-3xl font-medium text-gray-700">Send</h1>
