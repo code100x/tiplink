@@ -9,25 +9,30 @@ import { splitSecret } from '@/services/keyShardingService'
 import { getServerSession } from 'next-auth'
 
 export async function pvtKeyEncryptionManager(privateKey: string) {
-  const session = await getServerSession(authOptions)
-  const userId = session?.user?.id
+  try {
+    const session = await getServerSession(authOptions)
+    const userId = session?.user?.id
 
-  const { aesShareString, awsShareString, gcpShareString } =
-    await splitSecret(privateKey)
+    const { aesShareString, awsShareString, gcpShareString } =
+      await splitSecret(privateKey)
 
-  const aesEncryptedShare = aesEncrypt(aesShareString)
-  const awsEncryptedShare = await awsEncrypt(awsShareString, {
-    purpose: 'tiplink',
-    country: 'India',
-  })
-  const gcpEncryptedShare = await gcpEncrypt(gcpShareString)
+    const aesEncryptedShare = aesEncrypt(aesShareString)
 
-  await prisma.user.update({
-    where: { id: userId },
-    data: {
-      aesShare: aesEncryptedShare,
-      awsShare: awsEncryptedShare,
-      gcpShare: gcpEncryptedShare,
-    },
-  })
+    const awsEncryptedShare = await awsEncrypt(awsShareString, {
+      purpose: 'tiplink',
+      country: 'India',
+    })
+    const gcpEncryptedShare = await gcpEncrypt(gcpShareString)
+
+    await prisma.user.update({
+      where: { id: userId },
+      data: {
+        aesShare: aesEncryptedShare,
+        awsShare: awsEncryptedShare,
+        gcpShare: gcpEncryptedShare,
+      },
+    })
+  } catch (error) {
+    throw new Error(`Failed to encrypt private key: ${error}`)
+  }
 }

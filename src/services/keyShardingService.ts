@@ -1,16 +1,16 @@
+import base58 from 'bs58'
 import {
   split as shamirSplit,
   combine as shamirCombine,
 } from 'shamir-secret-sharing'
 
-import * as bs58 from 'bs58'
 
 export async function splitSecret(privateKey: string) {
   if (!privateKey) {
     throw new Error('Private key is undefined')
   }
   try {
-    const secretKeyUint8Array = new Uint8Array(bs58.decode(privateKey))
+    const secretKeyUint8Array = new Uint8Array(base58.decode(privateKey))
 
     const shares = await shamirSplit(secretKeyUint8Array, 3, 3)
 

@@ -5,6 +5,14 @@ import {
   KmsKeyringNode,
   buildClient,
 } from '@aws-crypto/client-node'
+import AWS from 'aws-sdk'
+
+const credentials = {
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!
+}
+
+AWS.config.update({ credentials })
 
 const generatorKeyId = process.env.AWS_CMK_ARN
 if (!generatorKeyId) {
