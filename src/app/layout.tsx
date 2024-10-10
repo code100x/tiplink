@@ -7,9 +7,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import AppWalletProvider from '@/components/AppWalletProvider';
 
-
-import './globals.css'
-
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -37,10 +35,6 @@ export default function RootLayout({
             </ThemeProvider>
           </body>
         </AppWalletProvider>
-        <body className={`${inter.className}  h-[100vh]`}>
-          <NextTopLoader color="#333" />
-          {children}
-        </body>
       </Providers>
     </html>
   );
