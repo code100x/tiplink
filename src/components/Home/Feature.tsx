@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import FeatureCard from '../ui/feature-card'
+import { useTheme } from 'next-themes'
 
 const features = [
   {
@@ -29,18 +31,24 @@ const features = [
 ]
 
 const Feature = () => {
+  const { theme } = useTheme();
+
   return (
-    <section>
-      <div className="md:mt-20 mt-10 max-w-[1000px] mx-auto ">
+    <section className={`${theme === 'dark' ? '' : 'bg-white'}`}>
+      <div className="md:mt-20 mt-10 max-w-[1000px] mx-auto">
         <div className="flex justify-center">
-          <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight shadow-inner">
+          <div className={`text-sm inline-flex border px-3 py-1 rounded-lg tracking-tight shadow-inner 
+            ${theme === 'dark' ? 'border-gray-700 text-gray-300' : 'border-[#222]/10 text-black'}`}>
             Features
           </div>
         </div>
-        <div className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">
+        <div className={`text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter text-center mt-5 
+          bg-gradient-to-b text-transparent bg-clip-text 
+          ${theme === 'dark' ? 'from-white to-white/70' : 'from-black to-black/70'}`}>
           Key features
         </div>
-        <div className="text-lg tracking-tighter text-black/70 text-center mt-5">
+        <div className={`text-lg tracking-tighter text-center mt-5 
+          ${theme === 'dark' ? 'text-gray-300' : 'text-black/70'}`}>
           Explore the Core Features of Our Tool!
         </div>
       </div>

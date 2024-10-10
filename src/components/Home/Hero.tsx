@@ -7,12 +7,15 @@ import Appbar from '../Appbar/Appbar'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import AppBarSkeleton from '../Appbar/AppBarSkeleton'
+import { useTheme } from 'next-themes'
 
 const Hero = () => {
   const session = useSession();
   const router = useRouter()
+  const { theme } = useTheme()
+
   return (
-    <section className="items-center md:mt-40 mt-28">
+    <section className={`items-center md:mt-40 mt-28 ${theme === 'dark' ? '' : 'bg-white'}`}>
       {session.status === 'loading' ? <AppBarSkeleton /> : <Appbar />}
       <div className="container relative mx-auto px-4">
         <Image
@@ -30,11 +33,14 @@ const Hero = () => {
           height={50}
         />
         <div className="max-w-[600px] lg:max-w-[900px] mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center">
+          <h1 className={`text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter text-center 
+            ${theme === 'dark' ? 'bg-gradient-to-b from-white to-white/70' : 'bg-gradient-to-b from-black to-black/70'} 
+            text-transparent bg-clip-text`}>
             Secure Your Crypto with Our Wallet Generator
           </h1>
 
-          <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
+          <p className={`text-lg tracking-tighter text-center mt-5 
+            ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
             Generate a secure, private crypto wallet in minutes with our
             easy-to-use tool <br className="hidden md:block" /> Powered by
             Google Auth for seamless, secure access.
@@ -43,13 +49,13 @@ const Hero = () => {
         <div className="flex items-center justify-center mt-5">
           {!session?.data?.user ? (
             <Button
-              className="pl-2 py-6 text-sm md:text-base"
+              className={`pl-2 py-6 text-sm md:text-base `}
               onClick={async () => {
                 await signIn('google')
               }}
             >
               <span className="flex items-center gap-2">
-                <div className="px-3 py-2 rounded-lg border bg-white text-black">
+                <div className={`px-3 py-2 rounded-lg border`}>
                   <FaGoogle />
                 </div>
                 Sign up with Google
@@ -57,13 +63,13 @@ const Hero = () => {
             </Button>
           ) : (
             <Button
-              className="pl-3 py-6 text-sm bg-black md:text-base"
+              className={`pl-3 py-6 text-sm md:text-base ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'}`}
               onClick={() => {
                 router.push('/wallet')
               }}
             >
               <span className="flex items-center gap-2">
-                <div className="px-3 py-2 rounded-lg bg-white text-black">
+                <div className={`px-3 py-2 rounded-lg ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
                   <svg
                     className="size-5"
                     xmlns="http://www.w3.org/2000/svg"
