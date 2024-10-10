@@ -33,7 +33,7 @@ const Wallet = async () => {
           <LeftSideBar />
         </div>
         <div>
-          <WalletDetail wallet={wallet} balance={balance} />
+          <WalletDetail wallet={wallet} usdbalance={Number(balance?.usdBalance)} solbalance={Number(balance?.solBalance)}/>
         </div>
         <div className=" hidden md:block">{/* <RightSideBar /> */}</div>
       </div>

@@ -7,10 +7,11 @@ import SendToken from './Send/Send'
 
 export interface WalletDetailProps {
   wallet?: string
-  balance?: number
+  usdbalance?: number
+  solbalance?: number
 }
 
-const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
+const WalletDetail = ({ wallet, usdbalance , solbalance}: WalletDetailProps) => {
   const [currentAction, setCurrentAction] = useState<null | ActionType>(null);
 
   const handleActionClick = (action: ActionType) => {
@@ -26,24 +27,25 @@ const WalletDetail = ({ wallet, balance }: WalletDetailProps) => {
 
   return (
     <div className="rounded-[22px] flex flex-col items-center gap-3 sm:w-[450px] md:w-[600px] border-2 p-7 sm:p-10 shadow-md">
-    <div className="flex flex-col items-start gap-2 w-full">
-      <div className="text-gray-200">
-        <p className="text-gray-400 text-xs sm:text-sm font-semibold">
-          Total Balance
-        </p>
+      <div className="flex flex-col items-start gap-2 w-full">
+        <div className="text-gray-200">
+          <p className="text-gray-400 text-xs sm:text-sm font-semibold">
+            Total Balance
+          </p>
+        </div>
+        <div className=" text-black opacity-80 text-xl  mb-6">
+          {(solbalance === null || isNaN(Number(usdbalance))) ? (
+            <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
+              {''}
+            </div>
+          ) : (
+              <div>
+                <div className='font-bold sm:text-4xl'>$ {usdbalance}</div>
+                <div className='sm:text-md text-gray-500'>{solbalance} SOL</div>
+              </div>
+          )}
+        </div>
       </div>
-      <div className="font-bold text-black opacity-80 text-xl sm:text-4xl mb-6">
-        {balance === null ? (
-          <div className=" bg-gray-200  rounded-lg animate-pulse w-[46px] h-[34px] mb-6">
-            {''}
-          </div>
-        ) : (
-          `$ ${balance}`
-        )}
-      </div>
-    </div>
-
-
     {(currentAction !== 'send' && currentAction !== 'swap' ) &&
       <div>
         <div className="flex flex-col items-center w-full gap-5">
