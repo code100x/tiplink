@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
 import React from 'react'
 
 const testimonials = [
@@ -54,7 +55,7 @@ const TestimonialsColumn = (props: {
     <div className={props.className}>
       <motion.div
         animate={{
-          translateY: '-50% ',
+          translateY: '-50%',
         }}
         transition={{
           duration: props.duration || 10,
@@ -66,8 +67,11 @@ const TestimonialsColumn = (props: {
       >
         {[...new Array(2)].fill(0).map((_, index) => (
           <React.Fragment key={index}>
-            {props.testimonials.map(({ text, imageSrc, name, username },i) => (
-              <div className="card" key={i}>
+            {props.testimonials.map(({ text, imageSrc, name, username }, i) => (
+              <div
+                className="card bg-white dark:bg-neutral-900 text-black dark:text-white p-4 rounded-lg shadow-lg"
+                key={i}
+              >
                 <div>{text}</div>
                 <div className="flex items-center gap-2 mt-5">
                   <Image
@@ -81,7 +85,9 @@ const TestimonialsColumn = (props: {
                     <div className="font-medium tracking-tight leading-5">
                       {name}
                     </div>
-                    <div className="leading-5 tracking-tight">{username}</div>
+                    <div className="leading-5 tracking-tight text-gray-500 dark:text-gray-400">
+                      {username}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -93,28 +99,23 @@ const TestimonialsColumn = (props: {
   )
 }
 
-// interface Options {
-//     text: string;
-//     imageSrc: string;
-//     name: string;
-//     username: string;
-// }
-
 const Testimonials = () => {
+  const { theme } = useTheme()
+
   return (
-    <section className="bg-white">
+    <section className="">
       <div className="px-5 md:px-0 md:max-w-[900px] lg:max-w-[1300px] container mx-auto">
         <div className="max-w-[540px] mx-auto">
           <div className="flex justify-center">
-            <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight shadow-inner">
+            <div className="text-sm inline-flex border border-[#222]/10 dark:border-neutral-700 px-3 py-1 rounded-lg tracking-tight shadow-inner dark:bg-neutral-800">
               Testimonials
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-black/70 text-transparent bg-clip-text text-center mt-5 dark:text-white">
             What our users say
           </h2>
-          <p className="text-lg tracking-tighter text-black/70 text-center mt-5">
-          Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
+          <p className="text-lg tracking-tighter text-black/70 dark:text-neutral-300 text-center mt-5">
+            Hear from Our Satisfied Users About Their Secure Crypto Wallet Experience.
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_70%,transparent)] mt-10 max-h-[738px] overflow-hidden">

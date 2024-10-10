@@ -59,7 +59,6 @@ export default function TokenSwap({ setCurrent }: TokenSwapProps) {
       if (newToken && newToken !== receiveToken) setPayToken(newToken);
     }
   
-
   return (
     <div className="w-full max-w-md mx-auto space-y-6 bg-white rounded-lg">
        <Top setCurrent={setCurrent}/>
