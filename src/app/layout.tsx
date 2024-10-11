@@ -4,7 +4,6 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 import { Providers } from './providers';
 import NextTopLoader from 'nextjs-toploader';
-import { ThemeProvider } from '@/components/ui/theme-provider';
 import AppWalletProvider from '@/components/AppWalletProvider';
 
 import './globals.css';
@@ -22,19 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <AppWalletProvider>
           <body className={`${inter.className} h-[100vh]`}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
               <NextTopLoader color="#333" />
               {children}
-            </ThemeProvider>
           </body>
-        </AppWalletProvider>
       </Providers>
     </html>
   );
