@@ -76,8 +76,10 @@ const LeftSideBar = () => {
           <button
             key={index}
             className={cn(
-              'flex items-center gap-2 w-full space-x-3 sm:p-3 hover:bg-black hover:text-white rounded-lg',
-              pathName === option?.href ? 'sm:bg-black text-white' : 'text-black',
+              'flex items-center gap-2 w-full space-x-3 sm:p-3 hover:bg-black hover:text-white rounded-lg dark:text-white',
+              pathName === option?.href
+                ? 'sm:bg-black text-white'
+                : 'text-black',
             )}
           >
             {option.svg}
@@ -91,7 +93,7 @@ const LeftSideBar = () => {
           <button
             key={index}
             className={cn(
-              'flex items-center gap-2 w-full space-x-3 sm:p-3 hover:bg-black hover:text-white text-nowrap rounded-lg',
+              'flex items-center gap-2 w-full space-x-3 sm:p-3 hover:bg-black dark:text-white hover:text-white text-nowrap rounded-lg',
               pathName === option?.href ? 'bg-black text-white' : 'text-black',
             )}
           >
