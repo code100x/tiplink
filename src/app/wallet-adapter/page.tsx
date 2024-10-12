@@ -79,7 +79,7 @@ const page = () => {
       <TopBar />
 
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-30">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6"> {/* Added mx-auto for centering */}
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
               <span className="inline-block bg-blue-100 text-gray-600 py-1 px-3 rounded-full text-sm font-semibold mb-4">
@@ -87,14 +87,14 @@ const page = () => {
               </span>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Making Solana apps
-                <span className="text-black/70">consumer ready</span>
+                <span className="text-black/70"> consumer ready</span>
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                 Let your users login with just a Google account and start
                 signing transactions.
               </p>
             </div>
-            <div className="space-x-4">
+            <div className="flex justify-center"> {/* Centered button */}
               <Button>
                 Integrate Now
                 <ArrowRight className="ml-2 h-4 w-4" />
