@@ -79,7 +79,7 @@ const page = () => {
       <TopBar />
 
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-30">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
               <span className="inline-block bg-blue-100 text-gray-600 py-1 px-3 rounded-full text-sm font-semibold mb-4">
