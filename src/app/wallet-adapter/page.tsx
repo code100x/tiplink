@@ -79,7 +79,7 @@ const page = () => {
       <TopBar />
 
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-30">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
               <span className="inline-block bg-blue-100 text-gray-600 py-1 px-3 rounded-full text-sm font-semibold mb-4">
@@ -87,7 +87,9 @@ const page = () => {
               </span>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Making Solana apps
-                <span className="text-black/70">consumer ready</span>
+                <span className="text-black/70 dark:text-white/70">
+                  consumer ready
+                </span>
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                 Let your users login with just a Google account and start
@@ -104,14 +106,14 @@ const page = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gray-200">
+      <section className="py-20 px-4 bg-gray-200 dark:bg-zinc-600">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white items-center text-center p-6 bg-background rounded-lg shadow-lg hover:shadow-xl duration-300 hover:scale-110 transition-transform animate-fade-in-up"
+                className="flex flex-col dark:bg-[#1c1b22] bg-white items-center text-center p-6 bg-background rounded-lg shadow-lg hover:shadow-xl duration-300 hover:scale-110 transition-transform animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="bg-primary text-primary-foreground rounded-full p-4 mb-4">

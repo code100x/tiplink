@@ -1,24 +1,30 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { ArrowLeft, RefreshCw } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState, useEffect } from 'react'
+import { ArrowLeft, RefreshCw } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import Image from "next/image"
-import solIcon from "@/components/icons/solana.png"
-import { IoMdArrowBack } from "react-icons/io"
+} from '@/components/ui/select'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import Image from 'next/image'
+import solIcon from '@/components/icons/solana.png'
+import { IoMdArrowBack } from 'react-icons/io'
 
 export default function LinkTransfer({ setType }: { setType: () => void }) {
-  const [amount, setAmount] = useState("0")
-  const [asset, setAsset] = useState("SOL")
+  const [amount, setAmount] = useState('0')
+  const [asset, setAsset] = useState('SOL')
   const [isUSD, setIsUSD] = useState(true)
   const [solPrice, setSolPrice] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
@@ -27,7 +33,9 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
   useEffect(() => {
     const fetchSolPrice = async () => {
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd')
+        const response = await fetch(
+          'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd',
+        )
         if (!response.ok) {
           throw new Error('Failed to fetch SOL price')
         }
@@ -48,10 +56,9 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
   }
 
   const toggleCurrency = () => {
-
     if (!amount) {
-      setAmount('0');
-      return;
+      setAmount('0')
+      return
     }
 
     setIsUSD(!isUSD)
@@ -63,7 +70,6 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
   }
 
   const getEquivalentAmount = () => {
-
     if (!amount) {
       return `~$0.00`
     }
@@ -75,7 +81,7 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
     }
   }
 
-  const quickSelectAmounts = isUSD ? ["1", "2", "5"] : ["0.01", "0.02", "0.05"]
+  const quickSelectAmounts = isUSD ? ['1', '2', '5'] : ['0.01', '0.02', '0.05']
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -89,7 +95,7 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
     <Card className="w-full mx-auto border-none shadow-none ">
       <CardHeader>
         <span
-          className="cursor-pointer text-gray-600 flex gap-x-2 items-center"
+          className="cursor-pointer text-gray-600 dark:text-gray-200 flex gap-x-2 items-center"
           onClick={setType}
         >
           <IoMdArrowBack />
@@ -106,7 +112,7 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select asset" />
             </SelectTrigger>
-            <SelectContent className="bg-white">
+            <SelectContent className="bg-white dark:bg-[#121212]">
               <SelectItem value="SOL" className="">
                 <div className="flex items-center gap-x-2">
                   <Image src={solIcon} height={30} width={30} alt="sol" />
@@ -132,10 +138,10 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
               className="text-3xl font-semibold pl-8 pr-12 py-6"
             />
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-3xl font-semibold text-muted-foreground">
-              {isUSD ? "$" : ""}
+              {isUSD ? '$' : ''}
             </span>
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-lg text-muted-foreground">
-              {isUSD ? "USD" : asset}
+              {isUSD ? 'USD' : asset}
             </span>
             <Button
               variant="ghost"
@@ -146,18 +152,28 @@ export default function LinkTransfer({ setType }: { setType: () => void }) {
               <RefreshCw className="h-4 w-4" />
             </Button>
           </div>
-          <p className="text-sm text-right text-muted-foreground mt-1">{getEquivalentAmount()}</p>
+          <p className="text-sm text-right text-muted-foreground mt-1">
+            {getEquivalentAmount()}
+          </p>
         </div>
         <div className="flex justify-between gap-2">
           {quickSelectAmounts.map((quickAmount) => (
-            <Button key={quickAmount} variant="outline" onClick={() => setAmount(quickAmount)} className="flex-1">
-              {isUSD ? "$" : ""}{quickAmount}
+            <Button
+              key={quickAmount}
+              variant="outline"
+              onClick={() => setAmount(quickAmount)}
+              className="flex-1"
+            >
+              {isUSD ? '$' : ''}
+              {quickAmount}
             </Button>
           ))}
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="ghost" onClick={setType}>Cancel</Button>
+        <Button variant="ghost" onClick={setType}>
+          Cancel
+        </Button>
         <Button onClick={handleCreateLink}>Create new TipLink</Button>
       </CardFooter>
     </Card>

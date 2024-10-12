@@ -5,7 +5,7 @@ const WalletTransfer = ({ setType }: { setType: () => void }) => {
   return (
     <div className="w-full max-w-2xl mx-auto space-y-6 flex flex-col">
       <span
-        className="cursor-pointer text-gray-600 flex gap-2"
+        className="cursor-pointer text-gray-600 dark:text-gray-200 flex gap-2"
         onClick={setType}
       >
         <IoMdArrowBack className="mt-1" />
@@ -13,7 +13,7 @@ const WalletTransfer = ({ setType }: { setType: () => void }) => {
       </span>
       <div>
         <div className="flex flex-col">
-          <span className="text-3xl font-semibold text-gray-900">
+          <span className="text-3xl font-semibold text-gray-900 dark:text-gray-200">
             Send to solana wallet address
           </span>
           <span className="text-gray-500">
@@ -46,7 +46,10 @@ const WalletTransfer = ({ setType }: { setType: () => void }) => {
             </p>
           </div>
           <div className="flex justify-between items-center w-full my-4">
-            <button className="bg-gray-200 text-black px-4 py-2 rounded-lg" onClick={setType}>
+            <button
+              className="bg-gray-200 text-black px-4 py-2 rounded-lg"
+              onClick={setType}
+            >
               Cancel
             </button>
             <button className="bg-black text-white px-4 py-2 rounded-lg">

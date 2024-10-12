@@ -18,12 +18,11 @@ const Wallet = async () => {
       },
     })
     if (user) {
-      wallet = user?.publicKey ? user.publicKey :  await createWallet(user) 
+      wallet = user?.publicKey ? user.publicKey : await createWallet(user)
       balance = await fetchUserBalance(wallet)
       console.log(balance)
     }
   }
-
 
   return (
     <div className="h-full flex flex-col items-center">
@@ -33,7 +32,11 @@ const Wallet = async () => {
           <LeftSideBar />
         </div>
         <div>
-          <WalletDetail wallet={wallet} usdbalance={Number(balance?.usdBalance)} solbalance={Number(balance?.solBalance)}/>
+          <WalletDetail
+            wallet={wallet}
+            usdbalance={Number(balance?.usdBalance)}
+            solbalance={Number(balance?.solBalance)}
+          />
         </div>
         <div className=" hidden md:block">{/* <RightSideBar /> */}</div>
       </div>
