@@ -7,7 +7,7 @@ const LoginWithGoogleButton = () => {
   return (
     <Button
       onClick={async () => await signIn('google', { callbackUrl: '/wallet' })}
-    >
+    className='dark:bg-white dark:text-black'>
       <span className="flex items-center gap-2">
         Login
         <FaGoogle />

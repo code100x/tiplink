@@ -4,7 +4,6 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 import { Providers } from './providers';
 import NextTopLoader from 'nextjs-toploader';
-import AppWalletProvider from '@/components/AppWalletProvider';
 
 import './globals.css';
 
